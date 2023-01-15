@@ -67,12 +67,13 @@ function mouseMove(e) {
   ball.style.left = ball.offsetLeft - newX + "px";
 }
 
-const btn = document.getElementById("real-btn");
+const btn1 = document.getElementById("btn1");
 const btn2 = document.getElementById("btn2");
+const btn3 = document.getElementById("btn3");
 
 // Sphere btn
 
-btn.addEventListener("click", function () {
+btn1.addEventListener("click", function () {
   let faces = document.getElementsByClassName("face");
   for (let i = 0; i < faces.length; i++) {
     faces[i].style.borderRadius = "100%";
