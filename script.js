@@ -1,3 +1,5 @@
+
+// Initializing the object divs (as a sphere)
 let n;
 let inc = 2;
 let circles = 180;

@@ -42,6 +42,17 @@ i {
   z-index: 1;
 }
 
+#settings-container {
+  display: grid;
+  width: 50%;
+  margin: auto;
+  height: 50%;
+}
+
+.option-btn {
+  font-size: 3rem;
+}
+
 .slide-down {
   animation-name: slide-down;
   animation-duration: 0.5s;
@@ -177,5 +188,9 @@ h1 {
   #btn-container {
     position: relative;
     top: 75vh;
+  }
+  :root {
+    --height: 10rem;
+    --width: 10rem;
   }
 }
