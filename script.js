@@ -108,12 +108,13 @@ btn3.addEventListener("click", function () {
  
 const setMenu = document.getElementById('settings-menu');
 settingsBtn.addEventListener('click', function () {
-  if (window.getComputedStyle(setMenu).display === 'none') {
-  setMenu.style.display = 'block';
-  setMenu.classList.add('slide-down');
+  if (window.getComputedStyle(setMenu).top < '0') {
+    setMenu.classList.remove('slide-up');
+    setMenu.classList.add('slide-down');
   }
   else {
-    setMenu.style.display = 'none';
-    document.get
+    setMenu.classList.remove('slide-down');
+    setMenu.classList.add('slide-up');
   }
+  
 });
