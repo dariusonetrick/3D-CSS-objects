@@ -76,7 +76,7 @@ const btn1 = document.getElementById("btn1");
 const btn2 = document.getElementById("btn2");
 const btn3 = document.getElementById("btn3");
 
-const sphereObj = {
+const SphereObj = {
   borderRadius: '100%',
   width: 'var(--width)',
   height: 'var(--height)',
@@ -90,29 +90,35 @@ const CylinderObj = {
   opacity: '0.3' 
 }
 
-let faces = document.getElementsByClassName("face");
+const EggObj = {
+  borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%',
+  width: 'calc(var(--width) * (1.8/2.4))',
+  height: 'var(--height)',
+}
+
+const faces = document.getElementsByClassName("face");
+const text = document.getElementById("text");
 
 // Sphere btn
-btn1.addEventListener("click", function () {
+btn1.addEventListener("click", function() {
+  render(SphereObj);
+});
+
+btn2.addEventListener("click", () => {
+  render(CylinderObj);
+} );
+
+btn3.addEventListener("click", () => {
+  render(EggObj);
+});
+
+function render(obj) {
   for (let i in faces) {
-    for (let prop in sphereObj) {
-      faces[i].style[prop] = sphereObj[prop];
+    for (let prop in obj) {
+      faces[i].style[prop] = obj[prop];
     }
-  }
-});
-
-btn2.addEventListener("click", function () {
-  for (let i in faces) {
-    for (let prop in CylinderObj) {
-      faces[i].style[prop] = CylinderObj[prop];
-    }
-  }
-});
-
-btn3.addEventListener("click", function () {
-
-});
-
+  }  
+}
 // Settings button
  
 const setMenu = document.getElementById('settings-menu');
@@ -127,3 +133,9 @@ settingsBtn.addEventListener('click', function () {
   }
   
 });
+
+//Select options
+
+const colorSelect = document.getElementById("color-select");
+const bgSelect = document.getElementById("bg-select");
+
