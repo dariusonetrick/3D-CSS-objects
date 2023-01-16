@@ -14,7 +14,6 @@ for (let i = 0; i < circles; i += inc) {
 }
 
 // Touch screen
-
 const ball = document.getElementById("sphere");
 const rect = ball.getBoundingClientRect();
 let x, y, newX, newY;
@@ -67,12 +66,12 @@ function mouseMove(e) {
   ball.style.left = ball.offsetLeft - newX + "px";
 }
 
+const setingBtn = document.getElementById("settings-btn");
 const btn1 = document.getElementById("btn1");
 const btn2 = document.getElementById("btn2");
 const btn3 = document.getElementById("btn3");
 
 // Sphere btn
-
 btn1.addEventListener("click", function () {
   let faces = document.getElementsByClassName("face");
   for (let i = 0; i < faces.length; i++) {
@@ -100,4 +99,10 @@ btn3.addEventListener("click", function () {
     faces[i].style.width = `${faces.length}px`;
     faces[i].style.height = `${faces.length}px`;
   }
+});
+
+// Settings button
+ 
+setingBtn.addEventListener('click', function () {
+  
 });
