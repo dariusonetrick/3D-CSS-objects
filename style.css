@@ -2,6 +2,8 @@
   --bg1: red;
   --bg2: blue;
   --bg3: green;
+  --turqoise: #30d5c8;
+  --color: #fff;
 }
 
 * {
@@ -10,14 +12,41 @@
 }
 
 body {
+  padding: 0;
+  margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: beige;
-  background-color: black;
+  background-color: #aaa;
   overflow: hidden;
 }
 
+#settings-menu {
+  display: none;
+  position: absolute;
+  margin: auto;
+  opacity: 1;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  animation-name: slide-down;
+  animation-duration: 1s;
+}
+
+@keyframes slide-down {
+  from {
+    top: -100%;
+    opacity: 0;
+  }
+  to {
+    top: 0%;
+    opacity: 1;
+  }
+}
+
 #settings-btn {
-  position: relative;
+  position: absolute;
+  z-index: 2;
   height: 3rem;
   width: 3rem;
   background: transparent;
@@ -75,36 +104,13 @@ h1 {
   font-weight: 100;
 }
 
-@keyframes morph {
-  0% {
-    width: 30em;
-    height: 30em;
-  }
-  35% {
-    width: 20em;
-    height: 10em;
-  }
-  60% {
-    width: 10em;
-    height: 15em;
-  }
-  100% {
-    height: 30em;
-    width: 30em;
-  }
-}
-
 .face {
-  border: 1px dotted #30d5c8;
+  border: 1px dotted var(--color);
   position: absolute;
   border-radius: 100%;
   width: 10em;
   height: 10em;
   opacity: 0.8;
-  animation-name: morph;
-  animation-duration: 0s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease;
 }
 
 @keyframes rotate {

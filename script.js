@@ -66,7 +66,7 @@ function mouseMove(e) {
   ball.style.left = ball.offsetLeft - newX + "px";
 }
 
-const setingBtn = document.getElementById("settings-btn");
+const settingsBtn = document.getElementById("settings-btn");
 const btn1 = document.getElementById("btn1");
 const btn2 = document.getElementById("btn2");
 const btn3 = document.getElementById("btn3");
@@ -103,6 +103,6 @@ btn3.addEventListener("click", function () {
 
 // Settings button
  
-setingBtn.addEventListener('click', function () {
-  
+settingsBtn.addEventListener('click', function () {
+  document.getElementById("settings-menu").style.display = 'block';
 });
