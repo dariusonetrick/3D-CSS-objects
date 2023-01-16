@@ -1,12 +1,9 @@
 :root {
-  --bg1: red;
-  --bg2: blue;
-  --bg3: green;
   --turqoise: #30d5c8;
-  --color: #fff;
+  --color: white;
   --direction: 'normal';
-  --height: 10rem;
-  --width: 10rem;
+  --height: 15rem;
+  --width: 15rem;
   --bg: #555;
 }
 
@@ -30,7 +27,7 @@ i {
   color: #fff;
   margin: auto;
   position: relative;
-  font-size: 1.7rem;
+  font-size: 2rem;
 }
 
 #settings-menu {
@@ -82,9 +79,11 @@ i {
 
 #settings-btn {
   position: absolute;
+  top: 5px;
+  left: 5px;
   z-index: 2;
-  height: 3rem;
-  width: 3rem;
+  height: 3.5rem;
+  width: 3.5rem;
   background: transparent;
   transform: rotateZ(0deg);
   transition: 0.5s;
@@ -92,7 +91,9 @@ i {
   cursor: pointer;
 }
 
-
+#settings-btn:hover {
+  transform: rotateZ(90deg);
+}
 
 /* Buttons */
 #btn-container {
@@ -105,14 +106,12 @@ i {
   top: 0vh;
 }
 
-#settings-btn:hover {
-  transform: rotateZ(90deg);
-}
+
 
 .btn {
   background-color: transparent;
   color: white;
-  border: 3px white solid;
+  border: 1px white solid;
   padding: 0px 10px;
   transition: 0.2s;
   width: 6rem;
@@ -124,7 +123,7 @@ i {
 }
 
 .btn:active {
-  background-color: #000;
+  background-color: #444;
   color: white;
 }
 

@@ -74,34 +74,41 @@ const btn1 = document.getElementById("btn1");
 const btn2 = document.getElementById("btn2");
 const btn3 = document.getElementById("btn3");
 
+const sphereObj = {
+  borderRadius: '100%',
+  width: 'var(--width)',
+  height: 'var(--height)',
+  opacity: '0.3'
+}
+
+const CylinderObj = {
+  borderRadius: '10%',
+  width: 'var(--width)',
+  height: 'var(--height)',
+  opacity: '0.3' 
+}
+
+let faces = document.getElementsByClassName("face");
+
 // Sphere btn
 btn1.addEventListener("click", function () {
-  let faces = document.getElementsByClassName("face");
-  for (let i = 0; i < faces.length; i++) {
-    faces[i].style.borderRadius = "100%";
+  for (let i in faces) {
+    for (let prop in sphereObj) {
+      faces[i].style[prop] = sphereObj[prop];
+    }
   }
 });
 
 btn2.addEventListener("click", function () {
-  let faces = document.getElementsByClassName("face");
-  for (let i = 0; i < faces.length; i++) {
-    faces[i].style.borderRadius = "20%";
-    faces[i].style.transform = `rotateY(${i}deg)`;
-    faces[i].style.transform = `translateZ(${i})`;
-    faces[i].style.width = "10rem";
-    faces[i].style.height = "10rem";
+  for (let i in faces) {
+    for (let prop in CylinderObj) {
+      faces[i].style[prop] = CylinderObj[prop];
+    }
   }
 });
 
 btn3.addEventListener("click", function () {
-  let faces = document.getElementsByClassName("face");
-  for (let i = 0; i < faces.length; i++) {
-    faces[i].style.borderRadius = "0";
-    faces[i].style.transform = "rotateX(0deg)";
-    faces[i].style.transform = `translateZ(${i}px)`;
-    faces[i].style.width = `${faces.length}px`;
-    faces[i].style.height = `${faces.length}px`;
-  }
+
 });
 
 // Settings button
