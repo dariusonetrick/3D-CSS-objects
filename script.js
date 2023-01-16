@@ -17,7 +17,9 @@ for (let i = 0; i < circles; i += inc) {
 const ball = document.getElementById("sphere");
 const rect = ball.getBoundingClientRect();
 let x, y, newX, newY;
+
 ball.addEventListener("touchstart", function (e) {
+ 
   x = e.touches[0].clientX;
   y = e.touches[0].clientY;
   ball.style.animationPlayState = "paused";
@@ -31,6 +33,7 @@ ball.addEventListener("touchstart", function (e) {
 
 // Mouse Interact
 ball.addEventListener("mousedown", function (e) {
+  
   x = e.clientX;
   y = e.clientY;
   ball.style.animationPlayState = "paused";
@@ -103,6 +106,14 @@ btn3.addEventListener("click", function () {
 
 // Settings button
  
+const setMenu = document.getElementById('settings-menu');
 settingsBtn.addEventListener('click', function () {
-  document.getElementById("settings-menu").style.display = 'block';
+  if (window.getComputedStyle(setMenu).display === 'none') {
+  setMenu.style.display = 'block';
+  setMenu.classList.add('slide-down');
+  }
+  else {
+    setMenu.style.display = 'none';
+    document.get
+  }
 });

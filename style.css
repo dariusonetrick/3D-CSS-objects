@@ -4,6 +4,10 @@
   --bg3: green;
   --turqoise: #30d5c8;
   --color: #fff;
+  --direction: 'normal';
+  --height: 10rem;
+  --width: 10rem;
+  --bg: #555;
 }
 
 * {
@@ -16,8 +20,17 @@ body {
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: beige;
-  background-color: #aaa;
+  background-color: var(--bg);
   overflow: hidden;
+}
+
+/* Settings */
+
+i {
+  color: #fff;
+  margin: auto;
+  position: relative;
+  font-size: 1.7rem;
 }
 
 #settings-menu {
@@ -29,6 +42,10 @@ body {
   width: 100%;
   height: 100%;
   z-index: 1;
+}
+
+.slide-down {
+  animation-direction: var(--direction);
   animation-name: slide-down;
   animation-duration: 1s;
 }
@@ -56,20 +73,16 @@ body {
   cursor: pointer;
 }
 
-i {
-  color: #fff;
-  margin: auto;
-  position: relative;
-  font-size: 1.7rem;
-}
 
+
+/* Buttons */
 #btn-container {
   display: flex;
   position: relative;
   width: 20rem;
   background-color: transparent;
   justify-content: space-around;
-  margin: auto;
+  margin: 1rem auto;
   top: 0vh;
 }
 
@@ -92,13 +105,15 @@ i {
 }
 
 .btn:active {
-  background-color: pink;
+  background-color: #000;
   color: white;
 }
 
+/* funny text */
 h1 {
+  z-index: -1;
   position: relative;
-  top: 30vh;
+  top: 39vh;
   font-size: 1em;
   text-align: center;
   font-weight: 100;
@@ -108,9 +123,9 @@ h1 {
   border: 1px dotted var(--color);
   position: absolute;
   border-radius: 100%;
-  width: 10em;
-  height: 10em;
-  opacity: 0.8;
+  width: var(--width);
+  height: var(--height);
+  opacity: 0.3;
 }
 
 @keyframes rotate {
@@ -127,14 +142,14 @@ h1 {
 
 #sphere {
   position: absolute;
-  top: 2rem;
-  left: 43%;
+  top: calc(50vh - var(--height)/2);
+  left: calc(50vw - var(--width)/2);
   margin: auto;
-  height: 10rem;
-  width: 10rem;
+  height: var(--height);
+  width: var(--width);
   transform-style: preserve-3d;
   animation-name: rotate;
-  animation-duration: 4s;
+  animation-duration: 7s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   animation-play-state: initial;
