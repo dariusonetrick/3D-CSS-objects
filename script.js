@@ -1,18 +1,30 @@
 
 // Initializing the object divs (as a sphere)
-let n;
-let inc = 2;
-let circles = 180;
-circles++;
-for (let i = 0; i < circles; i += inc) {
-  if (i < circles / 2) n = i;
-  else n--;
+
+const inc = 2;
+const circles = 180;
+const faces = document.getElementsByClassName("face");
+const text = document.getElementById("text");
+
+
+
+divCreation(inc, circles)
+
+function divCreation (inc, circles) {
+for (let i = 0; i < circles+1; i += inc) {
+
   let div = document.createElement("div");
   document.getElementById("sphere").appendChild(div);
   div.classList.add("face");
   div.style.background = "transparent";
   div.style.background.backgroundSize = "cover";
   div.style.transform = `rotateY(${i}deg)`;
+}
+text.innerText = `${document.getElementsByClassName('face').length} divs rendered`;
+}
+
+function divDeath () {
+  document.getElementById('sphere').innerHTML = '';
 }
 
 // Touch screen
@@ -84,9 +96,9 @@ const SphereObj = {
 }
 
 const CylinderObj = {
-  borderRadius: '10%',
-  width: 'var(--width)',
-  height: 'var(--height)',
+  borderRadius: '1%',
+  width: 'calc(var(--width) * 0.5)',
+  height: 'var(--height))',
   opacity: '0.3' 
 }
 
@@ -96,8 +108,6 @@ const EggObj = {
   height: 'var(--height)',
 }
 
-const faces = document.getElementsByClassName("face");
-const text = document.getElementById("text");
 
 // Sphere btn
 btn1.addEventListener("click", function() {
@@ -139,6 +149,9 @@ settingsBtn.addEventListener('click', function () {
 const root = document.querySelector(':root');
 const colorSelect = document.getElementById("color-select");
 const bgSelect = document.getElementById("bg-select");
+const divNum = document.getElementById("div-num");
+const apply = document.getElementById("apply");
+
 
 colorSelect.addEventListener('change', function () {
   switch (colorSelect.value) {
@@ -147,7 +160,46 @@ colorSelect.addEventListener('change', function () {
       break;
     case "black":
       root.style.setProperty('--color', 'black');
-      break;      
+      break;   
+    case "turquoise":
+      root.style.setProperty('--color', 'var(--turquoise)');
+      break;  
+    case "grey":
+      root.style.setProperty('--color', '#555');
+      break;  
+    case "crimson":
+      root.style.setProperty('--color', 'crimson');
+    case "pink":
+      root.style.setProperty('--color', 'pink');  
   }
 })
+
+
+bgSelect.addEventListener('change', function () {
+  switch (bgSelect.value) {
+    case "white":
+      root.style.setProperty('--bg', 'white');
+      break;
+    case "black":
+      root.style.setProperty('--bg', 'black');
+      break;      
+    case "grey":
+      root.style.setProperty('--bg', '#555');
+      break;  
+    case "crimson":
+      root.style.setProperty('--bg', 'crimson');
+    case "pink":
+      root.style.setProperty('--bg', 'pink'); 
+  }
+})
+
+apply.addEventListener('click', function () {
+  if (divNum.value >= 0 && divNum.value <= 90) {
+  divDeath();
+  divCreation(inc, (parseInt(divNum.value) - 1) * inc);
+  }
+  else 
+    window.alert("Above 90, and your phone will run into performance issues. Going below 0 is redundant ;).");
+})
+
 

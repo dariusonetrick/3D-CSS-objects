@@ -1,5 +1,5 @@
 :root {
-  --turqoise: #30d5c8;
+  --turquoise: #30d5c8;
   --color: white;
   --direction: 'normal';
   --height: 15rem;
@@ -16,7 +16,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color: beige;
+  color: var(--color);
   background-color: var(--bg);
   overflow: hidden;
 }
@@ -24,7 +24,7 @@ body {
 /* Settings */
 
 i {
-  color: #fff;
+  color: var(--color);
   margin: auto;
   position: relative;
   font-size: 2rem;
@@ -35,7 +35,7 @@ i {
   position: absolute;
   margin: auto;
   opacity: 0.8;
-  background-color: black;
+  background-color: var(--color);
   width: 100%;
   height: 100%;
   top: -100%;
@@ -124,8 +124,8 @@ i {
 
 .btn {
   background-color: transparent;
-  color: white;
-  border: 1px white solid;
+  color: var(--color);
+  border: 1px  solid;
   padding: 0px 10px;
   transition: 0.2s;
   width: 6rem;
@@ -152,13 +152,16 @@ h1 {
 }
 
 .face {
-  border: 1px dotted var(--color);
+  border-style: dotted;
+  border-width: 1px;
+  border-color: var(--color);
   position: absolute;
   border-radius: 100%;
   width: var(--width);
   height: var(--height);
   opacity: 0.3;
 }
+
 
 @keyframes rotate {
   0% {
