@@ -34,8 +34,7 @@ i {
   display: block;
   position: absolute;
   margin: auto;
-  opacity: 0.8;
-  background-color: var(--color);
+  background-color: transparent;
   width: 100%;
   height: 100%;
   top: -100%;
@@ -50,6 +49,13 @@ i {
   grid-template-columns: 1fr 1fr;
 }
 
+input, select {
+  text-align: center;
+}
+
+select {
+  font-size: 2rem;
+}
 
 
 .option-btn {
@@ -72,11 +78,11 @@ i {
 @keyframes slide-down {
   from {
     top: -100%;
-    opacity: 0;
+  
   }
   to {
     top: 0;
-    opacity: 0.8;
+  
   }
 }
 

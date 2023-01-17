@@ -1,8 +1,8 @@
 
 // Initializing the object divs (as a sphere)
 
-const circles = 2;
-const inc = 90;
+const circles = 90;
+const inc = 2;
 const faces = document.getElementsByClassName("face");
 const text = document.getElementById("text");
 
@@ -12,8 +12,7 @@ divCreation(inc, circles)
 
 function divCreation (inc, circles) {
 let deg = 0;
-for (let i = 0; i < circles+1; i++) {
-
+for (let i = 0; i < circles; i++) {
   let div = document.createElement("div");
   document.getElementById("sphere").appendChild(div);
   div.classList.add("face");
@@ -152,6 +151,7 @@ const root = document.querySelector(':root');
 const colorSelect = document.getElementById("color-select");
 const bgSelect = document.getElementById("bg-select");
 const divNum = document.getElementById("div-num");
+const degSep = document.getElementById("deg-sep");
 const apply = document.getElementById("apply");
 
 
@@ -221,12 +221,12 @@ bgSelect.addEventListener('change', function () {
 })
 
 apply.addEventListener('click', function () {
-  if (divNum.value >= 0 && divNum.value <= 90) {
+  if (divNum.value >= 0 && divNum.value <= 180) {
   divDeath();
-  divCreation(inc, (parseInt(divNum.value) - 1) * inc);
+  divCreation(parseInt(degSep.value), (parseInt(divNum.value)));
   }
   else 
-    window.alert("Above 90, and your phone will run into performance issues. Going below 0 is redundant ;).");
+    window.alert("Above 180, your phone will run into performance issues. Going below 0 is redundant ;)."); 
 })
 
 
