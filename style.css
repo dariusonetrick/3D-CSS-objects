@@ -43,9 +43,9 @@ i {
 
 #settings-container {
   display: grid;
-  width: 50%;
+  width: 20rem;
+  height: 20rem;
   margin: auto;
-  height: 50%;
   grid-template-columns: 1fr 1fr;
 }
 
@@ -54,7 +54,7 @@ input, select {
 }
 
 select {
-  font-size: 2rem;
+  font-size: 1rem;
 }
 
 

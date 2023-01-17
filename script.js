@@ -184,6 +184,9 @@ colorSelect.addEventListener('change', function () {
     case "tron":
       root.style.setProperty('--color', '#7DFDFE'); 
       break;  
+    case "gains":
+      root.style.setProperty('--color', '#DCDCDC');
+      break;
   }
 })
 
