@@ -136,6 +136,18 @@ settingsBtn.addEventListener('click', function () {
 
 //Select options
 
+const root = document.querySelector(':root');
 const colorSelect = document.getElementById("color-select");
 const bgSelect = document.getElementById("bg-select");
+
+colorSelect.addEventListener('change', function () {
+  switch (colorSelect.value) {
+    case "white":
+      root.style.setProperty('--color', 'white');
+      break;
+    case "black":
+      root.style.setProperty('--color', 'black');
+      break;      
+  }
+})
 

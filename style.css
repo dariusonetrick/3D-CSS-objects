@@ -47,7 +47,10 @@ i {
   width: 50%;
   margin: auto;
   height: 50%;
+  grid-template-columns: 1fr 1fr;
 }
+
+
 
 .option-btn {
   font-size: 3rem;
