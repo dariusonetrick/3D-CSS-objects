@@ -1,8 +1,8 @@
 
 // Initializing the object divs (as a sphere)
 
-const inc = 2;
-const circles = 180;
+const circles = 2;
+const inc = 90;
 const faces = document.getElementsByClassName("face");
 const text = document.getElementById("text");
 
@@ -11,16 +11,18 @@ const text = document.getElementById("text");
 divCreation(inc, circles)
 
 function divCreation (inc, circles) {
-for (let i = 0; i < circles+1; i += inc) {
+let deg = 0;
+for (let i = 0; i < circles+1; i++) {
 
   let div = document.createElement("div");
   document.getElementById("sphere").appendChild(div);
   div.classList.add("face");
   div.style.background = "transparent";
   div.style.background.backgroundSize = "cover";
-  div.style.transform = `rotateY(${i}deg)`;
+  div.style.transform = `rotateY(${deg}deg)`;
+  deg += inc;
 }
-text.innerText = `${document.getElementsByClassName('face').length} divs rendered`;
+text.innerText = `${circles} divs rendered, seperated by ${inc}° each`;
 }
 
 function divDeath () {
@@ -169,8 +171,19 @@ colorSelect.addEventListener('change', function () {
       break;  
     case "crimson":
       root.style.setProperty('--color', 'crimson');
+      break;  
     case "pink":
-      root.style.setProperty('--color', 'pink');  
+      root.style.setProperty('--color', 'pink'); 
+      break;  
+    case "orange":
+      root.style.setProperty('--color', 'orange');
+      break;  
+    case "drkMidnight":
+      root.style.setProperty('--color', '#191970'); 
+      break;  
+    case "tron":
+      root.style.setProperty('--color', '#7DFDFE'); 
+      break;  
   }
 })
 
@@ -188,8 +201,22 @@ bgSelect.addEventListener('change', function () {
       break;  
     case "crimson":
       root.style.setProperty('--bg', 'crimson');
+      break;  
     case "pink":
       root.style.setProperty('--bg', 'pink'); 
+      break;  
+    case "orange":
+      root.style.setProperty('--bg', 'orange'); 
+      break;  
+    case "drkMidnight":
+      root.style.setProperty('--bg', '#191970'); 
+      break;  
+    case "tron":
+      root.style.setProperty('--bg', '#7DFDFE'); 
+      break;  
+    case "gains":
+      root.style.setProperty('--bg', '#DCDCDC');
+      break;
   }
 })
 
