@@ -38,7 +38,6 @@
         <option value = "orange">Orange</option>
         <option value = "drkMidnight">Dark Midnight</option>
         <option value = "tron">Tron blue</option>
-
       </select>
       <input id = "div-num" placeholder="Number of div elements. Enter 0 - 180." type="number" min="0" max="91">
       <input id = "deg-sep" placeholder="Degrees of seperation" type = "number">
@@ -49,15 +48,15 @@
   <div id="sphere">
   </div>
   <div id="btn-container">
-    <button id="btn1" class="btn" >
-      <p>Sphere</p>
-    </button>
-    <button id="btn2" class="btn">
-      <p>Cylinder</p>
-    </button>
-    <button id="btn3" class="btn">
-      <p>Egg</p>
-    </button>
+    <select id = 'shape-select'>
+      <option value="sphere">Ball</option>
+      <option value="cylinder">Can</option>
+      <option value="egg">Egg</option>
+    </select>
+    <select id = 'action-select'>
+      <option value = 'pause'>pause</option>
+      <option value = 'move'>Move</option>
+    </select>
   </div>
   <h1 id="text">Have fun!</h1>
 </body>

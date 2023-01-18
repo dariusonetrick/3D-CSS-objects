@@ -5,6 +5,8 @@ const circles = 90;
 const inc = 2;
 const faces = document.getElementsByClassName("face");
 const text = document.getElementById("text");
+var moveEnable = false;
+var rotateEnable = true;
 
 
 
@@ -28,13 +30,18 @@ function divDeath () {
   document.getElementById('sphere').innerHTML = '';
 }
 
-// Touch screen
+
+
+
+
+// Touch interact
 const ball = document.getElementById("sphere");
 const rect = ball.getBoundingClientRect();
 let x, y, newX, newY;
 
 ball.addEventListener("touchstart", function (e) {
- 
+  if (!moveEnable)
+    return;
   x = e.touches[0].clientX;
   y = e.touches[0].clientY;
   ball.style.animationPlayState = "paused";
@@ -48,7 +55,8 @@ ball.addEventListener("touchstart", function (e) {
 
 // Mouse Interact
 ball.addEventListener("mousedown", function (e) {
-  
+  if (!moveEnable)
+    return;
   x = e.clientX;
   y = e.clientY;
   ball.style.animationPlayState = "paused";
@@ -62,6 +70,8 @@ ball.addEventListener("mousedown", function (e) {
 
 // Touchscreen Move
 function move(e) {
+  if (!moveEnable)
+    return;
   newX = x - e.touches[0].clientX;
   newY = y - e.touches[0].clientY;
 
@@ -74,6 +84,8 @@ function move(e) {
 
 // Mouse move
 function mouseMove(e) {
+  if (!moveEnable)
+    return;
   newX = x - e.clientX;
   newY = y - e.clientY;
 
@@ -85,9 +97,7 @@ function mouseMove(e) {
 }
 
 const settingsBtn = document.getElementById("settings-btn");
-const btn1 = document.getElementById("btn1");
-const btn2 = document.getElementById("btn2");
-const btn3 = document.getElementById("btn3");
+
 
 const SphereObj = {
   borderRadius: '100%',
@@ -109,19 +119,39 @@ const EggObj = {
   height: 'var(--height)',
 }
 
+// Actions select
+const actionSelect = document.getElementById('action-select');
+console.log(actionSelect);
+actionSelect.addEventListener('change', function () {
+  switch (actionSelect.value) {
+    case 'pause':
+      rotateEnable = false;
+    case 'move':
+      moveEnable = true;
+      break;
+  }
+})
 
-// Sphere btn
-btn1.addEventListener("click", function() {
-  render(SphereObj);
-});
+// Shapes select
+const shapeSelect = document.getElementById('shape-select');
 
-btn2.addEventListener("click", () => {
-  render(CylinderObj);
+shapeSelect.addEventListener('change', function () {
+  switch (shapeSelect.value) {
+    case 'sphere':
+      render(SphereObj);
+      break;
+    case 'cylinder':
+      render(CylinderObj);
+      break;
+    case 'egg':
+      render(EggObj);
+      break;
+  }
 } );
 
-btn3.addEventListener("click", () => {
-  render(EggObj);
-});
+// Action select
+
+
 
 function render(obj) {
   for (let i in faces) {

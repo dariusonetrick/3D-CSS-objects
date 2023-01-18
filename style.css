@@ -49,15 +49,6 @@ i {
   grid-template-columns: 1fr 1fr;
 }
 
-input, select {
-  text-align: center;
-}
-
-select {
-  font-size: 1rem;
-}
-
-
 .option-btn {
   font-size: 3rem;
 }
@@ -74,6 +65,19 @@ select {
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
 }
+
+#btn-container select {
+  appearance: none;
+  height: 2.4rem;
+  width: 5rem;
+  font-size: 1.5rem;
+  text-align: center;
+  background-color: var(--bg);
+  border: 2px var(--color) solid;
+  color: var(--color);
+}
+
+
 
 @keyframes slide-down {
   from {
