@@ -5,8 +5,6 @@ const circles = 90;
 const inc = 2;
 const faces = document.getElementsByClassName("face");
 const text = document.getElementById("text");
-var moveEnable = false;
-var rotateEnable = true;
 
 
 
@@ -19,7 +17,7 @@ for (let i = 0; i < circles; i++) {
   document.getElementById("sphere").appendChild(div);
   div.classList.add("face");
   div.style.background = "transparent";
-  div.style.background.backgroundSize = "cover";
+  
   div.style.transform = `rotateY(${deg}deg)`;
   deg += inc;
 }
@@ -34,70 +32,79 @@ function divDeath () {
 
 
 
-// Touch interact
-const ball = document.getElementById("sphere");
-const rect = ball.getBoundingClientRect();
-let x, y, newX, newY;
 
-ball.addEventListener("touchstart", function (e) {
-  if (!moveEnable)
-    return;
-  x = e.touches[0].clientX;
-  y = e.touches[0].clientY;
-  ball.style.animationPlayState = "paused";
-  document.addEventListener("touchmove", move);
 
-  document.addEventListener("touchend", function () {
-    ball.style.animationPlayState = "running";
-    document.removeEventListener("touchmove", move);
-  });
-});
+// let x, y, newX, newY;
 
-// Mouse Interact
-ball.addEventListener("mousedown", function (e) {
-  if (!moveEnable)
-    return;
-  x = e.clientX;
-  y = e.clientY;
-  ball.style.animationPlayState = "paused";
-  document.addEventListener("mousemove", mouseMove);
+// // Touch interact
+// ball.addEventListener("touchstart", function (e) {
+//   if (!moveEnable)
+//     return;
+//   x = e.touches[0].clientX;
+//   y = e.touches[0].clientY;
+//   ball.style.animationPlayState = "paused";
+//   document.addEventListener("touchmove", move);
 
-  document.addEventListener("mouseup", function () {
-    ball.style.animationPlayState = "running";
-    document.removeEventListener("mousemove", mouseMove);
-  });
-});
+//   document.addEventListener("touchend", function () {
+//     ball.style.animationPlayState = "running";
+//     document.removeEventListener("touchmove", move);
+//   });
+// });
 
-// Touchscreen Move
-function move(e) {
-  if (!moveEnable)
-    return;
-  newX = x - e.touches[0].clientX;
-  newY = y - e.touches[0].clientY;
+// // Mouse Interact
+// ball.addEventListener("mousedown", function (e) {
+//   if (!moveEnable)
+//     return;
+//   x = e.clientX;
+//   y = e.clientY;
+//   ball.style.animationPlayState = "paused";
+//   document.addEventListener("mousemove", mouseMove);
 
-  x = e.touches[0].clientX;
-  y = e.touches[0].clientY;
+//   document.addEventListener("mouseup", function () {
+//     ball.style.animationPlayState = "running";
+//     document.removeEventListener("mousemove", mouseMove);
+//   });
+// });
 
-  ball.style.top = ball.offsetTop - newY + "px";
-  ball.style.left = ball.offsetLeft - newX + "px";
-}
+// // Touchscreen Move
+// function move(e) {
+//   newX = x - e.touches[0].clientX;
+//   newY = y - e.touches[0].clientY;
 
-// Mouse move
-function mouseMove(e) {
-  if (!moveEnable)
-    return;
-  newX = x - e.clientX;
-  newY = y - e.clientY;
+//   x = e.touches[0].clientX;
+//   y = e.touches[0].clientY;
 
-  x = e.clientX;
-  y = e.clientY;
+//   ball.style.transform = `rotateY(${y}deg) rotateX(${x}deg)`;
+    
+//   if (moveEnable) {
+//     ball.style.top = ball.offsetTop - newY + "px";
+//     ball.style.left = ball.offsetLeft - newX + "px";
+//     }
+// }
 
-  ball.style.top = ball.offsetTop - newY + "px";
-  ball.style.left = ball.offsetLeft - newX + "px";
-}
+
+
+
+// // Mouse move
+// function mouseMove(e) {
+//   newX = (x - e.clientX);
+//   newY = (y - e.clientY);
+
+//   x = e.clientX;
+//   y = e.clientY;
+ 
+//   ball.style.transform = `rotateY(${y}deg) rotateX(${x}deg)`;
+
+//   if (moveEnable) {
+//     ball.style.top = ball.offsetTop - newY + "px";
+//     ball.style.left = ball.offsetLeft - newX + "px";
+//     }
+// }
+
+// // Expermenting with rotate manipulation by client crusor pos
+// document.addEventListener('mousemove',  mouseMove);
 
 const settingsBtn = document.getElementById("settings-btn");
-
 
 const SphereObj = {
   borderRadius: '100%',
@@ -119,18 +126,7 @@ const EggObj = {
   height: 'var(--height)',
 }
 
-// Actions select
-const actionSelect = document.getElementById('action-select');
-console.log(actionSelect);
-actionSelect.addEventListener('change', function () {
-  switch (actionSelect.value) {
-    case 'pause':
-      rotateEnable = false;
-    case 'move':
-      moveEnable = true;
-      break;
-  }
-})
+
 
 // Shapes select
 const shapeSelect = document.getElementById('shape-select');

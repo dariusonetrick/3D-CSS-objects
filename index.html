@@ -9,56 +9,56 @@
 </head>
 
 <body>
-  <button id="settings-btn">
-    <i class="fa-solid fa-gear"></i>
-  </button>
-  <div id = "settings-menu">
+  <main>
+
     <div id = "settings-container">
-      <select id="color-select">
-        <option>Select Color</option>
-        <option value = "white">White</option>
-        <option value = "black">Black</option>
-        <option value = "grey">Grey</option>
-        <option value = "gains">Gainsboro</option>
-        <option value = "turquoise">Turquoise</option>
-        <option value = "crimson">Crimson</option>
-        <option value = "pink">Pink</option> 
-        <option value = "orange">Orange</option>
-        <option value = "drkMidnight">Dark Midnight</option>
-        <option value = "tron">Tron blue</option>
-      </select>
-      <select id="bg-select">
-        <option>Select Background</option>
-        <option value = "white">White</option>
-        <option value = "black">Black</option>
-        <option value = "grey">Grey</option>
-        <option value = "gains">Gainsboro</option>
-        <option value = "crimson">Crimson</option>
-        <option value = "pink">Pink</option>
-        <option value = "orange">Orange</option>
-        <option value = "drkMidnight">Dark Midnight</option>
-        <option value = "tron">Tron blue</option>
-      </select>
-      <input id = "div-num" placeholder="Number of div elements. Enter 0 - 180." type="number" min="0" max="91">
-      <input id = "deg-sep" placeholder="Degrees of seperation" type = "number">
-      <input id = "deg-seperated" placeholder=>
-      <button id= "apply">Apply Changes</button>
+        <select id="color-select">
+          <option>Select Color</option>
+          <option value = "white">White</option>
+          <option value = "black">Black</option>
+          <option value = "grey">Grey</option>
+          <option value = "gains">Gainsboro</option>
+          <option value = "turquoise">Turquoise</option>
+          <option value = "crimson">Crimson</option>
+          <option value = "pink">Pink</option> 
+          <option value = "orange">Orange</option>
+          <option value = "drkMidnight">Dark Midnight</option>
+          <option value = "tron">Tron blue</option>
+        </select>
+        <select id="bg-select">
+          <option>Select Background</option>
+          <option value = "white">White</option>
+          <option value = "black">Black</option>
+          <option value = "grey">Grey</option>
+          <option value = "gains">Gainsboro</option>
+          <option value = "crimson">Crimson</option>
+          <option value = "pink">Pink</option>
+          <option value = "orange">Orange</option>
+          <option value = "drkMidnight">Dark Midnight</option>
+          <option value = "tron">Tron blue</option>
+        </select>
+        <input id = "div-num" placeholder="Number of div elements. Enter 0 - 180." type="number" min="0" max="91">
+        <input id = "deg-sep" placeholder="Degrees of seperation" type = "number">
+        <input id = "deg-seperated" placeholder=>
+        <div id="btn-container">
+          <select id = 'shape-select'>
+            <option value="sphere">Ball</option>
+            <option value="cylinder">Can</option>
+            <option value="egg">Egg</option>
+          </select>
+        </div>
+        <button id= "apply">Apply Changes</button>
+      </div>
+
+    <div id = "space">
+      <h1 id="text">Have fun!</h1>
+      <div id="sphere"></div>
     </div>
-  </div>
-  <div id="sphere">
-  </div>
-  <div id="btn-container">
-    <select id = 'shape-select'>
-      <option value="sphere">Ball</option>
-      <option value="cylinder">Can</option>
-      <option value="egg">Egg</option>
-    </select>
-    <select id = 'action-select'>
-      <option value = 'pause'>pause</option>
-      <option value = 'move'>Move</option>
-    </select>
-  </div>
-  <h1 id="text">Have fun!</h1>
+
+  </main>
+
+
+  
 </body>
 <script src="./script.js"></script>
 
