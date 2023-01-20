@@ -9,9 +9,20 @@
 </head>
 
 <body>
+  
+    
+  
   <main>
+    <div id="open-menu-btn">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
 
     <div id = "settings-container">
+
+        <div id = "general">
+          <div class="tab">General</div>
           <select id="color-select">
           <option>Select Color</option>
           <option value = "white">White</option>
@@ -39,15 +50,19 @@
         </select>
         <input id = "div-num" placeholder="Number of div elements. Enter 0 - 180." type="number" min="0" max="91">
         <input id = "deg-sep" placeholder="Degrees of seperation" type = "number">
-        
         <select id = 'shape-select'>
           <option value="sphere">Ball</option>
           <option value="cylinder">Can</option>
           <option value="egg">Egg</option>
         </select>
-      
         <button id= "apply">Apply Changes</button> 
-      </div> 
+        </div>
+
+        <div id = "manipulate">
+          <div class="tab">Manipulate</div>
+        </div>
+
+    </div> 
         
     <div id = "space">
       <h1 id="text">Have fun!</h1>

@@ -22,6 +22,28 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+#open-menu-btn {
+  z-index: 1;
+  position: absolute;
+  background-color: var(--color);
+  width: 2em;
+  height: 2em;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+#open-menu-btn:hover {
+  cursor: pointer;
+}
+#open-menu-btn > div {
+  background-color: black;
+  width: 1em;
+  height: 3px;
+}
+
+
 /* Everything Container */
 main {
   transform-style: preserve-3d;
@@ -40,7 +62,7 @@ main {
 #space {
   overflow: hidden;
   background-color: var(--bg);
-  flex-grow: 4;
+  flex-grow: 3;
 }
 
 .face {
@@ -83,21 +105,35 @@ main {
 /* Settings */
 
 #settings-container {
+  z-index: 0;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   flex-grow: 1;
-  transition: 0.5s;
+  transition: 1s;
   background-color: seashell;
 }
 
-#settings-container > * {
-  
+#general  {
+  display: flex;
+  flex-direction: column;
+  background-color: salmon;
+  flex-grow: 1;
+  transition: 1s;
+  overflow: hidden;
+}
+
+#general > * {
   all: unset;
-  text-align: center;
-  box-sizing: border-box;
-  background: silver;
-  
+}
+
+#manipulate {
+  display: flex;
+  flex-direction: column;
+  background-color: purple;
+  flex-grow: 1;
+  transition: 1s;
+  overflow: hidden;
 }
 
 
@@ -107,8 +143,7 @@ main {
 
 /* funny text */
 h1 {
-  background-color: white;
-  display: none;
+  margin: auto;
   top: 50%;
   transform: translateY(-50%);
   color: white;

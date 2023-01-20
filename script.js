@@ -104,8 +104,6 @@ function divDeath () {
 // // Expermenting with rotate manipulation by client crusor pos
 // document.addEventListener('mousemove',  mouseMove);
 
-const settingsBtn = document.getElementById("settings-btn");
-
 const SphereObj = {
   borderRadius: '100%',
   width: 'var(--width)',
@@ -248,7 +246,9 @@ apply.addEventListener('click', function () {
     window.alert("Above 180, your phone will run into performance issues. Going below 0 is redundant ;)."); 
 })
 
-settings.addEventListener('click', function() {
+// Sliding Menu
+const menuBtn = document.getElementById('open-menu-btn');
+menuBtn.addEventListener('click', function() {
   let settingsStyle = window.getComputedStyle(settings)
   if (parseInt(settingsStyle.getPropertyValue('flex-grow')) > 0 ) {
     settings.style.setProperty('flex-grow', '0');
@@ -256,7 +256,31 @@ settings.addEventListener('click', function() {
   }
   else {
     settings.style.setProperty('flex-grow', '1');
-    settings.style.setProperty('width', 'auto');
   }
-})
+});
+
+// Sliding General Settings
+const general = document.getElementById('general').firstElementChild;
+general.addEventListener('click', function(){
+  let generalStyle = window.getComputedStyle(general.parentElement);
+  if (generalStyle.getPropertyValue('flex-grow') !== '0') {
+    general.parentElement.style.setProperty('flex-grow', '0');
+    general.parentElement.style.setProperty('height', window.getComputedStyle(general).getPropertyValue('height'));
+  }
+  else {
+    general.parentElement.style.setProperty('flex-grow', '1');
+  }
+});
+
+const manipulate = document.getElementById('manipulate').firstElementChild;
+manipulate.addEventListener('click', function(){
+  let manipulateStyle = window.getComputedStyle(manipulate.parentElement);
+  if (manipulateStyle.getPropertyValue('flex-grow') !== '0') {
+    manipulate.parentElement.style.setProperty('flex-grow', '0');
+    manipulate.parentElement.style.setProperty('height', window.getComputedStyle(manipulate).getPropertyValue('height'));
+  }
+  else {
+    manipulate.parentElement.style.setProperty('flex-grow', '1');
+  }
+});
 
