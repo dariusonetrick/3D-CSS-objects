@@ -284,3 +284,27 @@ manipulate.addEventListener('click', function(){
   }
 });
 
+// Rotates
+const sphere = document.getElementById('sphere');
+rotArr = document.getElementsByClassName('rotate');
+
+Array.from(rotArr).forEach( (el) => {
+  el.addEventListener('input', () => {
+    rotate3d(rotArr[0].value, rotArr[1].value, rotArr[2].value)
+  })
+})
+
+
+
+function rotate3d(x,y,z,s){
+  sphere.style.setProperty('animation-duration', '0s')
+  sphere.style.setProperty('transform',`rotateX(${x}deg) rotateY(${y}deg) rotateZ(${z}deg)`);
+}
+
+
+
+
+
+
+
+

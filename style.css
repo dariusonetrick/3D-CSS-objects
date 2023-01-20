@@ -85,20 +85,22 @@ main {
   left: calc(50% - var(--width)/2);
   height: var(--height);
   width: var(--width);
+  transition: 0.3s;
   animation-name: rotate;
-  animation-duration: 7s;
+  animation-duration: 10s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+  animation-direction: forward;
 }
 
 @keyframes rotate {
   from {
    
-    transform: rotateY(0deg) rotateX(360deg);
+    transform: rotateZ(0deg) rotateX(0deg);
   }
   to {
     
-    transform: rotateY(360deg) rotateX(0deg);
+    transform: rotateZ(360deg) rotateX(360deg);
   }
 }
 
