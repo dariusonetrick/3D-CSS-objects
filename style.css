@@ -6,8 +6,10 @@
   --height: 15rem;
   --width: 15rem;
   --bg: black;
-
-
+  --rotx: 0deg;
+  --roty: 0deg;
+  --rotz: 0deg;
+  --pers: none;
 }
 
 /* We don't want users being able to select text */
@@ -81,14 +83,14 @@ main {
 #sphere {
   display: relative;
   transform-style: preserve-3d;
+  transform: rotateX(var(--rotx)) rotateY(var(--roty)) rotateZ(var(--rotz));
   position: relative;
   top: calc(50% - var(--height)/2);
   left: calc(50% - var(--width)/2);
   height: var(--height);
   width: var(--width);
-  transition: 0.3s;
   animation-name: rotate;
-  animation-duration: 10s;
+  animation-duration: 5s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   animation-direction: forward;
@@ -96,12 +98,10 @@ main {
 
 @keyframes rotate {
   from {
-   
-    transform: rotateZ(0deg) rotateX(0deg);
+    transform: rotateZ(var(--rotz)) rotateY(var(--roty)) rotateX(var(--rotx));
   }
   to {
-    
-    transform: rotateZ(360deg) rotateX(360deg);
+    transform: rotateZ(calc(360deg + var(--rotz))) rotateY(var(--roty)) rotateX(calc(360deg + var(--rotx)));
   }
 }
 
@@ -133,11 +133,13 @@ main {
 #manipulate {
   display: flex;
   flex-direction: column;
-  background-color: purple;
+  background-color: violet;
   flex-grow: 1;
   transition: 1s;
   overflow: hidden;
 }
+
+
 
 
 

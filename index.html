@@ -48,8 +48,8 @@
           <option value = "drkMidnight">Dark Midnight</option>
           <option value = "tron">Tron blue</option>
         </select>
-        <input id = "div-num" placeholder="Number of div elements. Enter 0 - 180." type="number" min="0" max="91">
-        <input id = "deg-sep" placeholder="Degrees of seperation" type = "number">
+        <input id = "div-num" placeholder="Number of div elements. Enter 0 - 180." type="number" min="0" max="180" value="90">
+        <input id = "deg-sep" placeholder="Degrees of seperation" type = "number" value="2">
         <select id = 'shape-select'>
           <option value="sphere">Ball</option>
           <option value="cylinder">Can</option>
@@ -72,6 +72,18 @@
             <p>rotateZ</p>
             <input class="rotate" type="range" min="0" max="360">
           </div>
+          <div class = "slider-container">
+            <p>scale3d</p>
+            <input class="rotate" type="range" value='1' step="0.01" min="-2" max='2'  >
+          </div>
+          <div class="slider-container">
+            <p>perspective</p>
+            <input class="rotate" type="range" min="0" max="1000" value="0">
+          </div>
+          <label>
+            <p>spin</p>
+            <input id="spin" type="checkbox" checked>
+          </label>
         </div>
 
     </div> 

@@ -290,16 +290,29 @@ rotArr = document.getElementsByClassName('rotate');
 
 Array.from(rotArr).forEach( (el) => {
   el.addEventListener('input', () => {
-    rotate3d(rotArr[0].value, rotArr[1].value, rotArr[2].value)
+    rotate3d(rotArr[0].value, rotArr[1].value, rotArr[2].value, rotArr[3].value, rotArr[4].value)
   })
 })
 
-
-
-function rotate3d(x,y,z,s){
-  sphere.style.setProperty('animation-duration', '0s')
-  sphere.style.setProperty('transform',`rotateX(${x}deg) rotateY(${y}deg) rotateZ(${z}deg)`);
+function rotate3d(x,y,z,s,p){
+  // sphere.style.setProperty('transform',`rotateX(${x}deg) rotateY(${y}deg) rotateZ(${z}deg) scale3d(${s}, ${s}, ${s})perspective(${p}px)`);
+  root.style.setProperty('--rotx', `${x}deg`);
+  root.style.setProperty('--roty',`${y}deg`);
+  root.style.setProperty('--rotz',`${z}deg`);
 }
+
+// toggle on spin
+const spinTog = document.getElementById('spin');
+spinTog.addEventListener('input', function(){
+  if (!this.checked) {
+      sphere.style.animationPlayState = 'paused';
+     
+    }
+  else {
+    sphere.style.animationPlayState = 'running';
+  
+    }
+})
 
 
 
