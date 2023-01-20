@@ -10,6 +10,7 @@
 
 }
 
+/* We don't want users being able to select text */
 * {
   box-sizing: border-box;
   user-select: none;
