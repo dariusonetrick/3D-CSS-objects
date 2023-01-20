@@ -13,17 +13,13 @@
     
   
   <main>
-    <div id="open-menu-btn">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
+
 
     <div id = "settings-container">
-
+<!-- general -->
         <div id = "general">
           <div class="tab">General</div>
-          <select id="color-select">
+        <select id="color-select">
           <option>Select Color</option>
           <option value = "white">White</option>
           <option value = "black">Black</option>
@@ -57,9 +53,10 @@
         </select>
         <button id= "apply">Apply Changes</button> 
         </div>
-
+<!-- manipulate -->
         <div id = "manipulate">
-          <div class="tab">Manipulate</div>
+          <div class="tab">Rotate</div>
+          
           <div class="slider-container">
             <p>rotateX</p>
             <input class="rotate" type="range" min="0" max="360">
@@ -72,14 +69,6 @@
             <p>rotateZ</p>
             <input class="rotate" type="range" min="0" max="360">
           </div>
-          <div class = "slider-container">
-            <p>scale3d</p>
-            <input class="rotate" type="range" value='1' step="0.01" min="-2" max='2'  >
-          </div>
-          <div class="slider-container">
-            <p>perspective</p>
-            <input class="rotate" type="range" min="0" max="1000" value="0">
-          </div>
           <label>
             <p>spin</p>
             <input id="spin" type="checkbox" checked>
@@ -87,8 +76,14 @@
         </div>
 
     </div> 
-        
+<!-- 3d space -->
     <div id = "space">
+      <div class="men-btn" id="open-menu-btn">
+        settings
+      </div>
+      <div class="men-btn" id="cls-men-btn">
+        close
+      </div>
       <h1 id="text">Have fun!</h1>
       <div id="sphere"></div>
     </div>

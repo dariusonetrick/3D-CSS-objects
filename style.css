@@ -1,7 +1,10 @@
-:root {
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+
+:root {
+  font-size: 20px;
   --turquoise: #30d5c8;
-  --color: white;
+  --color: #7DFDFE;
   --direction: 'normal';
   --height: 15rem;
   --width: 15rem;
@@ -9,7 +12,9 @@
   --rotx: 0deg;
   --roty: 0deg;
   --rotz: 0deg;
-  --pers: none;
+  --x: 0;
+  --y: 0;
+  --z: 0;
 }
 
 /* We don't want users being able to select text */
@@ -22,29 +27,34 @@ body {
   position: relative;
   padding: 0;
   margin: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: montserrat, sans-serif;
 }
 
-#open-menu-btn {
-  z-index: 1;
-  position: absolute;
-  background-color: var(--color);
-  width: 2em;
-  height: 2em;
-  right: 0;
+.men-btn{
+  font-size: 1em;
+  background-color: beige ;
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
+  width: 6em;
+  height: 2.5em;
+  color: black;
+  margin: auto;
+  margin-right: 0;
+  overflow: hidden;
+  transition: 1s;
 }
-#open-menu-btn:hover {
+.men-btn:hover {
   cursor: pointer;
 }
-#open-menu-btn > div {
-  background-color: black;
-  width: 1em;
-  height: 3px;
+.men-btn:nth-of-type(2) {
+  width: 0;
+  background: red;
+  color: white;
+  top: 0;
+  
 }
+
 
 
 /* Everything Container */
@@ -64,9 +74,12 @@ main {
 }
 #space {
   overflow: hidden;
+  transition: 5s;
   background-color: var(--bg);
   flex-grow: 3;
 }
+
+
 
 .face {
   border-style: dotted;
@@ -81,9 +94,9 @@ main {
 }
 
 #sphere {
-  display: relative;
+  position: absolute;
   transform-style: preserve-3d;
-  transform: rotateX(var(--rotx)) rotateY(var(--roty)) rotateZ(var(--rotz));
+  transform: perspective(500px) rotateX(var(--rotx)) rotateY(var(--roty)) rotateZ(var(--rotz)) ;
   position: relative;
   top: calc(50% - var(--height)/2);
   left: calc(50% - var(--width)/2);
@@ -98,26 +111,32 @@ main {
 
 @keyframes rotate {
   from {
-    transform: rotateZ(var(--rotz)) rotateY(var(--roty)) rotateX(var(--rotx));
+
+    transform: perspective(500px) translate3d(var(--x), var(--y), var(--z)) rotateZ(var(--rotz)) rotateY(var(--roty)) rotateX(var(--rotx));
   }
   to {
-    transform: rotateZ(calc(360deg + var(--rotz))) rotateY(var(--roty)) rotateX(calc(360deg + var(--rotx)));
+
+    transform: perspective(500px) translate3d(-5em,-5em,-20em) rotateZ(calc(360deg + var(--rotz))) rotateY(var(--roty)) rotateX(calc(360deg + var(--rotx)));
   }
 }
 
 /* Settings */
 
+
 #settings-container {
+  color: #333;
   z-index: 0;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  flex-grow: 1;
+  flex-grow: 0;
+  width: 0;
   transition: 1s;
   background-color: seashell;
 }
 
 #general  {
+  padding: 0em 1.5em 0em;
   display: flex;
   flex-direction: column;
   background-color: salmon;
@@ -126,11 +145,14 @@ main {
   overflow: hidden;
 }
 
-#general > * {
+#general > *:not(.tab) {
+  margin-bottom: 0.5em;
   all: unset;
+  overflow: hidden;
 }
 
 #manipulate {
+  padding: 0em 1.5em 0em;
   display: flex;
   flex-direction: column;
   background-color: violet;
@@ -139,24 +161,28 @@ main {
   overflow: hidden;
 }
 
+#manipulate > *:not(.tab) {
+  font-size: 0.7em;
+  margin-bottom: 0.5em;
+}
 
-
-
-
-
-
+.tab {
+  padding: 0.1em 0;
+  font-size: 1.3em;
+}
 
 /* funny text */
-h1 {
+#text {
   margin: auto;
   top: 50%;
   transform: translateY(-50%);
   color: white;
   position: relative;
-  font-size: 1em;
+  font-size: 0.7em;
   text-align: center;
   font-weight: 100;
 }
+
 
 
 

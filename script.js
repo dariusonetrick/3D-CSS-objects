@@ -1,7 +1,7 @@
 
 // Initializing the object divs (as a sphere)
 
-const circles = 90;
+const circles = 45;
 const inc = 2;
 const faces = document.getElementsByClassName("face");
 const text = document.getElementById("text");
@@ -108,7 +108,7 @@ const SphereObj = {
   borderRadius: '100%',
   width: 'var(--width)',
   height: 'var(--height)',
-  opacity: '0.3'
+  opacity: '1'
 }
 
 const CylinderObj = {
@@ -248,16 +248,23 @@ apply.addEventListener('click', function () {
 
 // Sliding Menu
 const menuBtn = document.getElementById('open-menu-btn');
-menuBtn.addEventListener('click', function() {
+const clsBtn = document.getElementById('cls-men-btn');
+Array.from(document.getElementsByClassName('men-btn')).forEach( el => el.addEventListener('click', ()=>{menBtns()}));
+
+function menBtns() {
   let settingsStyle = window.getComputedStyle(settings)
   if (parseInt(settingsStyle.getPropertyValue('flex-grow')) > 0 ) {
+    clsBtn.style.setProperty('width', '0');
+    menuBtn.style.setProperty('width', '6em');
     settings.style.setProperty('flex-grow', '0');
     settings.style.setProperty('width', '0');
   }
   else {
+    clsBtn.style.setProperty('width', '6em');
+    menuBtn.style.setProperty('width','0');
     settings.style.setProperty('flex-grow', '1');
   }
-});
+}
 
 // Sliding General Settings
 const general = document.getElementById('general').firstElementChild;
@@ -290,12 +297,11 @@ rotArr = document.getElementsByClassName('rotate');
 
 Array.from(rotArr).forEach( (el) => {
   el.addEventListener('input', () => {
-    rotate3d(rotArr[0].value, rotArr[1].value, rotArr[2].value, rotArr[3].value, rotArr[4].value)
+    rotate3d(rotArr[0].value, rotArr[1].value, rotArr[2].value)
   })
 })
 
-function rotate3d(x,y,z,s,p){
-  // sphere.style.setProperty('transform',`rotateX(${x}deg) rotateY(${y}deg) rotateZ(${z}deg) scale3d(${s}, ${s}, ${s})perspective(${p}px)`);
+function rotate3d(x,y,z){
   root.style.setProperty('--rotx', `${x}deg`);
   root.style.setProperty('--roty',`${y}deg`);
   root.style.setProperty('--rotz',`${z}deg`);
