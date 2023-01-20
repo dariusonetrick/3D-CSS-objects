@@ -1,12 +1,13 @@
 :root {
+
   --turquoise: #30d5c8;
   --color: white;
   --direction: 'normal';
   --height: 15rem;
   --width: 15rem;
   --bg: black;
-  --space-width: calc(100% - var(--set-width));
-  --set-width: 25%;
+
+
 }
 
 * {
@@ -19,22 +20,27 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  
 }
 
 /* Everything Container */
 main {
   transform-style: preserve-3d;
   display: flex;
+  flex-direction: row-reverse;
+  align-items: stretch;
   height: 100vh;
   width: 100vw;
 }
 
 /* 3d-space-container */
+#god {
+  background-color: green;
+  flex-grow: 1;
+}
 #space {
+  overflow: hidden;
   background-color: var(--bg);
-  height: 100%;
-  width: var(--space-width);
+  flex-grow: 4;
 }
 
 .face {
@@ -50,6 +56,7 @@ main {
 }
 
 #sphere {
+  display: relative;
   transform-style: preserve-3d;
   position: relative;
   top: calc(50% - var(--height)/2);
@@ -65,45 +72,34 @@ main {
 @keyframes rotate {
   from {
    
-    transform: rotateY(0deg) rotateX(0deg);
+    transform: rotateY(0deg) rotateX(360deg);
   }
   to {
     
-    transform: rotateY(360deg) rotateX(360deg);
+    transform: rotateY(360deg) rotateX(0deg);
   }
 }
 
 /* Settings */
 
 #settings-container {
-  overflow-x: hidden;
-  background-color: seashell;
-  height: 100%;
-  width: var(--set-width);
   display: flex;
   flex-direction: column;
-  padding: 1em;
-  animation-duration: 6s;
-  animation-name: slide; 
-  animation-delay: 1s;
-  animation-iteration-count: infinite;
+  overflow: hidden;
+  flex-grow: 1;
+  transition: 0.5s;
+  background-color: seashell;
 }
 
 #settings-container > * {
-  margin-bottom: 0.5em;
+  
+  all: unset;
+  text-align: center;
+  box-sizing: border-box;
+  background: silver;
+  
 }
 
-@keyframes slide {
-  0% {
-    width: 0%;
-  }
-  50% {
-    width: 25%;
-  }
-  100% {
-    width: 0%;
-  }
-}
 
 
 
@@ -111,6 +107,8 @@ main {
 
 /* funny text */
 h1 {
+  background-color: white;
+  display: none;
   top: 50%;
   transform: translateY(-50%);
   color: white;

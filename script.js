@@ -158,18 +158,8 @@ function render(obj) {
 }
 // Settings button
  
-const setMenu = document.getElementById('settings-menu');
-settingsBtn.addEventListener('click', function () {
-  if (window.getComputedStyle(setMenu).top < '0') {
-    setMenu.classList.remove('slide-up');
-    setMenu.classList.add('slide-down');
-  }
-  else {
-    setMenu.classList.remove('slide-down');
-    setMenu.classList.add('slide-up');
-  }
-  
-});
+const settings = document.getElementById('settings-container');
+
 
 //Select options
 
@@ -258,4 +248,15 @@ apply.addEventListener('click', function () {
     window.alert("Above 180, your phone will run into performance issues. Going below 0 is redundant ;)."); 
 })
 
+settings.addEventListener('click', function() {
+  let settingsStyle = window.getComputedStyle(settings)
+  if (parseInt(settingsStyle.getPropertyValue('flex-grow')) > 0 ) {
+    settings.style.setProperty('flex-grow', '0');
+    settings.style.setProperty('width', '0');
+  }
+  else {
+    settings.style.setProperty('flex-grow', '1');
+    settings.style.setProperty('width', 'auto');
+  }
+})
 
