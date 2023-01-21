@@ -17,12 +17,13 @@
 
     <div id = "settings-container">
 <!-- general -->
-        <div id = "general">
+        <div class="flex-cont" id = "general">
           <div class="tab">General</div>
         <select id="color-select">
           <option>Select Color</option>
           <option value = "white">White</option>
           <option value = "black">Black</option>
+          <option value = "drkred">Dark Red</option>
           <option value = "grey">Grey</option>
           <option value = "gains">Gainsboro</option>
           <option value = "turquoise">Turquoise</option>
@@ -35,6 +36,7 @@
         <select id="bg-select">
           <option>Select Background</option>
           <option value = "white">White</option>
+          <option value = "drkred">Dark Red</option>
           <option value = "black">Black</option>
           <option value = "grey">Grey</option>
           <option value = "gains">Gainsboro</option>
@@ -42,32 +44,34 @@
           <option value = "pink">Pink</option>
           <option value = "orange">Orange</option>
           <option value = "drkMidnight">Dark Midnight</option>
+          <option value = "drkForest">Dark Forest</option>
           <option value = "tron">Tron blue</option>
         </select>
-        <input id = "div-num" placeholder="Number of div elements. Enter 0 - 180." type="number" min="0" max="180" value="90">
-        <input id = "deg-sep" placeholder="Degrees of seperation" type = "number" value="2">
+        <input id = "div-num" placeholder="Number of div elements. Enter 0 - 180." type="number" min="0" max="180" value="45">
+        <input id = "deg-sep" placeholder="Degrees of seperation" type = "number" value="1">
         <select id = 'shape-select'>
           <option value="sphere">Ball</option>
           <option value="cylinder">Can</option>
           <option value="egg">Egg</option>
+          <option value="about">About</option>
         </select>
         <button id= "apply">Apply Changes</button> 
         </div>
 <!-- manipulate -->
-        <div id = "manipulate">
+        <div class="flex-cont" id = "manipulate">
           <div class="tab">Rotate</div>
           
           <div class="slider-container">
             <p>rotateX</p>
-            <input class="rotate" type="range" min="0" max="360">
+            <input class="rotate" value='0' type="range" min="0" max="360">
           </div>
           <div class="slider-container">
             <p>rotateY</p>
-            <input class="rotate" type="range" min="0" max="360">
+            <input class="rotate" value='0' type="range" min="0" max="360">
           </div>
           <div class="slider-container">
             <p>rotateZ</p>
-            <input class="rotate" type="range" min="0" max="360">
+            <input class="rotate" value='0' type="range" min="0" max="360">
           </div>
           <label>
             <p>spin</p>
@@ -86,6 +90,9 @@
       </div>
       <h1 id="text">Have fun!</h1>
       <div id="sphere"></div>
+      <div id="about">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vestibulum justo viverra iaculis convallis. Nulla sapien elit, sollicitudin sed arcu eget, viverra semper nunc. Etiam efficitur maximus nibh sit amet dapibus. Nam sodales at arcu nec tempus. In convallis et lacus vitae eleifend. Suspendisse tincidunt tortor nec dictum pharetra. Proin fermentum ante a dui rutrum laoreet. Nullam auctor congue magna eu eleifend. Phasellus commodo dui a fermentum gravida. Suspendisse bibendum mauris volutpat est aliquam, in egestas erat tristique. Ut et odio eget augue aliquet convallis.</p>
+      </div>
     </div>
 
   </main>

@@ -4,11 +4,11 @@
 :root {
   font-size: 20px;
   --turquoise: #30d5c8;
-  --color: #7DFDFE;
+  --color: #555;
   --direction: 'normal';
   --height: 15rem;
   --width: 15rem;
-  --bg: black;
+  --bg: beige;
   --rotx: 0deg;
   --roty: 0deg;
   --rotz: 0deg;
@@ -31,6 +31,8 @@ body {
 }
 
 .men-btn{
+  position: relative;
+  z-index: 2;
   font-size: 1em;
   background-color: beige ;
   display: flex;
@@ -42,7 +44,8 @@ body {
   margin: auto;
   margin-right: 0;
   overflow: hidden;
-  transition: 1s;
+  transition: 0.8s;
+  font-weight: bolder;
 }
 .men-btn:hover {
   cursor: pointer;
@@ -59,6 +62,8 @@ body {
 
 /* Everything Container */
 main {
+  overflow: hidden;
+  transform: rotate3d(1,1,0,0deg);
   transform-style: preserve-3d;
   display: flex;
   flex-direction: row-reverse;
@@ -66,6 +71,8 @@ main {
   height: 100vh;
   width: 100vw;
 }
+
+
 
 /* 3d-space-container */
 #god {
@@ -77,55 +84,101 @@ main {
   transition: 5s;
   background-color: var(--bg);
   flex-grow: 3;
+
 }
 
 
 
 .face {
-  border-style: dotted;
+  border-style: solid;
   border-width: 1px;
-  border-color: var(--color);
   position: absolute;
   border-radius: 100%;
   width: var(--width);
   height: var(--height);
-  opacity: 0.3;
-  filter: blur(1px);
+  opacity: 1;
+  filter: blur(2px);
+  transition: 3s;
+  border-color: var(--color);
 }
 
+
+
+
 #sphere {
-  position: absolute;
+  position: fixed;
   transform-style: preserve-3d;
   transform: perspective(500px) rotateX(var(--rotx)) rotateY(var(--roty)) rotateZ(var(--rotz)) ;
-  position: relative;
-  top: calc(50% - var(--height)/2);
+  /* top: calc(50% - var(--height)/2); */
   left: calc(50% - var(--width)/2);
   height: var(--height);
   width: var(--width);
+  
   animation-name: rotate;
-  animation-duration: 5s;
+  animation-duration: 10s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
-  animation-direction: forward;
+
 }
 
 @keyframes rotate {
-  from {
+  0% {
 
-    transform: perspective(500px) translate3d(var(--x), var(--y), var(--z)) rotateZ(var(--rotz)) rotateY(var(--roty)) rotateX(var(--rotx));
+    transform: translate3d(0,0,0) perspective(800px) rotateZ(var(--rotz)) rotateY(var(--roty)) rotateX(var(--rotx));
   }
-  to {
+  100% {
 
-    transform: perspective(500px) translate3d(-5em,-5em,-20em) rotateZ(calc(360deg + var(--rotz))) rotateY(var(--roty)) rotateX(calc(360deg + var(--rotx)));
+    transform: translate3d(8em,-2em, 0) perspective(800px) rotateZ(calc(180deg + var(--rotz))) rotateY(var(--roty)) rotateX(calc(180deg + var(--rotx)));
+  }
+  100% {
+
+    transform: translate3d(0,0,0) perspective(800px)  rotateZ(calc(360deg + var(--rotz))) rotateY(var(--roty)) rotateX(calc(360deg + var(--rotx)));
   }
 }
+
+/* about */
+
+#about {
+  
+  transform-style: preserve-3d;
+  position: relative;
+  background-color: white;
+  width: 30em;
+  height: 15em;
+  margin: auto;
+  animation-name: hover;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#about p {
+  user-select: text;
+  padding: 2em;
+  font-size: 0.8em;
+  color: black;
+  transform: translate3d(0,0,2em);
+}
+
+@keyframes hover {
+  from {
+    transform: perspective(200px) rotate3d(1,2,0,-15deg) translate3d(0,0em,0);
+  }
+  to {
+    transform: perspective(200px) rotate3d(1,2,0, 15deg) translate3d(0,2em,0);
+  }
+}
+
+
+
 
 /* Settings */
 
 
+
 #settings-container {
   color: #333;
-  z-index: 0;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -140,8 +193,9 @@ main {
   display: flex;
   flex-direction: column;
   background-color: salmon;
-  flex-grow: 1;
-  transition: 1s;
+  height: 1.8em;
+  flex-grow: 0;
+  transition: 0.7s;
   overflow: hidden;
 }
 
@@ -149,15 +203,22 @@ main {
   margin-bottom: 0.5em;
   all: unset;
   overflow: hidden;
+  transition: 0.1s;
+}
+
+#general > *:not(.tab):hover {
+  color: white;
+  background-color: #666;
 }
 
 #manipulate {
   padding: 0em 1.5em 0em;
   display: flex;
   flex-direction: column;
-  background-color: violet;
-  flex-grow: 1;
-  transition: 1s;
+  background-color: sandybrown;
+  height: 1.8em;
+  flex-grow: 0;
+  transition: 0.7s;
   overflow: hidden;
 }
 
@@ -166,22 +227,31 @@ main {
   margin-bottom: 0.5em;
 }
 
+
 .tab {
+  font-weight: bolder;
   padding: 0.1em 0;
   font-size: 1.3em;
 }
 
+
 /* funny text */
+
+
 #text {
+  transition: 3s;
+  z-index: 2;
   margin: auto;
-  top: 50%;
+  top: 60%;
   transform: translateY(-50%);
-  color: white;
+  color: var(--color);
   position: relative;
-  font-size: 0.7em;
+  font-size: 1em;
   text-align: center;
   font-weight: 100;
 }
+
+
 
 
 
