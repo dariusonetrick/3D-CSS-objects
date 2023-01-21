@@ -5,7 +5,11 @@ var circles = 45;
 var inc = 1;
 const faces = document.getElementsByClassName("face");
 const text = document.getElementById("text");
+const about = document.getElementById('about');
 
+// About Card :)
+
+let abtGrid = document.querySelectorAll('#about div');
 
 
 
@@ -117,9 +121,6 @@ const EggObj = {
   opactiy: '1'
 }
 
-function about () {
-  
-}
 
 var currObj = null;
 
@@ -265,50 +266,21 @@ apply.addEventListener('click', function () {
     window.alert("Above 180, your phone will run into performance issues. Going below 0 is redundant ;)."); 
 })
 
-// Sliding Menu
-const menuBtn = document.getElementById('open-menu-btn');
-const clsBtn = document.getElementById('cls-men-btn');
-Array.from(document.getElementsByClassName('men-btn')).forEach( el => el.addEventListener('click', ()=>{menBtns()}));
 
-function menBtns() {
-  let settingsStyle = window.getComputedStyle(settings)
-  if (parseInt(settingsStyle.getPropertyValue('flex-grow')) > 0 ) {
-    clsBtn.style.setProperty('width', '0');
-    menuBtn.style.setProperty('width', '6em');
-    settings.style.setProperty('flex-grow', '0');
-    settings.style.setProperty('width', '0');
+// All the different menus within Settings Container
+settings.addEventListener('click', (e) => {
+  const target = e.target;
+  if (target.matches('.tab')) {
+    let targetParent = window.getComputedStyle(target.parentElement);
+    if (targetParent.getPropertyValue('flex-grow') !== '0') {
+      target.parentElement.style.setProperty('flex-grow', '0');
+      target.parentElement.style.setProperty('height', window.getComputedStyle(target).getPropertyValue('height'));
+    }
+    else {
+      target.parentElement.style.setProperty('flex-grow', '1');
+    }
   }
-  else {
-    clsBtn.style.setProperty('width', '6em');
-    menuBtn.style.setProperty('width','0');
-    settings.style.setProperty('flex-grow', '1');
-  }
-}
-
-// Sliding General Settings
-const general = document.getElementById('general').firstElementChild;
-general.addEventListener('click', function(){
-  let generalStyle = window.getComputedStyle(general.parentElement);
-  if (generalStyle.getPropertyValue('flex-grow') !== '0') {
-    general.parentElement.style.setProperty('flex-grow', '0');
-    general.parentElement.style.setProperty('height', window.getComputedStyle(general).getPropertyValue('height'));
-  }
-  else {
-    general.parentElement.style.setProperty('flex-grow', '1');
-  }
-});
-
-const manipulate = document.getElementById('manipulate').firstElementChild;
-manipulate.addEventListener('click', function(){
-  let manipulateStyle = window.getComputedStyle(manipulate.parentElement);
-  if (manipulateStyle.getPropertyValue('flex-grow') !== '0') {
-    manipulate.parentElement.style.setProperty('flex-grow', '0');
-    manipulate.parentElement.style.setProperty('height', window.getComputedStyle(manipulate).getPropertyValue('height'));
-  }
-  else {
-    manipulate.parentElement.style.setProperty('flex-grow', '1');
-  }
-});
+}) 
 
 // Rotates
 const sphere = document.getElementById('sphere');

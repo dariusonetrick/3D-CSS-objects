@@ -8,13 +8,14 @@
   --direction: 'normal';
   --height: 15rem;
   --width: 15rem;
-  --bg: beige;
+  --bg: #aaa;
   --rotx: 0deg;
   --roty: 0deg;
   --rotz: 0deg;
   --x: 0;
   --y: 0;
   --z: 0;
+  --slideW: 20vw;
 }
 
 /* We don't want users being able to select text */
@@ -24,68 +25,51 @@
 }
 
 body {
-  position: relative;
   padding: 0;
   margin: 0;
   font-family: montserrat, sans-serif;
 }
 
-.men-btn{
-  position: relative;
-  z-index: 2;
-  font-size: 1em;
-  background-color: beige ;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 6em;
-  height: 2.5em;
-  color: black;
-  margin: auto;
-  margin-right: 0;
-  overflow: hidden;
-  transition: 0.8s;
-  font-weight: bolder;
-}
-.men-btn:hover {
-  cursor: pointer;
-}
-.men-btn:nth-of-type(2) {
-  width: 0;
-  background: red;
-  color: white;
-  top: 0;
-  
-}
-
 
 
 /* Everything Container */
-main {
+html, body, main {
+  width: 100%;
+  height: 100%;
   overflow: hidden;
-  transform: rotate3d(1,1,0,0deg);
-  transform-style: preserve-3d;
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: stretch;
-  height: 100vh;
-  width: 100vw;
 }
-
-
 
 /* 3d-space-container */
-#god {
-  background-color: green;
-  flex-grow: 1;
-}
-#space {
-  overflow: hidden;
-  transition: 5s;
-  background-color: var(--bg);
-  flex-grow: 3;
 
+#space {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: transform 1s ease;
+  background-color: var(--bg);
 }
+
+#men-btn ~ label {
+  position: absolute;
+  background-color: white;
+  z-index: 3;
+  height: 2em;
+  width: 2em;
+  cursor: pointer;
+  transition: transform 1s;
+  top: 0;
+  left: 0;
+}
+
+#men-btn:checked ~ #space {
+  transform: translateX(var(--slideW));
+}
+#men-btn:checked ~ label {
+  transform: translateX(var(--slideW));
+}
+
 
 
 
@@ -106,7 +90,7 @@ main {
 
 
 #sphere {
-  position: fixed;
+  position: absolute;
   transform-style: preserve-3d;
   transform: perspective(500px) rotateX(var(--rotx)) rotateY(var(--roty)) rotateZ(var(--rotz)) ;
   /* top: calc(50% - var(--height)/2); */
@@ -139,26 +123,23 @@ main {
 /* about */
 
 #about {
-  
   transform-style: preserve-3d;
   position: relative;
   background-color: white;
-  width: 30em;
-  height: 15em;
+  width: 10em;
+  height: 10em;
   margin: auto;
-  animation-name: hover;
-  animation-duration: 4s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+  box-shadow: 0 0 2em 1px #999;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 1px;
+  transition: 0.5s;
+}
+#about div {
+  border: 1px solid black;
 }
 
-#about p {
-  user-select: text;
-  padding: 2em;
-  font-size: 0.8em;
-  color: black;
-  transform: translate3d(0,0,2em);
-}
 
 @keyframes hover {
   from {
@@ -177,61 +158,55 @@ main {
 
 
 #settings-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: var(--slideW);
   color: #333;
-  z-index: 1;
+  z-index: 0;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  flex-grow: 0;
-  width: 0;
   transition: 1s;
   background-color: seashell;
 }
 
-#general  {
+.set-item {
   padding: 0em 1.5em 0em;
   display: flex;
   flex-direction: column;
-  background-color: salmon;
   height: 1.8em;
   flex-grow: 0;
   transition: 0.7s;
-  overflow: hidden;
+  overflow: hidden; 
 }
 
-#general > *:not(.tab) {
+#general  {
+  background-color: salmon;
+}
+
+#manipulate {
+  background-color: sandybrown;
+}
+
+.set-menu > *:not(.tab) {
   margin-bottom: 0.5em;
   all: unset;
   overflow: hidden;
   transition: 0.1s;
 }
 
-#general > *:not(.tab):hover {
+.set-menu > *:not(.tab):hover {
   color: white;
   background-color: #666;
 }
-
-#manipulate {
-  padding: 0em 1.5em 0em;
-  display: flex;
-  flex-direction: column;
-  background-color: sandybrown;
-  height: 1.8em;
-  flex-grow: 0;
-  transition: 0.7s;
-  overflow: hidden;
-}
-
-#manipulate > *:not(.tab) {
-  font-size: 0.7em;
-  margin-bottom: 0.5em;
-}
-
 
 .tab {
   font-weight: bolder;
   padding: 0.1em 0;
   font-size: 1.3em;
+  text-align: right;
 }
 
 
