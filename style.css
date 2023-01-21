@@ -17,7 +17,11 @@
   --z: 0;
   --slideW: 20vw;
 }
-
+@media (max-width: 848px )  {
+  :root {
+    --slideW: 40vw;
+  }
+}
 /* We don't want users being able to select text */
 * {
   box-sizing: border-box;
@@ -53,11 +57,11 @@ html, body, main {
 
 #men-btn ~ label {
   position: absolute;
-  background-color: white;
+  background-color: transparent;
   z-index: 3;
-  height: 2em;
-  width: 2em;
   cursor: pointer;
+  margin: 5px;
+  padding: 5px;
   transition: transform 1s;
   top: 0;
   left: 0;
@@ -68,6 +72,29 @@ html, body, main {
 }
 #men-btn:checked ~ label {
   transform: translateX(var(--slideW));
+}
+
+.bar {
+  width: 30px;
+  height: 5px;
+  background: var(--color);
+  margin: 5px auto;
+  border-radius: 5%;
+  transition: 1s;
+}
+
+#men-btn:checked ~ label .top {
+  transform: translateY(10px) rotateZ(135deg);
+}
+#men-btn:checked ~ label .bottom {
+  transform: translateY(-10px) rotateZ(45deg);
+}
+#men-btn:checked ~ label .middle {
+  width: 0;
+}
+
+#men-btn:checked ~ label .bar {
+  background-color: red;
 }
 
 
