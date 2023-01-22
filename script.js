@@ -268,24 +268,25 @@ rotArr = document.getElementsByClassName('rotate');
 
 Array.from(rotArr).forEach((el) => {
   el.addEventListener('input', () => {
-    rotate3d(rotArr[0].value, rotArr[1].value, rotArr[2].value)
+    rotate3d(rotArr[0].value, rotArr[1].value, rotArr[2].value, rotArr[3].value)
   })
 })
 
-function rotate3d(x, y, z) {
+function rotate3d(x, y, z, p) {
   root.style.setProperty('--rotx', `${x}deg`);
   root.style.setProperty('--roty', `${y}deg`);
   root.style.setProperty('--rotz', `${z}deg`);
+  root.style.setProperty('--pers', `${p}px`)
 }
 
 // toggle on spin
 const spinTog = document.getElementById('spin');
 spinTog.addEventListener('input', function () {
   if (!this.checked) {
-    entity.style.animationPlayState = 'paused';
+    entity.style.animationDuration = '0ms';
   }
   else {
-    entity.style.animationPlayState = 'running';
+    entity.style.animationDuration = '2000ms';
   }
 })
 

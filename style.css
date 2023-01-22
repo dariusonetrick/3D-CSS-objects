@@ -8,16 +8,20 @@
   --direction: 'normal';
   --height: 15rem;
   --width: 15rem;
-  --bg: #aaa;
+  --bg: #eee;
+
+  /* Object transform properties */
   --rotx: 0deg;
   --roty: 0deg;
   --rotz: 0deg;
+  --pers: 500px;
+
   --slideW: 20vw;
-  --setbg: #444;
+  --setbg: beige;
   --bg1: none;
   --bg2: none;
   --bg3: none;
-  --menC: seashell;
+  --menC: #333;
 }
 @media (max-width: 848px )  {
   :root {
@@ -56,7 +60,7 @@ html, body, main {
   height: 100%;
   transition: transform 1s ease, background-color 6s;
   background-color: var(--bg);
-  perspective: 800px;
+  perspective: var(--pers);
 }
 
 #men-btn {
@@ -128,14 +132,15 @@ html, body, main {
   transform:  rotateX(var(--rotx)) rotateY(var(--roty)) rotateZ(var(--rotz)) ;
   /* top: calc(50% - var(--height)/2); */
   left: calc(50% - var(--width)/2);
+  top: 27%;
   height: var(--height);
   width: var(--width);
   
   animation-name: rotate;
-  animation-duration: 10s;
+  animation-duration: 0s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
-  animation-play-state: paused;
+  animation-play-state: running;
 }
 
 @keyframes rotate {
@@ -158,12 +163,12 @@ html, body, main {
 #about {
   
   position: absolute;
-  left: calc(50% - var(--width)/2);
-  background-color: white;
+  left: calc(50% - 5em);
+  top: 27%;
   width: 10em;
   height: 10em;
   margin: auto;
-  box-shadow: 0 0 2em 1px #999;
+  /* box-shadow: 0 0 2em 1px #999; */
   display: block;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto;
@@ -171,26 +176,51 @@ html, body, main {
   transition: 2s;
   transition-timing-function: ease-in-out;
   transform-style: preserve-3d;
-  transform: rotateX(var(--rotx)) rotateY(var(--roty)) rotateZ(var(--rotz));
+  transform: rotateX(var(--rotx)) rotateY(var(--roty)) rotateZ(var(--rotz)) ;
   animation-name: hover;
-  animation-duration: 2s;
+  animation-duration: 0s;
   animation-iteration-count: infinite;
-  animation-play-state: paused;
+  animation-play-state: running;
+}
+
+#r {
+  position: absolute;
+  height: 5em;
+  width: 10em;
+  bottom: 50%;
+
+  z-index: 1;
+}
+#l {
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  height: 5em;
+  width: 10em;
+} 
+
+#r:hover ~ p {
+  transform: rotateX(40deg);
+}
+#l:hover ~ p {
+  transform: rotateX(-40deg);
 }
 
 #about p {
+  padding: 1em;
+  color: black;
   position: absolute;
-  font-size: 0.65em;
-  transform: translateZ(3em);
+  font-size: 0.5em;
+  top: 0;
+  transition: 0.2s;
+   box-shadow: 0 0 2em 1px #999;
 }
 
-#about:hover {
-  transform: translate3d(0,0,20em);
-}
+
 
 @keyframes hover {
   from {
-    transform: rotateX(calc(var(--rotx))) rotateY(var(--roty)) rotateZ(var(--rotz));
+    transform: rotateX(calc(var(--rotx))) rotateY(var(--roty)) rotateZ(var(--rotz)) ;
   }
   to {
     transform: rotateX(calc(var(--rotx) + 360deg)) rotateY(calc(var(--roty) + -360deg)) rotateZ(var(--rotz));
@@ -235,11 +265,13 @@ html, body, main {
   margin: 0.1em 7px;
   font-size: 1em;
   padding-top: 0;
+  overflow-x: hidden;
 }
 
 .set-item section * {
   margin-top: 0;
   margin-bottom: 5px;
+
 }
 
 .set-item:nth-child(1) > section p {
@@ -251,6 +283,10 @@ html, body, main {
   padding: 0.3em 0;
 }
 
+input[type='range'] {
+  
+  width: 100%;
+}
 
 #apply {
   background-color: white;
