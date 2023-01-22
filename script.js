@@ -15,21 +15,21 @@ let abtGrid = document.querySelectorAll('#about div');
 
 // divCreation(inc, circles);
 
-function divCreation (inc, circles) {
-let deg = 0;
+function divCreation(inc, circles) {
+  let deg = 0;
 
-for (let i = 0; i < circles; i++) {
-  let div = document.createElement("div");
-  document.getElementById("sphere").appendChild(div);
-  div.style.setProperty('transform', `rotateY(${deg}deg)`)
-  div.style.setProperty('animation-delay', `${deg*0.05/inc}s`);
-  div.classList.add("face");
-  deg += inc;
-}
-text.innerText = `${circles} divs rendered, seperated by ${inc}° each`;
+  for (let i = 0; i < circles; i++) {
+    let div = document.createElement("div");
+    document.getElementById("sphere").appendChild(div);
+    div.style.setProperty('transform', `rotateY(${deg}deg)`)
+    div.style.setProperty('animation-delay', `${deg * 0.05 / inc}s`);
+    div.classList.add("face");
+    deg += inc;
+  }
+  text.innerText = `${circles} divs rendered, seperated by ${inc}° each`;
 }
 
-function divDeath () {
+function divDeath() {
   document.getElementById('sphere').innerHTML = '';
 }
 
@@ -74,11 +74,11 @@ function move(e) {
 
   x = e.touches[0].clientX;
   y = e.touches[0].clientY;
-    
- 
-    ball.style.top = ball.offsetTop - newY + "px";
-    ball.style.left = ball.offsetLeft - newX + "px";
-    
+
+
+  ball.style.top = ball.offsetTop - newY + "px";
+  ball.style.left = ball.offsetLeft - newX + "px";
+
 }
 
 
@@ -91,11 +91,11 @@ function mouseMove(e) {
 
   x = e.clientX;
   y = e.clientY;
- 
+
 
   ball.style.top = ball.offsetTop - newY + "px";
   ball.style.left = ball.offsetLeft - newX + "px";
-  
+
 }
 
 
@@ -146,24 +146,22 @@ shapeSelect.addEventListener('change', function () {
       root.style.setProperty('--bg', 'beige');
       divDeath();
   }
-} );
+});
 
 // Action select
 
-
-
 function render(obj) {
-  if (faces.length < 1) 
+  if (faces.length < 1)
     divCreation(inc, circles)
-  
+
   for (let i in faces) {
     for (let prop in obj) {
       faces[i].style[prop] = obj[prop];
     }
-  }  
+  }
 }
 // Settings button
- 
+
 const settings = document.getElementById('settings-container');
 
 
@@ -172,43 +170,66 @@ const settings = document.getElementById('settings-container');
 const root = document.querySelector(':root');
 const colorSelect = document.getElementById("color-select");
 const bgSelect = document.getElementById("bg-select");
+const themeSelect = document.getElementById('color-theme');
 const divNum = document.getElementById("div-num");
 const degSep = document.getElementById("deg-sep");
 const apply = document.getElementById("apply");
 
+function themeChange(color,menC,bg,bg1,bg2,bg3,setbg) {
+  root.style.setProperty('--color', color);
+  root.style.setProperty('--menC', menC);
+  root.style.setProperty('--bg', bg);
+  root.style.setProperty('--bg1', bg1);
+  root.style.setProperty('--bg2', bg2);
+  root.style.setProperty('--bg3', bg3);
+  root.style.setProperty('--setbg', setbg);
+}
+themeSelect.addEventListener('change', function () {
+  switch (this.value) {
+    case 'night':
+      themeChange('#fee','white','rgb(0,0,30)','#614cbf','#48459a','#353283','#253569');
+      break;
+    case 'default':
+      themeChange('#555','seashell','#aaa','none','none','none','#444')
+      break;
+    case 'white':
+       themeChange('#222','#222','white','white','white','white','white');
+       break;
+  }
+})
 
 colorSelect.addEventListener('change', function () {
-  switch (colorSelect.value) {
+  switch (this.value) {
     case "white":
       root.style.setProperty('--color', 'white');
       break;
     case "black":
       root.style.setProperty('--color', 'black');
-      break;   
+      break;
     case "drkred":
       root.style.setProperty('--color', '#100000');
       break;
     case "turquoise":
       root.style.setProperty('--color', 'var(--turquoise)');
-      break;  
+      break;
     case "grey":
       root.style.setProperty('--color', '#555');
-      break;  
+      break;
     case "crimson":
       root.style.setProperty('--color', 'crimson');
-      break;  
+      break;
     case "pink":
-      root.style.setProperty('--color', 'pink'); 
-      break;  
+      root.style.setProperty('--color', 'pink');
+      break;
     case "orange":
       root.style.setProperty('--color', 'orange');
-      break;  
+      break;
     case "drkMidnight":
-      root.style.setProperty('--color', '#000015'); 
-      break;  
+      root.style.setProperty('--color', '#000015');
+      break;
     case "tron":
-      root.style.setProperty('--color', '#7DFDFE'); 
-      break;  
+      root.style.setProperty('--color', '#7DFDFE');
+      break;
     case "gains":
       root.style.setProperty('--color', '#DCDCDC');
       break;
@@ -223,31 +244,31 @@ bgSelect.addEventListener('change', function () {
       break;
     case "black":
       root.style.setProperty('--bg', 'black');
-      break;      
+      break;
     case "drkred":
       root.style.setProperty('--bg', '#100000');
       break;
     case "grey":
       root.style.setProperty('--bg', '#555');
-      break;  
+      break;
     case "drkForest":
       root.style.setProperty('--bg', "#22311d");
       break;
     case "crimson":
       root.style.setProperty('--bg', 'crimson');
-      break;  
+      break;
     case "pink":
-      root.style.setProperty('--bg', 'pink'); 
-      break;  
+      root.style.setProperty('--bg', 'pink');
+      break;
     case "orange":
-      root.style.setProperty('--bg', 'orange'); 
-      break;  
+      root.style.setProperty('--bg', 'orange');
+      break;
     case "drkMidnight":
-      root.style.setProperty('--bg', '#000015'); 
-      break;  
+      root.style.setProperty('--bg', '#000015');
+      break;
     case "tron":
-      root.style.setProperty('--bg', '#7DFDFE'); 
-      break;  
+      root.style.setProperty('--bg', '#7DFDFE');
+      break;
     case "gains":
       root.style.setProperty('--bg', '#DCDCDC');
       break;
@@ -256,14 +277,14 @@ bgSelect.addEventListener('change', function () {
 
 apply.addEventListener('click', function () {
   if (divNum.value >= 0 && divNum.value <= 180) {
-  divDeath();
-  inc = parseInt(degSep.value);
-  circles = parseInt(divNum.value);
-  divCreation(parseInt(degSep.value), (parseInt(divNum.value)));
-  render(currObj);
+    divDeath();
+    inc = parseInt(degSep.value);
+    circles = parseInt(divNum.value);
+    divCreation(parseInt(degSep.value), (parseInt(divNum.value)));
+    render(currObj);
   }
-  else 
-    window.alert("Above 180, your phone will run into performance issues. Going below 0 is redundant ;)."); 
+  else
+    window.alert("Above 180, your phone will run into performance issues. Going below 0 is redundant ;).");
 })
 
 
@@ -280,33 +301,33 @@ settings.addEventListener('click', (e) => {
       target.parentElement.style.setProperty('flex-grow', '1');
     }
   }
-}) 
+})
 
 // Rotates
 const sphere = document.getElementById('sphere');
 rotArr = document.getElementsByClassName('rotate');
 
-Array.from(rotArr).forEach( (el) => {
+Array.from(rotArr).forEach((el) => {
   el.addEventListener('input', () => {
     rotate3d(rotArr[0].value, rotArr[1].value, rotArr[2].value)
   })
 })
 
-function rotate3d(x,y,z){
+function rotate3d(x, y, z) {
   root.style.setProperty('--rotx', `${x}deg`);
-  root.style.setProperty('--roty',`${y}deg`);
-  root.style.setProperty('--rotz',`${z}deg`);
+  root.style.setProperty('--roty', `${y}deg`);
+  root.style.setProperty('--rotz', `${z}deg`);
 }
 
 // toggle on spin
 const spinTog = document.getElementById('spin');
-spinTog.addEventListener('input', function(){
+spinTog.addEventListener('input', function () {
   if (!this.checked) {
-      sphere.style.animationPlayState = 'paused';
-    }
+    sphere.style.animationPlayState = 'paused';
+  }
   else {
     sphere.style.animationPlayState = 'running';
-    }
+  }
 })
 
 

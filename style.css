@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
 
 :root {
   font-size: 20px;
@@ -12,10 +12,12 @@
   --rotx: 0deg;
   --roty: 0deg;
   --rotz: 0deg;
-  --x: 0;
-  --y: 0;
-  --z: 0;
   --slideW: 20vw;
+  --setbg: #444;
+  --bg1: none;
+  --bg2: none;
+  --bg3: none;
+  --menC: seashell;
 }
 @media (max-width: 848px )  {
   :root {
@@ -57,6 +59,9 @@ html, body, main {
   perspective: 800px;
 }
 
+#men-btn {
+  display: none;
+}
 #men-btn ~ label {
   position: absolute;
   background-color: transparent;
@@ -201,13 +206,13 @@ html, body, main {
   top: 0;
   bottom: 0;
   width: var(--slideW);
-  color: #333;
+  color: var(--menC);
   z-index: 0;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   transition: 1s;
-  background-color: seashell;
+  background-color: var(--setbg);
 }
 
 .set-item {
@@ -216,6 +221,7 @@ html, body, main {
   height: 2.1em;
   flex-grow: 0;
   transition: 0.7s;
+  
 }
 
 .set-item section {
@@ -241,9 +247,6 @@ html, body, main {
   padding: 0.3em 0;
 }
 
-#general  {
-  background-color: salmon;
-}
 
 #apply {
   background-color: white;
@@ -261,11 +264,15 @@ html, body, main {
   color: white;
 }
 
-#manipulate {
-  background-color: sandybrown;
+/* Tab colors */
+.set-item:nth-child(1)  {
+  background: var(--bg1);
+}
+.set-item:nth-child(2) {
+  background: var(--bg2);
 }
 .set-item:nth-child(3) {
-  background-color: pink;
+  background: var(--bg3);
 }
 
 .tab {
