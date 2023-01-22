@@ -5,11 +5,22 @@ var circles = 45;
 var inc = 1;
 const faces = document.getElementsByClassName("face");
 const text = document.getElementById("text");
-const about = document.getElementById('about');
+
 
 // About Card :)
 
 let abtGrid = document.querySelectorAll('#about div');
+
+// Objects
+const about = document.getElementById('about');
+const sphere = document.getElementById('sphere');
+
+
+
+var entity = about;
+
+
+
 
 
 
@@ -34,72 +45,6 @@ function divDeath() {
 }
 
 
-
-
-
-
-let ball = document.getElementById('sphere');
-let x, y, newX, newY;
-
-// Touch interact
-ball.addEventListener("touchstart", function (e) {
-  x = e.touches[0].clientX;
-  y = e.touches[0].clientY;
-  ball.style.animationPlayState = "paused";
-  document.addEventListener("touchmove", move);
-
-  document.addEventListener("touchend", function () {
-    ball.style.animationPlayState = "running";
-    document.removeEventListener("touchmove", move);
-  });
-});
-
-// Mouse Interact
-ball.addEventListener("mousedown", function (e) {
-  x = e.clientX;
-  y = e.clientY;
-  // ball.style.animationPlayState = "paused";
-  document.addEventListener("mousemove", mouseMove);
-
-  document.addEventListener("mouseup", function () {
-    // ball.style.animationPlayState = "running";
-    document.removeEventListener("mousemove", mouseMove);
-  });
-});
-
-// Touchscreen Move
-function move(e) {
-  newX = x - e.touches[0].clientX;
-  newY = y - e.touches[0].clientY;
-
-  x = e.touches[0].clientX;
-  y = e.touches[0].clientY;
-
-
-  ball.style.top = ball.offsetTop - newY + "px";
-  ball.style.left = ball.offsetLeft - newX + "px";
-
-}
-
-
-
-
-// Mouse move
-function mouseMove(e) {
-  newX = (x - e.clientX);
-  newY = (y - e.clientY);
-
-  x = e.clientX;
-  y = e.clientY;
-
-
-  ball.style.top = ball.offsetTop - newY + "px";
-  ball.style.left = ball.offsetLeft - newX + "px";
-
-}
-
-
-
 const SphereObj = {
   borderRadius: '100%',
   width: 'var(--width)',
@@ -122,7 +67,7 @@ const EggObj = {
 }
 
 
-var currObj = 'sphere';
+var currObj = SphereObj;
 
 
 // Shapes select
@@ -131,18 +76,30 @@ const shapeSelect = document.getElementById('shape-select');
 shapeSelect.addEventListener('change', function () {
   switch (shapeSelect.value) {
     case 'sphere':
+      entity.style.display = 'none';
+      entity = sphere;
+      entity.style.display = 'block';
       render(SphereObj);
       currObj = SphereObj;
       break;
     case 'cylinder':
+      entity.style.display = 'none';
+      entity = sphere;
+      entity.style.display = 'block';
       render(CylinderObj);
       currObj = CylinderObj;
       break;
     case 'egg':
+      entity.style.display = 'none';
+      entity = sphere;
+      entity.style.display = 'block';
       render(EggObj);
       currObj = EggObj;
       break;
     case 'about':
+      entity.style.display = 'none';
+      entity = about;
+      entity.style.display = 'block';
       root.style.setProperty('--bg', 'beige');
       divDeath();
   }
@@ -276,6 +233,8 @@ bgSelect.addEventListener('change', function () {
 })
 
 apply.addEventListener('click', function () {
+  if (entity != sphere)
+    return;
   if (divNum.value >= 0 && divNum.value <= 180) {
     divDeath();
     inc = parseInt(degSep.value);
@@ -304,7 +263,7 @@ settings.addEventListener('click', (e) => {
 })
 
 // Rotates
-const sphere = document.getElementById('sphere');
+
 rotArr = document.getElementsByClassName('rotate');
 
 Array.from(rotArr).forEach((el) => {
@@ -323,14 +282,78 @@ function rotate3d(x, y, z) {
 const spinTog = document.getElementById('spin');
 spinTog.addEventListener('input', function () {
   if (!this.checked) {
-    sphere.style.animationPlayState = 'paused';
+    entity.style.animationPlayState = 'paused';
   }
   else {
-    sphere.style.animationPlayState = 'running';
+    entity.style.animationPlayState = 'running';
   }
 })
 
+// MOOOOOVEEEE MEEEEENNNNTTT ////!!!!!!
 
+let x, y, newX, newY;
+// Touch hold
+entity.addEventListener("touchstart", function (e) {
+  x = e.touches[0].clientX;
+  y = e.touches[0].clientY;
+  entity.style.transition = '0s';
+  document.addEventListener("touchmove", move);
+  document.addEventListener("touchend", function () {
+    entity.style.transition = '0.7s';
+    document.removeEventListener("touchmove", move);
+  });
+});
+
+// Mouse Click
+
+  sphere.addEventListener("mousedown", function (e) {
+  
+    x = e.clientX;
+    y = e.clientY;
+    console.log(`xy: ${x},${y}`);
+    document.addEventListener("mousemove", mouseMove);
+    sphere.style.transition = '0s';
+    document.addEventListener("mouseup", function () {
+      sphere.style.transition = '0.7s';
+      document.removeEventListener("mousemove", mouseMove);
+    });
+  });
+  about.addEventListener("mousedown", function (e) {
+  
+    x = e.clientX;
+    y = e.clientY;
+    console.log(`xy: ${x},${y}`);
+    document.addEventListener("mousemove", mouseMove);
+    about.style.transition = '0s';
+    document.addEventListener("mouseup", function () {
+      about.style.transition = '0.7s';
+      document.removeEventListener("mousemove", mouseMove);
+    });
+  });
+
+// Touchscreen Move
+function move(e) {
+  newX = x - e.touches[0].clientX;
+  newY = y - e.touches[0].clientY;
+
+  x = e.touches[0].clientX;
+  y = e.touches[0].clientY;
+
+
+  entity.style.top = entity.offsetTop - newY + "px";
+  entity.style.left = entity.offsetLeft - newX + "px";
+
+}
+
+// Mouse move
+function mouseMove(e) {
+  newX = (x - e.clientX);
+  newY = (y - e.clientY);
+  x = e.clientX;
+  y = e.clientY;
+  entity.style.top = entity.offsetTop - newY + "px";
+  entity.style.left = entity.offsetLeft - newX + "px";
+}
 
 
 

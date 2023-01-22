@@ -33,7 +33,7 @@
 body {
   padding: 0;
   margin: 0;
-  font-family: montserrat, sans-serif;
+  font-family: Montserrat, arial;
 }
 
 
@@ -54,7 +54,7 @@ html, body, main {
   left: 0;
   right: 0;
   height: 100%;
-  transition: transform 1s ease, background-color 3s;
+  transition: transform 1s ease, background-color 6s;
   background-color: var(--bg);
   perspective: 800px;
 }
@@ -135,7 +135,7 @@ html, body, main {
   animation-duration: 10s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
-
+  animation-play-state: paused;
 }
 
 @keyframes rotate {
@@ -156,40 +156,44 @@ html, body, main {
 /* about */
 
 #about {
-  transform-style: preserve-3d;
-  position: relative;
-  top: 20%;
+  
+  position: absolute;
+  left: calc(50% - var(--width)/2);
   background-color: white;
   width: 10em;
   height: 10em;
   margin: auto;
   box-shadow: 0 0 2em 1px #999;
-  display: grid;
+  display: block;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto;
   gap: 1px;
-  transition: 0.5s;
+  transition: 2s;
   transition-timing-function: ease-in-out;
-  perspective: 100px;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--rotx)) rotateY(var(--roty)) rotateZ(var(--rotz));
+  animation-name: hover;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-play-state: paused;
 }
 
 #about p {
   position: absolute;
-  transform: translate3d(0,0,2em);
+  font-size: 0.65em;
+  transform: translateZ(3em);
 }
 
 #about:hover {
-  transform: rotate3d(-2,-2,0.2, 20deg)
+  transform: translate3d(0,0,20em);
 }
-#about:active {
-  transform: rotate3d(3,-2,0.2, -20deg)
-}
+
 @keyframes hover {
   from {
-    transform: perspective(200px) rotate3d(1,2,0,-15deg) translate3d(0,0em,0);
+    transform: rotateX(calc(var(--rotx))) rotateY(var(--roty)) rotateZ(var(--rotz));
   }
   to {
-    transform: perspective(200px) rotate3d(1,2,0, 15deg) translate3d(0,2em,0);
+    transform: rotateX(calc(var(--rotx) + 360deg)) rotateY(calc(var(--roty) + -360deg)) rotateZ(var(--rotz));
   }
 }
 
@@ -294,7 +298,7 @@ html, body, main {
   transform: translateY(-50%);
   color: var(--color);
   position: relative;
-  font-size: 1em;
+  font-size: 0.8em;
   text-align: center;
   font-weight: 100;
 }
