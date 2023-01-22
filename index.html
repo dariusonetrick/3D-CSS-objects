@@ -9,33 +9,37 @@
 </head>
 
 <body>
-  
-    
-  
+
+
+
   <main>
 
 
-    <div id = "settings-container">
-<!-- general -->
-        <div class="set-item" id = "general">
-          <div class="tab">General</div>
-          <p>Number of Divs</p>
-          <input id = "div-num" placeholder="Number of div elements. Enter 0 - 180." type="number" min="0" max="180" value="45">
-          <p>Degrees Seperated</p>
-          <input id = "deg-sep" placeholder="Degrees of seperation" type = "number" value="1">
+    <div id="settings-container">
+      <!-- Shape -->
+      <div class="set-item" id="general">
+        <div class="tab">Shape</div>
+        <section>
           <p>Object</p>
-          <select id = 'shape-select'>
+          <select id='shape-select'>
             <option value="sphere">Ball</option>
             <option value="cylinder">Can</option>
             <option value="egg">Egg</option>
             <option value="about">About</option>
           </select>
-          <button id= "apply">Apply Changes</button> 
-          </div>
-<!-- manipulate -->
-        <div class="set-item" id = "manipulate">
-          <div class="tab">Rotate</div>
-          
+          <p>Number of Divs</p>
+          <input id="div-num" placeholder="Number of div elements. Enter 0 - 180." type="number" min="0" max="180"
+            value="45">
+          <p>Degrees Seperated</p>
+          <input id="deg-sep" placeholder="Degrees of seperation" type="number" value="1">
+          <button id="apply">Apply Div/Degree</button>
+          <p>*Only applies to spherical Objects</p>
+      </div>
+      </section>
+      <!-- manipulate -->
+      <div class="set-item" id="manipulate">
+        <div class="tab">Rotate</div>
+        <section>
           <div class="slider-container">
             <p>rotateX</p>
             <input class="rotate" value='0' type="range" min="0" max="360">
@@ -52,72 +56,75 @@
             <p>spin</p>
             <input id="spin" type="checkbox" checked>
           </label>
-        </div>
-<!-- Colors  -->
-        <div class="set-item">
-          <div class="tab">Colors</div>
+        </section>
+      </div>
+      <!-- Colors  -->
+      <div class="set-item">
+        <div class="tab">Colors</div>
+        <section>
           <select id="color-select">
             <option>Select Color</option>
-            <option value = "white">White</option>
-            <option value = "black">Black</option>
-            <option value = "drkred">Dark Red</option>
-            <option value = "grey">Grey</option>
-            <option value = "gains">Gainsboro</option>
-            <option value = "turquoise">Turquoise</option>
-            <option value = "crimson">Crimson</option>
-            <option value = "pink">Pink</option> 
-            <option value = "orange">Orange</option>
-            <option value = "drkMidnight">Dark Midnight</option>
-            <option value = "tron">Tron blue</option>
+            <option value="white">White</option>
+            <option value="black">Black</option>
+            <option value="drkred">Dark Red</option>
+            <option value="grey">Grey</option>
+            <option value="gains">Gainsboro</option>
+            <option value="turquoise">Turquoise</option>
+            <option value="crimson">Crimson</option>
+            <option value="pink">Pink</option>
+            <option value="orange">Orange</option>
+            <option value="drkMidnight">Dark Midnight</option>
+            <option value="tron">Tron blue</option>
           </select>
           <select id="bg-select">
             <option>Select Background</option>
-            <option value = "white">White</option>
-            <option value = "drkred">Dark Red</option>
-            <option value = "black">Black</option>
-            <option value = "grey">Grey</option>
-            <option value = "gains">Gainsboro</option>
-            <option value = "crimson">Crimson</option>
-            <option value = "pink">Pink</option>
-            <option value = "orange">Orange</option>
-            <option value = "drkMidnight">Dark Midnight</option>
-            <option value = "drkForest">Dark Forest</option>
-            <option value = "tron">Tron blue</option>
+            <option value="white">White</option>
+            <option value="drkred">Dark Red</option>
+            <option value="black">Black</option>
+            <option value="grey">Grey</option>
+            <option value="gains">Gainsboro</option>
+            <option value="crimson">Crimson</option>
+            <option value="pink">Pink</option>
+            <option value="orange">Orange</option>
+            <option value="drkMidnight">Dark Midnight</option>
+            <option value="drkForest">Dark Forest</option>
+            <option value="tron">Tron blue</option>
           </select>
-        </div>
+        </section>
+      </div>
 
-    </div> 
+    </div>
 
-<!-- opn/cls settings btn -->
-    
-        <input id='men-btn' type="checkbox">
-        <label for="men-btn">
-          <div class="bar top"></div>
-          <div class="bar middle"></div>
-          <div class="bar bottom"></div>
-        </label>
-<!-- 3d space -->
-      <div id = "space">
+    <!-- opn/cls settings btn -->
+
+    <input id='men-btn' type="checkbox">
+    <label for="men-btn">
+      <div class="bar top"></div>
+      <div class="bar middle"></div>
+      <div class="bar bottom"></div>
+    </label>
+    <!-- 3d space -->
+    <div id="space">
       <h1 id="text">Have fun!</h1>
       <div id="sphere"></div>
       <div id="about">
         <p>Select shape in shape's menu to see an object :) Sorry if this is here, I need to fix jscode</p>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>  
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
     </div>
 
   </main>
 
 
-  
+
 </body>
 <script src="./script.js"></script>
 
