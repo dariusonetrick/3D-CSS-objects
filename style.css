@@ -51,8 +51,10 @@ html, body, main {
   bottom: 0;
   left: 0;
   right: 0;
-  transition: transform 1s ease;
+  height: 100%;
+  transition: transform 1s ease, background-color 3s;
   background-color: var(--bg);
+  perspective: 800px;
 }
 
 #men-btn ~ label {
@@ -101,14 +103,13 @@ html, body, main {
 
 
 .face {
-  border-style: solid;
+  border-style: double;
   border-width: 1px;
   position: absolute;
   border-radius: 100%;
   width: var(--width);
   height: var(--height);
-  opacity: 1;
-  filter: blur(2px);
+  opacity: 0.3;
   transition: 3s;
   border-color: var(--color);
 }
@@ -119,7 +120,7 @@ html, body, main {
 #sphere {
   position: absolute;
   transform-style: preserve-3d;
-  transform: perspective(500px) rotateX(var(--rotx)) rotateY(var(--roty)) rotateZ(var(--rotz)) ;
+  transform:  rotateX(var(--rotx)) rotateY(var(--roty)) rotateZ(var(--rotz)) ;
   /* top: calc(50% - var(--height)/2); */
   left: calc(50% - var(--width)/2);
   height: var(--height);
@@ -135,15 +136,15 @@ html, body, main {
 @keyframes rotate {
   0% {
 
-    transform: translate3d(0,0,0) perspective(800px) rotateZ(var(--rotz)) rotateY(var(--roty)) rotateX(var(--rotx));
+    transform: translate3d(0,0,0) rotateZ(var(--rotz)) rotateY(var(--roty)) rotateX(var(--rotx));
   }
   100% {
 
-    transform: translate3d(8em,-2em, 0) perspective(800px) rotateZ(calc(180deg + var(--rotz))) rotateY(var(--roty)) rotateX(calc(180deg + var(--rotx)));
+    transform: translate3d(8em,-2em, 0) rotateZ(calc(180deg + var(--rotz))) rotateY(var(--roty)) rotateX(calc(180deg + var(--rotx)));
   }
   100% {
 
-    transform: translate3d(0,0,0) perspective(800px)  rotateZ(calc(360deg + var(--rotz))) rotateY(var(--roty)) rotateX(calc(360deg + var(--rotx)));
+    transform: translate3d(0,0,0)  rotateZ(calc(360deg + var(--rotz))) rotateY(var(--roty)) rotateX(calc(360deg + var(--rotx)));
   }
 }
 
@@ -152,6 +153,7 @@ html, body, main {
 #about {
   transform-style: preserve-3d;
   position: relative;
+  top: 20%;
   background-color: white;
   width: 10em;
   height: 10em;
@@ -162,12 +164,21 @@ html, body, main {
   grid-template-rows: auto;
   gap: 1px;
   transition: 0.5s;
-}
-#about div {
-  border: 1px solid black;
+  transition-timing-function: ease-in-out;
+  perspective: 100px;
 }
 
+#about p {
+  position: absolute;
+  transform: translate3d(0,0,2em);
+}
 
+#about:hover {
+  transform: rotate3d(-2,-2,0.2, 20deg)
+}
+#about:active {
+  transform: rotate3d(3,-2,0.2, -20deg)
+}
 @keyframes hover {
   from {
     transform: perspective(200px) rotate3d(1,2,0,-15deg) translate3d(0,0em,0);
@@ -200,13 +211,21 @@ html, body, main {
 }
 
 .set-item {
-  padding: 0em 1.5em 0em;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  height: 1.8em;
+  height: 2.1em;
   flex-grow: 0;
   transition: 0.7s;
-  overflow: hidden; 
+  overflow-y: auto; 
+}
+
+.set-item *:not(.tab) {
+  margin: 4px;
+  font-size: 1em;
+}
+.set-item:nth-child(1) p {
+  font-size: 0.7em;
 }
 
 #general  {
@@ -216,22 +235,13 @@ html, body, main {
 #manipulate {
   background-color: sandybrown;
 }
-
-.set-menu > *:not(.tab) {
-  margin-bottom: 0.5em;
-  all: unset;
-  overflow: hidden;
-  transition: 0.1s;
-}
-
-.set-menu > *:not(.tab):hover {
-  color: white;
-  background-color: #666;
+.set-item:nth-child(3) {
+  background-color: pink;
 }
 
 .tab {
   font-weight: bolder;
-  padding: 0.1em 0;
+  padding: 0.2em 0.3em;
   font-size: 1.3em;
   text-align: right;
 }

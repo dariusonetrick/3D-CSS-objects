@@ -122,7 +122,7 @@ const EggObj = {
 }
 
 
-var currObj = null;
+var currObj = 'sphere';
 
 
 // Shapes select
@@ -303,11 +303,9 @@ const spinTog = document.getElementById('spin');
 spinTog.addEventListener('input', function(){
   if (!this.checked) {
       sphere.style.animationPlayState = 'paused';
-     
     }
   else {
     sphere.style.animationPlayState = 'running';
-  
     }
 })
 
