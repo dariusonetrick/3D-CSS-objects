@@ -100,7 +100,6 @@ shapeSelect.addEventListener('change', function () {
       entity.style.display = 'none';
       entity = about;
       entity.style.display = 'block';
-      root.style.setProperty('--bg', 'beige');
       divDeath();
   }
 });
@@ -294,13 +293,23 @@ spinTog.addEventListener('input', function () {
 
 let x, y, newX, newY;
 // Touch hold
-entity.addEventListener("touchstart", function (e) {
+sphere.addEventListener("touchstart", function (e) {
   x = e.touches[0].clientX;
   y = e.touches[0].clientY;
-  entity.style.transition = '0s';
+  entity.style.transition = "0s";
   document.addEventListener("touchmove", move);
   document.addEventListener("touchend", function () {
-    entity.style.transition = '0.7s';
+    entity.style.transition = "0.7s";
+    document.removeEventListener("touchmove", move);
+  });
+});
+about.addEventListener("touchstart", function (e) {
+  x = e.touches[0].clientX;
+  y = e.touches[0].clientY;
+  entity.style.transition = "0s";
+  document.addEventListener("touchmove", move);
+  document.addEventListener("touchend", function () {
+    entity.style.transition = "0.7s";
     document.removeEventListener("touchmove", move);
   });
 });

@@ -10,10 +10,7 @@
 
 <body>
 
-
-
   <main>
-
 
     <div id="settings-container">
       <!-- Shape -->
@@ -28,8 +25,7 @@
             <option selected value="about">About</option>
           </select>
           <p>Number of Divs</p>
-          <input id="div-num" placeholder="Number of div elements. Enter 0 - 180." type="number" min="0" max="180"
-            value="45">
+          <input id="div-num" placeholder="Number of div elements. Enter 0 - 180." type="number" min="0" max="180" value="45">
           <p>Degrees Seperated</p>
           <input id="deg-sep" placeholder="Degrees of seperation" type="number" value="1">
           <button id="apply">Apply Div/Degree</button>
@@ -37,7 +33,7 @@
       </div>
       </section>
       <!-- manipulate -->
-      <div class="set-item" id="manipulate">
+      <!-- <div class="set-item" id="manipulate">
         <div class="tab">Rotate</div>
         <section>
           <div class="slider-container">
@@ -61,7 +57,7 @@
             <input id="spin" type="checkbox">
           </label>
         </section>
-      </div>
+      </div> -->
       <!-- Colors  -->
       <div class="set-item">
         <div class="tab">Colors</div>
@@ -113,20 +109,57 @@
       <div class="bar middle"></div>
       <div class="bar bottom"></div>
     </label>
+
     <!-- 3d space -->
     <div id="space">
-      <h1 id="text">Have fun!</h1>
+
+      <label class="toggle">
+        <input id="spin" type="checkbox">
+        <div id="thumb"></div>
+      </label>
+
+      <h1 id="text">What will you achieve with your life?</h1>
       <div id="sphere"></div>
       <div id="about">
         <div id="l"></div>
         <div id="r"></div>
-        <p>Drag me. To spin me, settings > rotate > toggle spin, or use use the range inputs. Spherical objects are made up of div elements with only their border's showing. You can change the number of div elements and the degrees they are sepearated by. Also, change the theme! ;)</p>
+        <div id='plane'>
+          <p>Toggle to spin. <br>Very self explanatory.</br>
+            <br>
+            Do not forget to like
+            </br>
+            <br>
+            Comment
+            </br>
+            <br>
+            And share. The flipping is made entirely with pure CSS btw.
+            </br>
+          </p>
+        </div>
       </div>
     </div>
-
+    <div id="manipulate">
+      <div class="tab">Rotate</div>
+      <section>
+        <div class="slider-container">
+          <p>rotateX</p>
+          <input class="rotate" value='0' type="range" min="0" max="360">
+        </div>
+        <div class="slider-container">
+          <p>rotateY</p>
+          <input class="rotate" value='0' type="range" min="0" max="360">
+        </div>
+        <div class="slider-container">
+          <p>rotateZ</p>
+          <input class="rotate" value='0' type="range" min="0" max="360">
+        </div>
+        <div class="slider-container">
+          <p>perspective</p>
+          <input class="rotate" value='400' type="range" min="0" max="2000">
+        </div>
+      </section>
+    </div>
   </main>
-
-
 
 </body>
 <script src="./script.js"></script>

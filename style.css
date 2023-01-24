@@ -1,11 +1,10 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap");
 
 :root {
   font-size: 20px;
   --turquoise: #30d5c8;
   --color: #555;
-  --direction: 'normal';
+  --direction: "normal";
   --height: 15rem;
   --width: 15rem;
   --bg: #eee;
@@ -20,12 +19,29 @@
   --setbg: beige;
   --bg1: none;
   --bg2: none;
-  --bg3: none;
+  --bg3: #eee;
   --menC: #333;
+
+  --contW: 10em;
+  --contH: 15em;
 }
-@media (max-width: 848px )  {
+@media (max-width: 848px) and (max-height: 900px) and (orientation: portrait) {
   :root {
-    --slideW: 40vw;
+    --slideW: 35vw;
+    --height: 8em;
+    --width: 8em;
+  }
+  #manipulate {
+    left: 50%;
+    transform: translateX(-50%) translateY(-8%);
+    height: 5em;
+    width: 90%;
+  }
+  #manipulate section {
+    display: flex;
+  }
+  .slider-container {
+    margin: 0 0.5em;
   }
 }
 /* We don't want users being able to select text */
@@ -40,10 +56,10 @@ body {
   font-family: Montserrat, arial;
 }
 
-
-
 /* Everything Container */
-html, body, main {
+html,
+body,
+main {
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -58,7 +74,7 @@ html, body, main {
   left: 0;
   right: 0;
   height: 100%;
-  transition: transform 1s ease, background-color 6s;
+  transition: transform 1s ease, background-color 1s;
   background-color: var(--bg);
   perspective: var(--pers);
 }
@@ -108,9 +124,6 @@ html, body, main {
   background-color: red;
 }
 
-
-
-
 .face {
   border-style: double;
   border-width: 1px;
@@ -123,19 +136,16 @@ html, body, main {
   border-color: var(--color);
 }
 
-
-
-
 #sphere {
   position: absolute;
   transform-style: preserve-3d;
-  transform:  rotateX(var(--rotx)) rotateY(var(--roty)) rotateZ(var(--rotz)) ;
+  transform: rotateX(var(--rotx)) rotateY(var(--roty)) rotateZ(var(--rotz));
   /* top: calc(50% - var(--height)/2); */
-  left: calc(50% - var(--width)/2);
+  left: calc(50% - var(--width) / 2);
   top: 27%;
   height: var(--height);
   width: var(--width);
-  
+
   animation-name: rotate;
   animation-duration: 0s;
   animation-iteration-count: infinite;
@@ -145,23 +155,22 @@ html, body, main {
 
 @keyframes rotate {
   0% {
-
-    transform: translate3d(0,0,0) rotateZ(var(--rotz)) rotateY(var(--roty)) rotateX(var(--rotx));
+    transform: translate3d(0, 0, 0) rotateZ(var(--rotz)) rotateY(var(--roty))
+      rotateX(var(--rotx));
   }
   100% {
-
-    transform: translate3d(8em,-2em, 0) rotateZ(calc(180deg + var(--rotz))) rotateY(var(--roty)) rotateX(calc(180deg + var(--rotx)));
+    transform: translate3d(8em, -2em, 0) rotateZ(calc(180deg + var(--rotz)))
+      rotateY(var(--roty)) rotateX(calc(180deg + var(--rotx)));
   }
   100% {
-
-    transform: translate3d(0,0,0)  rotateZ(calc(360deg + var(--rotz))) rotateY(var(--roty)) rotateX(calc(360deg + var(--rotx)));
+    transform: translate3d(0, 0, 0) rotateZ(calc(360deg + var(--rotz)))
+      rotateY(var(--roty)) rotateX(calc(360deg + var(--rotx)));
   }
 }
 
 /* about */
 
 #about {
-  
   position: absolute;
   left: calc(50% - 5em);
   top: 27%;
@@ -170,13 +179,10 @@ html, body, main {
   margin: auto;
   /* box-shadow: 0 0 2em 1px #999; */
   display: block;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto;
-  gap: 1px;
-  transition: 2s;
+  transition: 0.5s;
   transition-timing-function: ease-in-out;
   transform-style: preserve-3d;
-  transform: rotateX(var(--rotx)) rotateY(var(--roty)) rotateZ(var(--rotz)) ;
+  transform: rotateX(var(--rotx)) rotateY(var(--roty)) rotateZ(var(--rotz));
   animation-name: hover;
   animation-duration: 0s;
   animation-iteration-count: infinite;
@@ -197,42 +203,46 @@ html, body, main {
   top: 50%;
   height: 5em;
   width: 10em;
-} 
 
-#r:hover ~ p {
+}
+
+#r:hover ~ #plane {
   transform: rotateX(40deg);
 }
-#l:hover ~ p {
+#l:hover ~ #plane {
   transform: rotateX(-40deg);
 }
 
-#about p {
+#about #plane {
+  width: inherit;
+  height: inherit;
+  background: url("https://preview.redd.it/hbe7gi2steb91.jpg?auto=webp&s=c39e75f30d018a40c8c645d29103cf373a1152fc");
+  background-size: cover;
   padding: 1em;
-  color: black;
+  color: white;
   position: absolute;
   font-size: 0.5em;
   top: 0;
   transition: 0.2s;
-   box-shadow: 0 0 2em 1px #999;
+  box-shadow: 0 0 2em 1px #999;
+  transform-style: preserve-3d;
 }
-
-
+#plane p {
+  transform: translateZ(2em);
+}
 
 @keyframes hover {
   from {
-    transform: rotateX(calc(var(--rotx))) rotateY(var(--roty)) rotateZ(var(--rotz)) ;
+    transform: rotateX(calc(var(--rotx))) rotateY(var(--roty))
+      rotateZ(var(--rotz));
   }
   to {
-    transform: rotateX(calc(var(--rotx) + 360deg)) rotateY(calc(var(--roty) + -360deg)) rotateZ(var(--rotz));
+    transform: rotateX(calc(var(--rotx) + 360deg))
+      rotateY(calc(var(--roty) + -360deg)) rotateZ(var(--rotz));
   }
 }
 
-
-
-
 /* Settings */
-
-
 
 #settings-container {
   position: fixed;
@@ -255,13 +265,12 @@ html, body, main {
   height: 2.1em;
   flex-grow: 0;
   transition: 0.7s;
-  
 }
 
 .set-item section {
   display: inherit;
   flex-direction: inherit;
-  overflow-y: auto; 
+  overflow-y: auto;
   margin: 0.1em 7px;
   font-size: 1em;
   padding-top: 0;
@@ -271,21 +280,16 @@ html, body, main {
 .set-item section * {
   margin-top: 0;
   margin-bottom: 5px;
-
 }
 
 .set-item:nth-child(1) > section p {
   font-size: 0.7em;
 }
 
-.set-item section input, select {
+.set-item section input,
+select {
   border: none;
   padding: 0.3em 0;
-}
-
-input[type='range'] {
-  
-  width: 100%;
 }
 
 #apply {
@@ -305,7 +309,7 @@ input[type='range'] {
 }
 
 /* Tab colors */
-.set-item:nth-child(1)  {
+.set-item:nth-child(1) {
   background: var(--bg1);
 }
 .set-item:nth-child(2) {
@@ -322,9 +326,7 @@ input[type='range'] {
   text-align: right;
 }
 
-
 /* funny text */
-
 
 #text {
   transition: 3s;
@@ -339,9 +341,85 @@ input[type='range'] {
   font-weight: 100;
 }
 
+/* Rotate  */
+#manipulate {
+  position: absolute;
+  width: --var(contW);
+  height: --var(contH);
+  bottom: 0;
+  right: 0;
+  background: var(--bg3);
+  border: 5px solid var(--menC);
+  padding: 0 0.5em;
+}
 
+#manipulate > .tab {
+  font-size: 0.8em;
+}
+/* sliders */
+.slider-container {
+  margin-top: -8px;
+  font-size: 0.6em;
+}
+.rotate {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #d3d3d3;
+  display: block;
+  height: 1.5em;
+  width: 100%;
+}
+.rotate::-webkit-range-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #04aa6d;
+  cursor: pointer;
+}
 
+/* Spin */
+.toggle {
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  width: 60px;
+  height: 34px;
+  margin: 0.5em;
+}
+#spin {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+#thumb {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: 0.4s;
+}
 
+#thumb::before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  margin: 4px;
+  background: #fff;
+  border-radius: 50%;
+  transition: 0.4s;
+}
 
+#spin:checked + #thumb::before {
+  background: #2196f3;
+  transform: translateX(26px);
+}
 
-
+#spin:checked ~ #thumb {
+  background: #e2e2e2;
+}
