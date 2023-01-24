@@ -22,25 +22,27 @@
   --bg3: #eee;
   --menC: #333;
 
-  --contW: 10em;
-  --contH: 15em;
+  --contW: 26em;
+  --contH: 4em;
+  --rangeH: 2em;
 }
 @media (max-width: 848px) and (max-height: 900px) and (orientation: portrait) {
   :root {
     --slideW: 35vw;
     --height: 8em;
     --width: 8em;
+
+    --contH: 4.2em;
+    --contW: 90%;
+    --rangeH: 2.5em;
   }
   #manipulate {
-    left: 50%;
-    transform: translateX(-50%) translateY(-8%);
-    height: 5em;
-    width: 90%;
-  }
-  #manipulate section {
     display: flex;
-  }
+    align-items: center;
+    justify-content: space-around;
+  } 
   .slider-container {
+    height: 4em;
     margin: 0 0.5em;
   }
 }
@@ -175,10 +177,12 @@ main {
   left: calc(50% - 5em);
   top: 27%;
   width: 10em;
-  height: 10em;
+  height: 15em;
   margin: auto;
   /* box-shadow: 0 0 2em 1px #999; */
-  display: block;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   transition: 0.5s;
   transition-timing-function: ease-in-out;
   transform-style: preserve-3d;
@@ -186,33 +190,43 @@ main {
   animation-name: hover;
   animation-duration: 0s;
   animation-iteration-count: infinite;
+  animation-timing-function: linear;
   animation-play-state: running;
 }
 
-#r {
-  position: absolute;
-  height: 5em;
-  width: 10em;
-  bottom: 50%;
-
-  z-index: 1;
-}
-#l {
-  z-index: 1;
-  position: absolute;
-  top: 50%;
-  height: 5em;
-  width: 10em;
-
+.square {
+  z-index: 2;
+  border: 1px solid red;
+  opacity: 0.5;
 }
 
-#r:hover ~ #plane {
-  transform: rotateX(40deg);
+.square:nth-of-type(1):hover ~ #plane {
+  transform: rotate3d(1,-1,0,15deg);
 }
-#l:hover ~ #plane {
-  transform: rotateX(-40deg);
+.square:nth-of-type(2):hover ~ #plane {
+  transform: rotate3d(1,0,0,15deg);
 }
-
+.square:nth-of-type(3):hover ~ #plane {
+  transform: rotate3d(1,1,0,15deg)
+}
+.square:nth-of-type(4):hover ~ #plane {
+  transform: rotate3d(0,1,0,-15deg)
+}
+.square:nth-of-type(5):hover ~ #plane {
+  transform: translate3d(0,0,-2em);
+}
+.square:nth-of-type(6):hover ~ #plane {
+  transform: rotate3d(0,1,0,15deg);
+}
+.square:nth-of-type(7):hover ~ #plane {
+  transform: rotate3d(-1,-1,0,15deg)
+}
+.square:nth-of-type(8):hover ~ #plane {
+  transform: rotate3d(-1,0,0,15deg);
+}
+.square:nth-of-type(9):hover ~ #plane {
+  transform: rotate3d(-1,1,0,15deg)
+}
 #about #plane {
   width: inherit;
   height: inherit;
@@ -226,9 +240,15 @@ main {
   transition: 0.2s;
   box-shadow: 0 0 2em 1px #999;
   transform-style: preserve-3d;
+  border-radius: 15px;
 }
-#plane p {
-  transform: translateZ(2em);
+
+.square:nth-of-type(6) div{
+  position: absolute;
+  width: 1em; height: 1em;
+  background: red;
+  right: 0;
+  bottom: 30%;
 }
 
 @keyframes hover {
@@ -237,7 +257,7 @@ main {
       rotateZ(var(--rotz));
   }
   to {
-    transform: rotateX(calc(var(--rotx) + 360deg))
+    transform: rotateX(calc(var(--rotx)))
       rotateY(calc(var(--roty) + -360deg)) rotateZ(var(--rotz));
   }
 }
@@ -339,43 +359,52 @@ select {
   font-size: 0.8em;
   text-align: center;
   font-weight: 100;
+  animation: fade 1s ease-out 4s 1 forwards;
+}
+@keyframes fade  {
+  to {
+    opacity: 0;
+    translate: 0 100%;
+  }
 }
 
 /* Rotate  */
 #manipulate {
   position: absolute;
-  width: --var(contW);
-  height: --var(contH);
+  width: var(--contW);
+  height: var(--contH);
   bottom: 0;
   right: 0;
   background: var(--bg3);
-  border: 5px solid var(--menC);
-  padding: 0 0.5em;
+  border: 1px solid var(--menC);
+  border-radius: 10px;
+  padding: 0em 0.4em;
+  color: var(--menC);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  left: 50%;
+  transform: translateX(-50%) translateY(-15%);
 }
 
-#manipulate > .tab {
-  font-size: 0.8em;
-}
+
 /* sliders */
 .slider-container {
-  margin-top: -8px;
+  margin: 0 0.5em;
   font-size: 0.6em;
+}
+.slider-container p {
+  margin-top: -1em;
+
 }
 .rotate {
   -webkit-appearance: none;
   appearance: none;
   background: #d3d3d3;
   display: block;
-  height: 1.5em;
+  height: var(--rangeH);
   width: 100%;
-}
-.rotate::-webkit-range-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 25px;
-  height: 25px;
-  background: #04aa6d;
-  cursor: pointer;
+  border-radius: 10px;
 }
 
 /* Spin */
