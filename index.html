@@ -22,7 +22,8 @@
             <option value="sphere">Ball</option>
             <option value="cylinder">Can</option>
             <option value="egg">Egg</option>
-            <option selected value="about">About</option>
+            <option value="about">About</option>
+            <option selected value="cuboid">cuboids</option>
           </select>
           <p>Number of Divs</p>
           <input id="div-num" placeholder="Number of div elements. Enter 0 - 180." type="number" min="0" max="180" value="45">
@@ -92,37 +93,50 @@
         <input id="spin" type="checkbox">
         <div id="thumb"></div>
       </label>
+   <!-- cubes -->
+   <div class="object" id = "cube-plane">
+    <div class="cuboid">
+      <div class="cube-face">1</div>
+      <div class="cube-face">2</div>
+      <div class="cube-face">3</div>
+      <div class="cube-face">4</div> 
+      <div class="cube-face">5</div>
+      <div class="cube-face">6</div>
+    </div>
+    <div class="cuboid">
+      <div class="cube-face">1</div>
+      <div class="cube-face">2</div>
+      <div class="cube-face">3</div>
+      <div class="cube-face">4</div> 
+      <div class="cube-face">5</div>
+      <div class="cube-face">6</div>
+    </div>
+  </div>
 
-      <h1 id="text">What will you achieve with your life?</h1>
+      <h1 id="text">This thing is far from finished</h1>
     <!-- Card  -->
-      <div id="sphere"></div>
-      <div id="about">
-        <div class='square'>1</div>
-        <div class='square'>2</div>
-        <div class='square'>3</div>
-        <div class='square'>4</div>
-        <div class='square'>5</div>
-        <div class='square'>
-          <div></div>
-        </div>
-        <div class='square'>7</div>
-        <div class='square'>8</div>
-        <div class='square'>9</div>
+      <div class="object" id="sphere"></div>
+      <div class="object" id="about">
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'></div>
         <div id='plane'>
-          <p>Toggle to spin. <br>Very self explanatory.</br>
-            <br>
-            Do not forget to like
-            </br>
-            <br>
-            Comment
-            </br>
-            <br>
-            And share. The tilting is made entirely with pure CSS btw.
-            </br>
-          </p>
+          <div class="page">
+            <div class="page"></div>
+          </div>
         </div>
+        <div></div>
+        <div></div>
       </div>
     </div>
+
+ 
 
     <div id="manipulate">
         <div class="slider-container">

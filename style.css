@@ -170,17 +170,106 @@ main {
   }
 }
 
+/* Cuboid */
+
+#cube-plane {
+  height: 20em;
+  width: 20em;
+  opacity: 1;
+  background: rgba(0,0,0,0.2); 
+  position: absolute;
+  top: 20%;
+  left: calc(50% - 10em);
+  display: block;
+  transform-style: preserve-3d;
+  transition: 0.2s;
+  transform: rotateX(calc(var(--rotx) + 70deg)) rotateY(var(--roty)) rotateZ(var(--rotz));
+}
+.cuboid {
+  display: block;
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform-style: preserve-3d;
+  transform: rotate3d(1,-1,0,45deg);
+  perspective: 70em;
+  --h: 14em;
+  --w: 2em;
+  --z: 10em;
+}
+
+.cube-face {
+  position: absolute;
+
+  height: var(--h);
+  width: var(--w);
+  --coef: 1;
+}
+
+.cube-face:nth-of-type(1),
+.cube-face:nth-of-type(2) {
+  opacity: 0.2;
+  height: var(--h);
+  width: var(--w);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%) translateZ(calc(var(--z) / 2 * var(--coef)));
+}
+.cube-face:nth-of-type(2) {
+  --coef: -1;
+}
+.cube-face:nth-of-type(3),
+.cube-face:nth-of-type(4) {
+  opacity: 0.4;
+  width: var(--z);
+  height: var(--h);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%) rotateY(calc(90deg*var(--coef))) translateZ(calc(var(--w)/2));
+}
+.cube-face:nth-of-type(4) {
+  --coef: -1;
+}
+.cube-face:nth-of-type(5),
+.cube-face:nth-of-type(6) {
+
+  opacity: 0.2;
+  height: var(--z);
+  width: var(--w);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%) rotateX(calc(90deg*var(--coef))) translateZ(calc(var(--h)/2));
+}
+.cube-face:nth-of-type(6) {
+  --coef: -1;
+}
+
+.cuboid:nth-of-type(2) {
+  transform: translateX(-7em);
+  --w: 4em;
+  --h: 4em;
+  --z: 4em;
+}
+.cuboid:nth-of-type(1) .cube-face {
+  border: 1px black solid;
+}
+.cuboid:nth-of-type(2) .cube-face {
+  border: 1px red solid;
+}
+
 /* about */
 
 #about {
+  display: none;
   position: absolute;
   left: calc(50% - 5em);
-  top: 27%;
+  top: 15%;
   width: 10em;
   height: 15em;
   margin: auto;
   /* box-shadow: 0 0 2em 1px #999; */
-  display: grid;
+  
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   transition: 0.5s;
@@ -196,8 +285,7 @@ main {
 
 .square {
   z-index: 2;
-  border: 1px solid red;
-  opacity: 0.5;
+
 }
 
 .square:nth-of-type(1):hover ~ #plane {
@@ -227,30 +315,46 @@ main {
 .square:nth-of-type(9):hover ~ #plane {
   transform: rotate3d(-1,1,0,15deg)
 }
-#about #plane {
+ #plane {
   width: inherit;
   height: inherit;
   background: url("https://preview.redd.it/hbe7gi2steb91.jpg?auto=webp&s=c39e75f30d018a40c8c645d29103cf373a1152fc");
-  background-size: cover;
-  padding: 1em;
-  color: white;
+  background-size: cover; 
   position: absolute;
-  font-size: 0.5em;
   top: 0;
   transition: 0.2s;
   box-shadow: 0 0 2em 1px #999;
   transform-style: preserve-3d;
-  border-radius: 15px;
 }
 
-.square:nth-of-type(6) div{
+.page {
   position: absolute;
-  width: 1em; height: 1em;
-  background: red;
-  right: 0;
-  bottom: 30%;
+  width: inherit;
+  height: inherit;
+  transform-origin: 100% 50%;
+  transform: rotateY(359deg);
 }
 
+#plane > .page {
+  background: url('https://preview.redd.it/8vpcp4i8the51.jpg?auto=webp&s=1b31cb302151917583d556c6c47e115139afad49');
+  background-size: cover;
+  transition: 0.2s;
+  transition-delay: 2.5s;
+}
+.square:active ~ #plane > .page {
+  transition-delay: 0s;
+  transform: rotateY(180deg);
+}
+.page > .page {
+  background: url('https://i.pinimg.com/originals/fe/7b/f0/fe7bf022501a91951c9910c97f807140.jpg');
+  background-size: cover;
+  transition: 0.2s;
+  transition-delay: 2.5s;
+}
+#plane>.page:active > .page {
+  transition-delay: 0s;
+  transform: rotateY(180deg);
+}
 @keyframes hover {
   from {
     transform: rotateX(calc(var(--rotx))) rotateY(var(--roty))
@@ -352,7 +456,7 @@ select {
   transition: 3s;
   z-index: 2;
   margin: auto;
-  top: 60%;
+  top: 70%;
   transform: translateY(-50%);
   color: var(--color);
   position: relative;

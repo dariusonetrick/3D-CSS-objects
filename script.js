@@ -12,12 +12,11 @@ const text = document.getElementById("text");
 let abtGrid = document.querySelectorAll('#about div');
 
 // Objects
+const cuboid = document.getElementById('cube-plane');
 const about = document.getElementById('about');
 const sphere = document.getElementById('sphere');
 
-
-
-var entity = about;
+var entity = cuboid;
 
 
 
@@ -99,9 +98,17 @@ shapeSelect.addEventListener('change', function () {
     case 'about':
       entity.style.display = 'none';
       entity = about;
+      entity.style.display = 'grid';
+      divDeath();
+      break;
+    case 'cuboid':
+      entity.style.display = 'none';
+      entity = cuboid;
       entity.style.display = 'block';
       divDeath();
   }
+
+
 });
 
 // Action select
@@ -292,54 +299,79 @@ spinTog.addEventListener('input', function () {
 // MOOOOOVEEEE MEEEEENNNNTTT ////!!!!!!
 
 let x, y, newX, newY;
+
+const Objects = document.getElementsByClassName('object');
+Array.from(Objects).forEach( (obj) => {
+  obj.addEventListener("touchstart", function (e) {
+    x = e.touches[0].clientX;
+    y = e.touches[0].clientY;
+    entity.style.transition = "0s";
+    document.addEventListener("touchmove", move);
+    document.addEventListener("touchend", function () {
+      entity.style.transition = "0.7s";
+      document.removeEventListener("touchmove", move);
+    });
+  });
+  obj.addEventListener("mousedown", function (e) {
+    x = e.clientX;
+    y = e.clientY;
+    // console.log(`xy: ${x},${y}`);
+    document.addEventListener("mousemove", mouseMove);
+    entity.style.transition = '0s';
+    document.addEventListener("mouseup", function () {
+      entity.style.transition = '0.7s';
+      document.removeEventListener("mousemove", mouseMove);
+    });
+  });
+})
 // Touch hold
-sphere.addEventListener("touchstart", function (e) {
-  x = e.touches[0].clientX;
-  y = e.touches[0].clientY;
-  entity.style.transition = "0s";
-  document.addEventListener("touchmove", move);
-  document.addEventListener("touchend", function () {
-    entity.style.transition = "0.7s";
-    document.removeEventListener("touchmove", move);
-  });
-});
-about.addEventListener("touchstart", function (e) {
-  x = e.touches[0].clientX;
-  y = e.touches[0].clientY;
-  entity.style.transition = "0s";
-  document.addEventListener("touchmove", move);
-  document.addEventListener("touchend", function () {
-    entity.style.transition = "0.7s";
-    document.removeEventListener("touchmove", move);
-  });
-});
+// sphere.addEventListener("touchstart", function (e) {
+//   x = e.touches[0].clientX;
+//   y = e.touches[0].clientY;
+//   entity.style.transition = "0s";
+//   document.addEventListener("touchmove", move);
+//   document.addEventListener("touchend", function () {
+//     entity.style.transition = "0.7s";
+//     document.removeEventListener("touchmove", move);
+//   });
+// });
+// about.addEventListener("touchstart", function (e) {
+//   x = e.touches[0].clientX;
+//   y = e.touches[0].clientY;
+//   entity.style.transition = "0s";
+//   document.addEventListener("touchmove", move);
+//   document.addEventListener("touchend", function () {
+//     entity.style.transition = "0.7s";
+//     document.removeEventListener("touchmove", move);
+//   });
+// });
 
-// Mouse Click
+// // Mouse Click
 
-  sphere.addEventListener("mousedown", function (e) {
+//   sphere.addEventListener("mousedown", function (e) {
   
-    x = e.clientX;
-    y = e.clientY;
-    console.log(`xy: ${x},${y}`);
-    document.addEventListener("mousemove", mouseMove);
-    sphere.style.transition = '0s';
-    document.addEventListener("mouseup", function () {
-      sphere.style.transition = '0.7s';
-      document.removeEventListener("mousemove", mouseMove);
-    });
-  });
-  about.addEventListener("mousedown", function (e) {
+//     x = e.clientX;
+//     y = e.clientY;
+//     console.log(`xy: ${x},${y}`);
+//     document.addEventListener("mousemove", mouseMove);
+//     sphere.style.transition = '0s';
+//     document.addEventListener("mouseup", function () {
+//       sphere.style.transition = '0.7s';
+//       document.removeEventListener("mousemove", mouseMove);
+//     });
+//   });
+//   about.addEventListener("mousedown", function (e) {
   
-    x = e.clientX;
-    y = e.clientY;
-    console.log(`xy: ${x},${y}`);
-    document.addEventListener("mousemove", mouseMove);
-    about.style.transition = '0s';
-    document.addEventListener("mouseup", function () {
-      about.style.transition = '0.7s';
-      document.removeEventListener("mousemove", mouseMove);
-    });
-  });
+//     x = e.clientX;
+//     y = e.clientY;
+//     console.log(`xy: ${x},${y}`);
+//     document.addEventListener("mousemove", mouseMove);
+//     about.style.transition = '0s';
+//     document.addEventListener("mouseup", function () {
+//       about.style.transition = '0.7s';
+//       document.removeEventListener("mousemove", mouseMove);
+//     });
+//   });
 
 // Touchscreen Move
 function move(e) {
