@@ -292,7 +292,7 @@ spinTog.addEventListener('input', function () {
     entity.style.animationDuration = '0ms';
   }
   else {
-    entity.style.animationDuration = '2000ms';
+    entity.style.animationDuration = '10000ms';
   }
 })
 

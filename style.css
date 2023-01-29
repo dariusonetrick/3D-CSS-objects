@@ -175,16 +175,32 @@ main {
 #cube-plane {
   height: 20em;
   width: 20em;
+  --pw: 20em;
+  --ph: 20em;
   opacity: 1;
-  background: rgba(0,0,0,0.2); 
+  background: rgba(0,0,0,0.7); 
   position: absolute;
   top: 20%;
   left: calc(50% - 10em);
   display: block;
   transform-style: preserve-3d;
   transition: 0.2s;
-  transform: rotateX(calc(var(--rotx) + 70deg)) rotateY(var(--roty)) rotateZ(var(--rotz));
+  transform: rotateX(calc(var(--rotx) + 65deg)) rotateY(var(--roty)) rotateZ(calc(var(--rotz) - 45deg)) scale3d(0.7,0.7,0.7);
+  animation-name: spinCube;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
+
+@keyframes spinCube {
+  from {
+    transform: rotateX(calc(var(--rotx) + 70deg)) rotateY(var(--roty)) rotateZ(var(--rotz));
+  }
+  to {
+    transform: rotateX(calc(var(--rotx) + 70deg)) rotateY(var(--roty)) rotateZ(calc(var(--rotz) + 360deg));
+  }
+}
+
 .cuboid {
   display: block;
   position: absolute;
@@ -192,16 +208,16 @@ main {
   top: 50%;
   left: 50%;
   transform-style: preserve-3d;
-  transform: rotate3d(1,-1,0,45deg);
-  perspective: 70em;
   --h: 14em;
   --w: 2em;
   --z: 10em;
 }
 
 .cube-face {
+  color: black;
+  text-align: center;
+  font-weight: bolder;
   position: absolute;
-
   height: var(--h);
   width: var(--w);
   --coef: 1;
@@ -209,7 +225,6 @@ main {
 
 .cube-face:nth-of-type(1),
 .cube-face:nth-of-type(2) {
-  opacity: 0.2;
   height: var(--h);
   width: var(--w);
   top: 50%;
@@ -221,7 +236,6 @@ main {
 }
 .cube-face:nth-of-type(3),
 .cube-face:nth-of-type(4) {
-  opacity: 0.4;
   width: var(--z);
   height: var(--h);
   top: 50%;
@@ -233,8 +247,6 @@ main {
 }
 .cube-face:nth-of-type(5),
 .cube-face:nth-of-type(6) {
-
-  opacity: 0.2;
   height: var(--z);
   width: var(--w);
   top: 50%;
@@ -244,20 +256,46 @@ main {
 .cube-face:nth-of-type(6) {
   --coef: -1;
 }
-
-.cuboid:nth-of-type(2) {
-  transform: translateX(-7em);
-  --w: 4em;
-  --h: 4em;
-  --z: 4em;
-}
-.cuboid:nth-of-type(1) .cube-face {
-  border: 1px black solid;
-}
-.cuboid:nth-of-type(2) .cube-face {
-  border: 1px red solid;
+.wall {
+  transform: translate3d(0em,0em,7em) rotateY(90deg) rotateZ(90deg);
+  --z: calc(var(--pw) - 1em);
+  --w: 1em;
 }
 
+.wall:nth-of-type(1) {
+  transform: translate3d(-0.4em,-9.5em,7em) rotateY(90deg) rotateZ(90deg);
+}
+.wall:nth-of-type(2) {
+  transform: translate3d(9.5em,0.5em,7em) rotateY(0deg) rotateZ(0deg) rotateX(90deg);  
+}
+
+/* Left Wall */
+.wall:nth-of-type(1) .cube-face {
+
+}
+.wall:nth-of-type(1) .cube-face:nth-child(2) {
+  background: #aaa;
+}
+.wall:nth-of-type(1) .cube-face:nth-child(3) {
+  background: #eee;
+}
+.wall:nth-of-type(1) .cube-face:nth-child(6) {
+  background: #bbb;
+}
+
+/* Right Wall */
+.wall:nth-of-type(2) .cube-face {
+
+}
+.wall:nth-of-type(2) .cube-face:nth-child(4) {
+  background: #aaa;
+}
+.wall:nth-of-type(2) .cube-face:nth-child(2) {
+  background: #eee;
+}
+.wall:nth-of-type(2) .cube-face:nth-child(6) {
+  background: #bbb;
+}
 /* about */
 
 #about {
