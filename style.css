@@ -178,9 +178,6 @@ main {
   width: 20em;
   --pw: 20em;
   --ph: 20em;
-
-  opacity: 1;
-  background: rgba(50,0,0,0.4); 
   position: absolute;
   top: 20%;
   left: calc(50% - 10em);
@@ -197,10 +194,10 @@ main {
 
 @keyframes spinCube {
   from {
-    transform: rotateX(calc(var(--rotx) + 65deg)) rotateY(var(--roty)) rotateZ(calc(var(--rotz) - 45deg));
+    transform: rotateX(calc(var(--rotx) + 60deg)) rotateY(var(--roty)) rotateZ(calc(var(--rotz) + 45deg));
   }
   to {
-    transform: rotateX(calc(var(--rotx) + 65deg)) rotateY(var(--roty)) rotateZ(calc(var(--rotz) + 315deg));
+    transform: rotateX(calc(var(--rotx) + 60deg)) rotateY(var(--roty)) rotateZ(calc(var(--rotz) - 315deg));
   }
 }
 
@@ -262,18 +259,18 @@ main {
 
 .wall {
 background: #eee;
---z: 19em;
+--z: 21em;
 --w: 1em;
 --h: 1em;
 }
 
 .wall:nth-of-type(1) {
-  --w: 19em;
-  transform: translate3d(-0.5em,-9.5em,9.9em);
+  --w: 20em;
+  transform: translate3d(0,-10.5em,10em);
 }
 .wall:nth-of-type(2) {
-  --h: 19em;
-  transform: translate3d(9.5em,0.5em,9.9em);  
+  --h: 20em;
+  transform: translate3d(10.5em,0em,10em);  
 }
  .cube-face {
   color: transparent;
@@ -289,21 +286,47 @@ background: #eee;
 .wall .cube-face:nth-child(4) {
   filter: brightness(1);
 }
+/* Curbs */
+
+.curb .cube-face {
+  background: burlywood;
+} 
+.curb:nth-of-type(3) {
+  --w: 20em;
+  --h: 0.5em;
+  --z: 1em;
+  transform: translate3d(0,-9.75em,1em);
+}
+.curb:nth-of-type(4) {
+  --w: 0.5em;
+  --h: 20em;
+  --z: 1em;
+  transform: translate3d(9.75em,0,1em);
+}
+.curb .cube-face:nth-child(6) {
+  filter: brightness(1.1);
+}
+.curb .cube-face:nth-child(4) {
+  filter: brightness(0.8);
+}
+.curb .cube-face:nth-child(1) {
+  filter: brightness(1);
+}
 /* Floor */
 .floor .cube-face {
   --w: 20em;
   --h: 20em;
-  --z: 0.7em;
-  background: url('https://thumbs.dreamstime.com/b/clover-grass-texture-great-31336282.jpg');
-  background-size: contain;
+  --z: 1em;
+  background: #8b5a2b;
+  
 }
 
 .floor .cube-face:nth-child(6) {
-  background: #464;
+
   filter: brightness(1.5);
 }
 .floor .cube-face:nth-child(4) {
-background: #363;
+
 filter: brightness(0.8);
 }
 .floor .cube-face:nth-child(2) {
@@ -318,7 +341,7 @@ filter: brightness(0.8);
   transform-style: preserve-3d;
   height: 5em;
   width: 5em;
-  transform: translate3d(14em,-9em,9px);
+  transform: translate3d(14em,-9em,10px);
 }
 
 .table-base .cube-face {
@@ -386,8 +409,8 @@ filter: brightness(0.8);
   transform-style: preserve-3d;
   height: 10em;
   width: 7em;
-  transform: translate3d(-2em,-3.5em,11em) rotateX(90deg) rotateZ(180deg);
-  box-shadow: 0 0 10em 1px #444;
+  transform: translate3d(-2em,-4.5em,13em) rotateX(90deg) rotateZ(180deg);
+  box-shadow: 0 0 1em 5px #444;
 }
 #painting-container {
   width: inherit;
@@ -398,15 +421,20 @@ filter: brightness(0.8);
   width: inherit;
   height: inherit;
   animation-name: scroll-pics;
-  animation-duration: 5s;
+  animation-duration: 15s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
+  animation-timing-function: ease-in-out;
 }
 @keyframes scroll-pics {
-  0% {
+  0%, 20% {
     transform: translateY(0em);
   }
-  100% {
+  25%, 70% {
+    transform: translateY(-10em);
+  }
+  
+  75%, 100% {
     transform: translateY(-20em);
   }
 }
