@@ -274,15 +274,17 @@ rotArr = document.getElementsByClassName('rotate');
 
 Array.from(rotArr).forEach((el) => {
   el.addEventListener('input', () => {
-    rotate3d(rotArr[0].value, rotArr[1].value, rotArr[2].value, rotArr[3].value)
+    rotate3d(rotArr[0].value, rotArr[1].value, rotArr[2].value, rotArr[3].value, rotArr[4].value)
   })
 })
 
-function rotate3d(x, y, z, p) {
+function rotate3d(x, y, z, p, s) {
   root.style.setProperty('--rotx', `${x}deg`);
   root.style.setProperty('--roty', `${y}deg`);
   root.style.setProperty('--rotz', `${z}deg`);
   root.style.setProperty('--pers', `${p}px`)
+  root.style.setProperty('--scale', `${s}`)
+  console.log(s);
 }
 
 // toggle on spin
@@ -324,54 +326,6 @@ Array.from(Objects).forEach( (obj) => {
     });
   });
 })
-// Touch hold
-// sphere.addEventListener("touchstart", function (e) {
-//   x = e.touches[0].clientX;
-//   y = e.touches[0].clientY;
-//   entity.style.transition = "0s";
-//   document.addEventListener("touchmove", move);
-//   document.addEventListener("touchend", function () {
-//     entity.style.transition = "0.7s";
-//     document.removeEventListener("touchmove", move);
-//   });
-// });
-// about.addEventListener("touchstart", function (e) {
-//   x = e.touches[0].clientX;
-//   y = e.touches[0].clientY;
-//   entity.style.transition = "0s";
-//   document.addEventListener("touchmove", move);
-//   document.addEventListener("touchend", function () {
-//     entity.style.transition = "0.7s";
-//     document.removeEventListener("touchmove", move);
-//   });
-// });
-
-// // Mouse Click
-
-//   sphere.addEventListener("mousedown", function (e) {
-  
-//     x = e.clientX;
-//     y = e.clientY;
-//     console.log(`xy: ${x},${y}`);
-//     document.addEventListener("mousemove", mouseMove);
-//     sphere.style.transition = '0s';
-//     document.addEventListener("mouseup", function () {
-//       sphere.style.transition = '0.7s';
-//       document.removeEventListener("mousemove", mouseMove);
-//     });
-//   });
-//   about.addEventListener("mousedown", function (e) {
-  
-//     x = e.clientX;
-//     y = e.clientY;
-//     console.log(`xy: ${x},${y}`);
-//     document.addEventListener("mousemove", mouseMove);
-//     about.style.transition = '0s';
-//     document.addEventListener("mouseup", function () {
-//       about.style.transition = '0.7s';
-//       document.removeEventListener("mousemove", mouseMove);
-//     });
-//   });
 
 // Touchscreen Move
 function move(e) {

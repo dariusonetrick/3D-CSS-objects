@@ -13,7 +13,8 @@
   --rotx: 0deg;
   --roty: 0deg;
   --rotz: 0deg;
-  --pers: 500px;
+  --pers: 1000px;
+  --scale: 0.7;
 
   --slideW: 20vw;
   --setbg: beige;
@@ -78,7 +79,7 @@ main {
   height: 100%;
   transition: transform 1s ease, background-color 1s;
   background-color: var(--bg);
-  perspective: var(--pers);
+  perspective: none;
 }
 
 #men-btn {
@@ -177,6 +178,7 @@ main {
   width: 20em;
   --pw: 20em;
   --ph: 20em;
+
   opacity: 1;
   background: rgba(50,0,0,0.4); 
   position: absolute;
@@ -185,19 +187,20 @@ main {
   display: block;
   transform-style: preserve-3d;
   transition: 0s;
-  transform: rotateX(calc(var(--rotx) + 65deg)) rotateY(var(--roty)) rotateZ(calc(var(--rotz) - 45deg)) scale3d(0.8,0.8,0.8);
+  transform: rotateX(calc(var(--rotx) + 60deg)) rotateY(var(--roty)) rotateZ(calc(var(--rotz) - 45deg));
   animation-name: spinCube;
   animation-duration: 0s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+  scale: var(--scale);
 }
 
 @keyframes spinCube {
   from {
-    transform: rotateX(calc(var(--rotx) + 65deg)) rotateY(var(--roty)) rotateZ(calc(var(--rotz) - 45deg)) scale3d(0.5,0.5,0.5);
+    transform: rotateX(calc(var(--rotx) + 65deg)) rotateY(var(--roty)) rotateZ(calc(var(--rotz) - 45deg));
   }
   to {
-    transform: rotateX(calc(var(--rotx) + 65deg)) rotateY(var(--roty)) rotateZ(calc(var(--rotz) + 315deg)) scale3d(0.5,0.5,0.5);
+    transform: rotateX(calc(var(--rotx) + 65deg)) rotateY(var(--roty)) rotateZ(calc(var(--rotz) + 315deg));
   }
 }
 
@@ -278,7 +281,7 @@ background: #eee;
 }
 
 .wall .cube-face:nth-child(6) {
-  filter: brightness(1.2);
+  filter: brightness(1.3);
 }
 .wall .cube-face:nth-child(1) {
   filter: brightness(1.1);
@@ -311,11 +314,11 @@ filter: brightness(0.8);
 /* table */
 
 #table {
-  position: absolute;
+  position: relative;
   transform-style: preserve-3d;
   height: 5em;
   width: 5em;
-  transform: translate3d(5em,10em,9px);
+  transform: translate3d(14em,-9em,9px);
 }
 
 .table-base .cube-face {
@@ -375,6 +378,90 @@ filter: brightness(0.8);
 {
   filter: brightness(0.78)
 }
+
+/* painting-frame */
+#frame {
+  position: relative;
+  margin: auto;
+  transform-style: preserve-3d;
+  height: 10em;
+  width: 7em;
+  transform: translate3d(-2em,-3.5em,11em) rotateX(90deg) rotateZ(180deg);
+  box-shadow: 0 0 10em 1px #444;
+}
+#painting-container {
+  width: inherit;
+  height: inherit;
+  overflow: hidden;
+}
+#painting {
+  width: inherit;
+  height: inherit;
+  animation-name: scroll-pics;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+@keyframes scroll-pics {
+  0% {
+    transform: translateY(0em);
+  }
+  100% {
+    transform: translateY(-20em);
+  }
+}
+.painting {
+  width: inherit;
+  height: inherit;
+  background: url('https://www.thesun.co.uk/wp-content/uploads/2018/12/NINTCHDBPICT000453604234-e1543852310346.jpg');
+  background-size: 7em 10em;
+  background-repeat: no-repeat;
+}
+.painting:nth-child(2) {
+  background: url("https://preview.redd.it/hbe7gi2steb91.jpg?auto=webp&s=c39e75f30d018a40c8c645d29103cf373a1152fc");
+  background-size: 7em 10em;
+}
+.painting:nth-child(3) {
+  background: url('https://preview.redd.it/8vpcp4i8the51.jpg?auto=webp&s=1b31cb302151917583d556c6c47e115139afad49');
+  background-size: 7em 10em;
+}
+
+
+
+.frame .cube-face {
+  background: burlywood;
+}
+.frame {
+  --fCoef: 1;
+}
+.frame:nth-child(1),
+.frame:nth-child(2) {
+  --w: 8em;
+  --z: 0.25em;
+  --h: 0.5em;
+  translate: 0 calc(5.25em * var(--fCoef));
+}
+.frame:nth-child(2) {
+  --fCoef: -1;
+}
+.frame:nth-child(3),
+.frame:nth-child(4) {
+  --h: 11em;
+  --z: 0.25em;
+  --w: 0.5em;
+  translate: calc(3.75em * var(--fCoef)) 0;
+}
+.frame:nth-child(4) {
+  --fCoef: -1;
+}
+.frame .cube-face:nth-child(3) {
+  filter: brightness(0.6);
+}
+.frame .cube-face:nth-child(6) {
+  filter: brightness(0.78);
+}
+
+
 /* about */
 
 #about {
