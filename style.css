@@ -208,9 +208,9 @@ main {
   top: 50%;
   left: 50%;
   transform-style: preserve-3d;
-  --h: 14em;
-  --w: 2em;
-  --z: 10em;
+  --h: 1em;
+  --w: 1em;
+  --z: 1em;
 }
 
 .cube-face {
@@ -256,72 +256,63 @@ main {
 .cube-face:nth-of-type(6) {
   --coef: -1;
 }
+
 .wall {
-  transform: translate3d(0em,0em,7em) rotateY(90deg) rotateZ(90deg);
-  --z: calc(var(--pw) - 1em);
-  --w: 1em;
+background: #eee;
+--z: 19em;
+--w: 1em;
+--h: 1em;
 }
 
 .wall:nth-of-type(1) {
-  transform: translate3d(-0.4em,-9.5em,7em) rotateY(90deg) rotateZ(90deg);
+  --w: 19em;
+  transform: translate3d(-0.5em,-9.5em,9.9em);
 }
 .wall:nth-of-type(2) {
-  transform: translate3d(9.5em,0.5em,7em) rotateY(0deg) rotateZ(0deg) rotateX(90deg);  
+  --h: 19em;
+  transform: translate3d(9.5em,0.5em,9.9em);  
 }
-
-/* Left Wall */
-.wall:nth-of-type(1) .cube-face {
-
-}
-.wall:nth-of-type(1) .cube-face:nth-child(2) {
+ .cube-face {
+  color: transparent;
   background: #aaa;
 }
-.wall:nth-of-type(1) .cube-face:nth-child(3) {
-  background: #eee;
-}
-.wall:nth-of-type(1) .cube-face:nth-child(6) {
-  background: #bbb;
-}
 
-/* Right Wall */
-.wall:nth-of-type(2) .cube-face {
-
+.wall .cube-face:nth-child(6) {
+  filter: brightness(1.2);
 }
-.wall:nth-of-type(2) .cube-face:nth-child(4) {
-  background: #aaa;
+.wall .cube-face:nth-child(1) {
+  filter: brightness(1.1);
 }
-.wall:nth-of-type(2) .cube-face:nth-child(2) {
-  background: #eee;
+.wall .cube-face:nth-child(4) {
+  filter: brightness(1);
 }
-.wall:nth-of-type(2) .cube-face:nth-child(6) {
-  background: #bbb;
-}
-
 /* Floor */
 .floor .cube-face {
   --w: 20em;
   --h: 20em;
   --z: 0.7em;
+  background: url('https://thumbs.dreamstime.com/b/clover-grass-texture-great-31336282.jpg');
+  background-size: contain;
 }
-.floor .cube-face:nth-child(1) {
-  background: #966;
-}
+
 .floor .cube-face:nth-child(6) {
-  background: #eaa;
+  background: #464;
+  filter: brightness(1.5);
 }
 .floor .cube-face:nth-child(4) {
-  background: #644;
+background: #363;
+filter: brightness(0.8);
 }
 .floor .cube-face:nth-child(2) {
-  box-shadow: 0 -2em 3em 1em #666;
+  box-shadow: -3em -2em 4em 0em #999;
 }
+
 
 /* table */
 
 #table {
   position: absolute;
   transform-style: preserve-3d;
-  background: silver;
   height: 5em;
   width: 5em;
   transform: translate3d(5em,10em,9px);
@@ -343,16 +334,46 @@ main {
   --w: 0.5em;
   --h: 0.5em; 
   --z: 4em;
-  transform: translate3d(-2.5em,2.5em,2.9em);
+  transform: translateZ(2.5em);
 }
-.table-base .cube-face {
-  border: 1px black solid;
-}
+
 .table-base {
-  --w: 2em;
-  --h: 2em;
+  --w: 3em;
+  --h: 3em;
   --z: 0.5em;
-  transform: translate3d(0,0,0.2em);
+  transform: translateZ(0.20em)
+}
+.table-top .cube-face {
+  border: 1px brown solid;
+}
+.table-top {
+  --w: 5em;
+  --h: 5em;
+  --z: 0.5em;
+  transform: translateZ(4.5em);
+}
+
+#table * {
+  background: #722F37;
+  border: none;
+}
+.table-base .cube-face:nth-child(6), 
+.table-stem .cube-face:nth-child(6),
+.table-top .cube-face:nth-child(6)
+{
+  filter: brightness(1.2)
+}
+.table-base .cube-face:nth-child(4), 
+.table-stem .cube-face:nth-child(4),
+.table-top .cube-face:nth-child(4)
+{
+  filter: brightness(0.6)
+}
+.table-base .cube-face:nth-child(1),
+.table-stem .cube-face:nth-child(1),
+.table-top .cube-face:nth-child(1)
+{
+  filter: brightness(0.78)
 }
 /* about */
 
