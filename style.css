@@ -77,9 +77,9 @@ main {
   left: 0;
   right: 0;
   height: 100%;
-  transition: transform 1s ease, background-color 1s;
+  transition: transform 0s ease, background-color 1s;
   background-color: var(--bg);
-  perspective: none;
+  /* perspective: var(--pers); */
 }
 
 #men-btn {
@@ -257,6 +257,127 @@ main {
   --coef: -1;
 }
 
+#sign {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
+  width: inherit;
+  background: #d9d9d9;
+  
+}
+
+.cover-top, .cover-bot {
+  z-index: 1;
+  left: 0;
+  position: absolute;
+  background: inherit;
+  width: 10%;
+  height: 40%;
+}
+.cover-top {
+  left: 45px
+}
+
+#letter-flex {
+  width: 80%;
+  height: 70%;
+  margin: auto;
+}
+
+.let-pt {
+  background: red;
+}
+.letter {
+
+  height: 2px;
+  width: 1em;
+}
+
+.e .let-pt:nth-child(1) {
+
+  height: 5.5px;
+  width: 100%;
+}
+.e .let-pt:nth-child(2),
+.e .let-pt:nth-child(3),
+.e .let-pt:nth-child(4) {
+  position: absolute;
+
+  height: 9px;
+  width: 5.5px;
+}
+.e .let-pt:nth-child(3) {
+  translate: 17px;
+  height: 7px;
+}
+.e .let-pt:nth-child(4) {
+  translate: 34.4px;
+}
+
+.x {
+
+  transform: translateY(16px) translateX(1px);
+}
+.x .let-pt {
+  position: absolute;
+
+  height: 5.5px;
+  width: 110%;
+  transform-origin: 50% 50%;
+  translate: -3px;
+}
+.x .let-pt:nth-child(1) {
+  transform: rotateZ(16deg)
+}
+.x .let-pt:nth-child(2) {
+  transform: rotateZ(-16deg)
+}
+
+.i .let-pt {
+  transform: translateY(30px);
+  position: absolute;
+
+}
+.i .let-pt:nth-child(1) {
+  height: 5.5px;
+  width: 40px;
+}
+
+.t {
+  transform: translateY(42px);
+  position: absolute;
+}
+
+.t .let-pt:nth-child(1) {
+
+  width: 40px;
+  height: 5.5px;
+}
+.t .let-pt:nth-child(2) {
+  transform: translateX(34.4px) translateY(-10px);
+
+  width: 5.5px;
+  height: 14.5px;
+}
+
+
+.exit {
+  --ratio: 0.62;
+  --w: 0.4em;
+  --h: 4em;
+  --z: calc(4em * var(--ratio));
+  transform: translate3d(9.4em,7em,18.7em);
+  /* transform: translate3d(0em,0em,18.7em) scale3d(7,7,7) rotateZ(-45deg) rotateY(20deg); */
+}
+.exit .cube-face {
+  background: #eee;
+}
+.exit .cube-face:nth-child(1) {
+  background: #bababa;
+}
+
+
 .wall {
 background: #eee;
 --z: 21em;
@@ -334,6 +455,81 @@ filter: brightness(0.8);
 }
 
 
+/* Dirt :p */
+
+.dirt .cube-face {
+  background: rgb(72, 39, 39);
+}
+.dirt {
+  --z: .75em;
+  transform: translateZ(0.5em)
+}
+.dirt .cube-face:nth-child(6) {
+ filter: brightness(); 
+}
+.dirt .cube-face:nth-child(4) {
+  filter: brightness(0.7); 
+ }
+.dirt .cube-face:nth-child(1) {
+  filter: brightness(0.8); 
+ } 
+
+
+/* Glass */
+
+#glass {
+  position: absolute;
+  transform: translateZ(5.4em) translateX(18em) translateY(-7.93em);
+  transform-style: preserve-3d;
+}
+#glass .glass-base .cube-face,
+#glass .glass-side .cube-face {
+  background: #C7E3E1;
+  opacity: 0.15;
+}
+.glass-base {
+  --z: 0.25em;
+}
+
+.glass-side {
+  --z: 2em;
+  
+}
+
+.glass-side:nth-of-type(2),
+.glass-side:nth-of-type(3) {
+  --w: 0.25em;
+  --geff: 1;
+  transform: translateZ(1.1em) translateX(calc(0.6em*var(--geff))) ;
+}
+ 
+ 
+
+.glass-side:nth-of-type(4),
+.glass-side:nth-of-type(5) {
+  --h: 0.25em;
+  --geff: 1;
+  transform: translateZ(1.1em) translateY(calc(0.6em*var(--geff))) ;
+}
+.glass-side:nth-of-type(3),
+.glass-side:nth-of-type(5) {
+  --geff: -1;
+}
+
+.glass-base .cube-face:nth-child(6),
+.glass-side .cube-face:nth-child(6) {
+  filter: brightness(1.2);
+}
+
+.glass-base .cube-face:nth-child(4),
+.glass-side .cube-face:nth-child(4) {
+  filter: brightness(0.7);
+}
+
+.glass-base .cube-face:nth-child(1),
+.glass-side .cube-face:nth-child(1) {
+  filter: brightness(0.8);
+}
 /* table */
 
 #table {
@@ -341,17 +537,17 @@ filter: brightness(0.8);
   transform-style: preserve-3d;
   height: 5em;
   width: 5em;
-  transform: translate3d(14em,-9em,10px);
+  transform: translate3d(14em,-9em,0.56em);
 }
 
-.table-base .cube-face {
-  border: 1px black solid;
-}
+
 .table-base {
   --w: 2em;
   --h: 2em;
   --z: 0.5em;
-  transform: translate3d(0,0,0.2em);
+}
+.table-base .cube-face:nth-child(2) {
+  box-shadow: 0 -8px 4em 8px #111;
 }
 .table-stem .cube-face {
   border: 1px black solid;
@@ -359,7 +555,7 @@ filter: brightness(0.8);
 .table-stem {
   --w: 0.5em;
   --h: 0.5em; 
-  --z: 4em;
+  --z: 4.1em;
   transform: translateZ(2.5em);
 }
 

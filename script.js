@@ -310,7 +310,7 @@ Array.from(Objects).forEach( (obj) => {
     entity.style.transition = "0s";
     document.addEventListener("touchmove", move);
     document.addEventListener("touchend", function () {
-      entity.style.transition = "0.7s";
+      entity.style.transition = "0s";
       document.removeEventListener("touchmove", move);
     });
   });
@@ -321,7 +321,7 @@ Array.from(Objects).forEach( (obj) => {
     document.addEventListener("mousemove", mouseMove);
     entity.style.transition = '0s';
     document.addEventListener("mouseup", function () {
-      entity.style.transition = '0.7s';
+      entity.style.transition = '0.0s';
       document.removeEventListener("mousemove", mouseMove);
     });
   });
