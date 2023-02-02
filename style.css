@@ -13,7 +13,7 @@
   --rotx: 0deg;
   --roty: 0deg;
   --rotz: 0deg;
-  --pers: 1000px;
+  --pers: 1500px;
   --scale: 0.7;
 
   --slideW: 20vw;
@@ -79,7 +79,7 @@ main {
   height: 100%;
   transition: transform 0s ease, background-color 1s;
   background-color: var(--bg);
-  /* perspective: var(--pers); */
+  perspective: var(--pers);
 }
 
 #men-btn {
@@ -179,7 +179,7 @@ main {
   --pw: 20em;
   --ph: 20em;
   position: absolute;
-  top: 20%;
+  top: 30%;
   left: calc(50% - 10em);
   display: block;
   transform-style: preserve-3d;
@@ -433,6 +433,78 @@ background: #eee;
 .curb .cube-face:nth-child(1) {
   filter: brightness(1);
 }
+/* Wood flooring texture */
+
+#wood {
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+}
+.row {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column; 
+}
+.plank {
+  flex-grow: 1;
+}
+.row:nth-child(3n) .plank:nth-child(2) {
+  flex-grow: 2;
+}
+.row:nth-child(3n) .plank:nth-child(1),
+.row:nth-child(3n) .plank:nth-child(3) {
+  flex-grow: 1;
+}
+.row:nth-child(3n + 1) .plank:nth-child(1) {
+  flex-grow: 0;
+}
+.row:nth-child(3n + 2) .plank:nth-child(1) {
+  flex-grow: 3;
+}
+
+/* Plank colors */
+.row:nth-child(4n) .plank:nth-child(1) {
+  background: #8b5a2b;
+}
+.row:nth-child(4n) .plank:nth-child(2) {
+  background: #ffa54f;
+}
+.row:nth-child(4n) .plank:nth-child(3) {
+  background: #a0522d;
+}
+
+.row:nth-child(4n+1) .plank:nth-child(1) {
+  background: #cd8500;
+}
+.row:nth-child(4n+1) .plank:nth-child(2) {
+  background: #8b4513;
+}
+.row:nth-child(4n+1) .plank:nth-child(3) {
+  background: #ffa54f;
+}
+
+.row:nth-child(4n+2) .plank:nth-child(1) {
+  background: 	#8b4513;
+}
+.row:nth-child(4n+2) .plank:nth-child(2) {
+  background: 	#8b5a2b;
+}
+.row:nth-child(4n+2) .plank:nth-child(3) {
+  background: 	#a0522d;
+}
+
+.row:nth-child(4n+3) .plank:nth-child(1) {
+  background: #ffa54f;
+}
+.row:nth-child(4n+3) .plank:nth-child(2) {
+  background: #8b5a2b;
+}
+.row:nth-child(4n+3) .plank:nth-child(3) {
+  background: #cd8500;
+}
+
+
+
 /* Floor */
 .floor .cube-face {
   --w: 20em;
