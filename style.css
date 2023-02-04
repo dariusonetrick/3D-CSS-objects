@@ -547,6 +547,49 @@ filter: brightness(0.8);
  } 
 
 
+/* Plant */
+.plant-stem .cube-face {
+  background: #5C755E;
+
+  transform-style: preserve-3d;
+}
+.plant-stem {
+  --z: 1.25em;
+  --w: 0.6em;
+  --h: 0.6em;
+  transform: scale3d(0.9,0.9,0.9) translateZ(1.2em) rotateZ(20deg); 
+}
+
+.plant-flower .cube-face {
+  background: pink;
+}
+.plant-flower {
+  --z: 0.3em;
+  --w: 0.3em;
+  --h: 0.3em; 
+}
+
+.plant-stem .cube-face {
+  display: flex;
+  align-items: stretch;;
+}
+.plant-stem .cube-face:nth-child(4),
+.plant-stem .cube-face:nth-child(3) {
+  display: flex;
+  flex-direction: column;
+}
+
+.prickles {
+  height: 100%;
+  width: 100%;
+  background: #fff44f;
+  transform: rotateX(90deg)
+}
+.plant-stem .cube-face:nth-child(6) .prickles,
+.plant-stem .cube-face:nth-child(5) .prickles {
+  transform: rotateY(90deg);
+}
+
 /* Glass */
 
 #glass {
