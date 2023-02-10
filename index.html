@@ -11,481 +11,420 @@
 <body>
 
   <main>
-
-    <div id="settings-container">
-      <!-- Shape -->
-      <div class="set-item" id="general">
-        <div class="tab">Shape</div>
-        <section>
-          <p>Object</p>
-          <select id='shape-select'>
-            <option value="sphere">Ball</option>
-            <option value="cylinder">Can</option>
-            <option value="egg">Egg</option>
-            <option value="about">About</option>
-            <option selected value="cuboid">cuboids</option>
-          </select>
-          <p>Number of Divs</p>
-          <input id="div-num" placeholder="Number of div elements. Enter 0 - 180." type="number" min="0" max="180" value="45">
-          <p>Degrees Seperated</p>
-          <input id="deg-sep" placeholder="Degrees of seperation" type="number" value="1">
-          <button id="apply">Apply Div/Degree</button>
-          <p>*Only applies to spherical Objects</p>
-      </div>
-      </section>
-  
-      <!-- Colors  -->
-      <div class="set-item">
-        <div class="tab">Colors</div>
-        <section>
-          <select id="color-theme">
-            <option>Select Theme</option>
-            <option value='night'>Night</option>
-            <option value='white'>White (my eyes)</option>
-            <option value='default'>default</option>
-          </select>
-          <select id="color-select">
-            <option>Select Color</option>
-            <option value="white">White</option>
-            <option value="black">Black</option>
-            <option value="drkred">Dark Red</option>
-            <option value="grey">Grey</option>
-            <option value="gains">Gainsboro</option>
-            <option value="turquoise">Turquoise</option>
-            <option value="crimson">Crimson</option>
-            <option value="pink">Pink</option>
-            <option value="orange">Orange</option>
-            <option value="drkMidnight">Dark Midnight</option>
-            <option value="tron">Tron blue</option>
-          </select>
-          <select id="bg-select">
-            <option>Select Background</option>
-            <option value="white">White</option>
-            <option value="drkred">Dark Red</option>
-            <option value="black">Black</option>
-            <option value="grey">Grey</option>
-            <option value="gains">Gainsboro</option>
-            <option value="crimson">Crimson</option>
-            <option value="pink">Pink</option>
-            <option value="orange">Orange</option>
-            <option value="drkMidnight">Dark Midnight</option>
-            <option value="drkForest">Dark Forest</option>
-            <option value="tron">Tron blue</option>
-          </select>
-        </section>
-      </div>
-
-    </div>
-
-    <!-- opn/cls settings btn -->
-
-    <input id='men-btn' type="checkbox">
-    <label for="men-btn">
-      <div class="bar top"></div>
-      <div class="bar middle"></div>
-      <div class="bar bottom"></div>
-    </label>
-
     <!-- 3d space -->
     <div id="space">
 
-      <label class="toggle">
-        <input id="spin" type="checkbox">
-        <div id="thumb"></div>
-      </label>
-   <!-- cubes -->
-   <div class="object" id = "cube-plane">
-    <div class="cuboid wall">
-      <div class="cube-face">1</div>
-      <div class="cube-face">2</div>
-      <div class="cube-face">3</div>
-      <div class="cube-face">4</div> 
-      <div class="cube-face">5</div>
-      <div class="cube-face">6</div>
-    </div>
-    <div class="cuboid wall">
-      <div class="cube-face">1</div>
-      <div class="cube-face">2</div>
-      <div class="cube-face">3</div>
-      <div class="cube-face">4</div> 
-      <div class="cube-face">5</div>
-      <div class="cube-face">6</div>
-    </div>
-    <div class="cuboid curb">
-      <div class="cube-face">1</div>
-      <div class="cube-face">2</div>
-      <div class="cube-face">3</div>
-      <div class="cube-face">4</div> 
-      <div class="cube-face">5</div>
-      <div class="cube-face">6</div>
-    </div> 
-    <div class="cuboid curb">
-      <div class="cube-face">1</div>
-      <div class="cube-face">2</div>
-      <div class="cube-face">3</div>
-      <div class="cube-face">4</div> 
-      <div class="cube-face">5</div>
-      <div class="cube-face">6</div>
-    </div> 
-    <div id="frame">
-    
-       <div class = 'cuboid frame'>
-        <div class="cube-face">1</div>
-        <div class="cube-face">2</div>
-        <div class="cube-face">3</div>
-        <div class="cube-face">4</div> 
-        <div class="cube-face">5</div>
-        <div class="cube-face">6</div>
-      </div>
-      <div class = 'cuboid frame'>
-        <div class="cube-face">1</div>
-        <div class="cube-face">2</div>
-        <div class="cube-face">3</div>
-        <div class="cube-face">4</div> 
-        <div class="cube-face">5</div>
-        <div class="cube-face">6</div>
-      </div>
-      <div class = 'cuboid frame'>
-        <div class="cube-face">1</div>
-        <div class="cube-face">2</div>
-        <div class="cube-face">3</div>
-        <div class="cube-face">4</div> 
-        <div class="cube-face">5</div>
-        <div class="cube-face">6</div>
-      </div>
-      <div class = 'cuboid frame'>
-        <div class="cube-face">1</div>
-        <div class="cube-face">2</div>
-        <div class="cube-face">3</div>
-        <div class="cube-face">4</div> 
-        <div class="cube-face">5</div>
-        <div class="cube-face">6</div>
-      </div>
-      <div id="painting-container">
-          <div id="painting">
-            <div class="painting"></div>
-            <div class="painting"></div>
-            <div class="painting"></div>
+      <!-- Cuboids -->
+
+      <div class="object" id="cube-plane">
+
+        <div class="cuboid wall">
+          <div class="cube-face">1</div>
+          <div class="cube-face">2</div>
+          <div class="cube-face">3</div>
+          <div class="cube-face">4</div>
+          <div class="cube-face">5</div>
+          <div class="cube-face">6
+
+            <div class="frame-container">
+              <div class='cuboid frame'>
+                <div class="cube-face">1</div>
+                <div class="cube-face">2</div>
+                <div class="cube-face">3</div>
+                <div class="cube-face">4</div>
+                <div class="cube-face">5</div>
+                <div class="cube-face">6</div>
+              </div>
+              <div class='cuboid frame'>
+                <div class="cube-face">1</div>
+                <div class="cube-face">2</div>
+                <div class="cube-face">3</div>
+                <div class="cube-face">4</div>
+                <div class="cube-face">5</div>
+                <div class="cube-face">6</div>
+              </div>
+              <div class='cuboid frame'>
+                <div class="cube-face">1</div>
+                <div class="cube-face">2</div>
+                <div class="cube-face">3</div>
+                <div class="cube-face">4</div>
+                <div class="cube-face">5</div>
+                <div class="cube-face">6</div>
+              </div>
+              <div class='cuboid frame'>
+                <div class="cube-face">1</div>
+                <div class="cube-face">2</div>
+                <div class="cube-face">3</div>
+                <div class="cube-face">4</div>
+                <div class="cube-face">5</div>
+                <div class="cube-face">6</div>
+              </div>
+
+              <div class="painting-container">
+                <div class="painting">
+                  <div class="img"></div>
+                  <div class="img"></div>
+                  <div class="img"></div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="frame-container">
+              <div class='cuboid frame'>
+                <div class="cube-face">1</div>
+                <div class="cube-face">2</div>
+                <div class="cube-face">3</div>
+                <div class="cube-face">4</div>
+                <div class="cube-face">5</div>
+                <div class="cube-face">6</div>
+              </div>
+              <div class='cuboid frame'>
+                <div class="cube-face">1</div>
+                <div class="cube-face">2</div>
+                <div class="cube-face">3</div>
+                <div class="cube-face">4</div>
+                <div class="cube-face">5</div>
+                <div class="cube-face">6</div>
+              </div>
+              <div class='cuboid frame'>
+                <div class="cube-face">1</div>
+                <div class="cube-face">2</div>
+                <div class="cube-face">3</div>
+                <div class="cube-face">4</div>
+                <div class="cube-face">5</div>
+                <div class="cube-face">6</div>
+              </div>
+              <div class='cuboid frame'>
+                <div class="cube-face">1</div>
+                <div class="cube-face">2</div>
+                <div class="cube-face">3</div>
+                <div class="cube-face">4</div>
+                <div class="cube-face">5</div>
+                <div class="cube-face">6</div>
+              </div>
+
+              <div class="painting-container">
+                <div class="painting">
+                  <div class="img"></div>
+                  <div class="img"></div>
+                  <div class="img"></div>
+                </div>
+              </div>
+
+            </div>
+
           </div>
         </div>
-    </div>
-    <div class="cuboid floor">
-      <div class="cube-face">
-        <div id="wood">
-          <div class="row">
-            <div class="plank"></div>
-            <div class="plank"></div>
-            <div class="plank"></div>
+
+        <div class="cuboid wall">
+          <div class="cube-face">1</div>
+          <div class="cube-face">2</div>
+          <div class="cube-face">3</div>
+          <div class="cube-face">4
+
+            <div class="frame-container long-frame">
+              <div class='cuboid frame'>
+                <div class="cube-face">1</div>
+                <div class="cube-face">2</div>
+                <div class="cube-face">3</div>
+                <div class="cube-face">4</div>
+                <div class="cube-face">5</div>
+                <div class="cube-face">6</div>
+              </div>
+              <div class='cuboid frame'>
+                <div class="cube-face">1</div>
+                <div class="cube-face">2</div>
+                <div class="cube-face">3</div>
+                <div class="cube-face">4</div>
+                <div class="cube-face">5</div>
+                <div class="cube-face">6</div>
+              </div>
+              <div class='cuboid frame'>
+                <div class="cube-face">1</div>
+                <div class="cube-face">2</div>
+                <div class="cube-face">3</div>
+                <div class="cube-face">4</div>
+                <div class="cube-face">5</div>
+                <div class="cube-face">6</div>
+              </div>
+              <div class='cuboid frame'>
+                <div class="cube-face">1</div>
+                <div class="cube-face">2</div>
+                <div class="cube-face">3</div>
+                <div class="cube-face">4</div>
+                <div class="cube-face">5</div>
+                <div class="cube-face">6</div>
+              </div>
+
+              <div class="painting-container">
+                <div class="painting">
+                  <div class="img"></div>
+                  <div class="img"></div>
+                  <div class="img"></div>
+                </div>
+              </div>
+
+            </div>
+
           </div>
-          <div class="row">
-            <div class="plank"></div>
-            <div class="plank"></div>
-            <div class="plank"></div>
+          <div class="cube-face">5</div>
+          <div class="cube-face">6</div>
+        </div>
+
+        <div class="cuboid curb">
+          <div class="cube-face">1</div>
+          <div class="cube-face">2</div>
+          <div class="cube-face">3</div>
+          <div class="cube-face">4</div>
+          <div class="cube-face">5</div>
+          <div class="cube-face">6</div>
+        </div>
+        <div class="cuboid curb">
+          <div class="cube-face">1</div>
+          <div class="cube-face">2</div>
+          <div class="cube-face">3</div>
+          <div class="cube-face">4</div>
+          <div class="cube-face">5</div>
+          <div class="cube-face">6</div>
+        </div>
+
+        <div class="cuboid floor">
+          <div class="cube-face">
+            <div id="wood">
+              <div class="row">
+                <div class="plank"></div>
+                <div class="plank"></div>
+                <div class="plank"></div>
+              </div>
+              <div class="row">
+                <div class="plank"></div>
+                <div class="plank"></div>
+                <div class="plank"></div>
+              </div>
+              <div class="row">
+                <div class="plank"></div>
+                <div class="plank"></div>
+                <div class="plank"></div>
+              </div>
+              <div class="row">
+                <div class="plank"></div>
+                <div class="plank"></div>
+                <div class="plank"></div>
+              </div>
+              <div class="row">
+                <div class="plank"></div>
+                <div class="plank"></div>
+                <div class="plank"></div>
+              </div>
+              <div class="row">
+                <div class="plank"></div>
+                <div class="plank"></div>
+                <div class="plank"></div>
+              </div>
+              <div class="row">
+                <div class="plank"></div>
+                <div class="plank"></div>
+                <div class="plank"></div>
+              </div>
+              <div class="row">
+                <div class="plank"></div>
+                <div class="plank"></div>
+                <div class="plank"></div>
+              </div>
+              <div class="row">
+                <div class="plank"></div>
+                <div class="plank"></div>
+                <div class="plank"></div>
+              </div>
+              <div class="row">
+                <div class="plank"></div>
+                <div class="plank"></div>
+                <div class="plank"></div>
+              </div>
+              <div class="row">
+                <div class="plank"></div>
+                <div class="plank"></div>
+                <div class="plank"></div>
+              </div>
+              <div class="row">
+                <div class="plank"></div>
+                <div class="plank"></div>
+                <div class="plank"></div>
+              </div>
+              <div class="row">
+                <div class="plank"></div>
+                <div class="plank"></div>
+                <div class="plank"></div>
+              </div>
+              <div class="row">
+                <div class="plank"></div>
+                <div class="plank"></div>
+                <div class="plank"></div>
+              </div>
+              <div class="row">
+                <div class="plank"></div>
+                <div class="plank"></div>
+                <div class="plank"></div>
+              </div>
+              <div class="row">
+                <div class="plank"></div>
+                <div class="plank"></div>
+                <div class="plank"></div>
+              </div>
+              <div class="row">
+                <div class="plank"></div>
+                <div class="plank"></div>
+                <div class="plank"></div>
+              </div>
+            </div>
           </div>
-          <div class="row">
-            <div class="plank"></div>
-            <div class="plank"></div>
-            <div class="plank"></div>
+          <div class="cube-face">2</div>
+          <div class="cube-face">3</div>
+          <div class="cube-face">4</div>
+          <div class="cube-face">5</div>
+          <div class="cube-face">6</div>
+        </div>
+
+        <div id="table">
+          <div class="cuboid table-base">
+            <div class="cube-face">1
+            
+            </div>
+            <div class="cube-face">2</div>
+            <div class="cube-face">3</div>
+            <div class="cube-face">4</div>
+            <div class="cube-face">5</div>
+            <div class="cube-face">6</div>
           </div>
-          <div class="row">
-            <div class="plank"></div>
-            <div class="plank"></div>
-            <div class="plank"></div>
-          </div>
-          <div class="row">
-            <div class="plank"></div>
-            <div class="plank"></div>
-            <div class="plank"></div>
-          </div>
-          <div class="row">
-            <div class="plank"></div>
-            <div class="plank"></div>
-            <div class="plank"></div>
-          </div>
-          <div class="row">
-            <div class="plank"></div>
-            <div class="plank"></div>
-            <div class="plank"></div>
-          </div>
-          <div class="row">
-            <div class="plank"></div>
-            <div class="plank"></div>
-            <div class="plank"></div>
-          </div>
-          <div class="row">
-            <div class="plank"></div>
-            <div class="plank"></div>
-            <div class="plank"></div>
-          </div>
-          <div class="row">
-            <div class="plank"></div>
-            <div class="plank"></div>
-            <div class="plank"></div>
-          </div>
-          <div class="row">
-            <div class="plank"></div>
-            <div class="plank"></div>
-            <div class="plank"></div>
-          </div>
-          <div class="row">
-            <div class="plank"></div>
-            <div class="plank"></div>
-            <div class="plank"></div>
-          </div>
-          <div class="row">
-            <div class="plank"></div>
-            <div class="plank"></div>
-            <div class="plank"></div>
-          </div>
-          <div class="row">
-            <div class="plank"></div>
-            <div class="plank"></div>
-            <div class="plank"></div>
-          </div>
-          <div class="row">
-            <div class="plank"></div>
-            <div class="plank"></div>
-            <div class="plank"></div>
-          </div>
-          <div class="row">
-            <div class="plank"></div>
-            <div class="plank"></div>
-            <div class="plank"></div>
-          </div>
-          <div class="row">
-            <div class="plank"></div>
-            <div class="plank"></div>
-            <div class="plank"></div>
-          </div>
-        </div> 
-      </div>
-      <div class="cube-face">2</div>
-      <div class="cube-face">3</div>
-      <div class="cube-face">4</div> 
-      <div class="cube-face">5</div>
-      <div class="cube-face">6</div>      
-    </div>
-    <div id = "glass">
-      <div class="glass-base cuboid">
-        <div class="cube-face">1</div>
-        <div class="cube-face">2</div>
-        <div class="cube-face">3</div>
-        <div class="cube-face">4</div> 
-        <div class="cube-face">5</div>
-        <div class="cube-face">6</div>            
-      </div>
-      <div class="glass-side cuboid">
-        <div class="cube-face">1</div>
-        <div class="cube-face">2</div>
-        <div class="cube-face">3</div>
-        <div class="cube-face">4</div> 
-        <div class="cube-face">5</div>
-        <div class="cube-face">6</div>            
-      </div>
-      <div class="glass-side cuboid">
-        <div class="cube-face">1</div>
-        <div class="cube-face">2</div>
-        <div class="cube-face">3</div>
-        <div class="cube-face">4</div> 
-        <div class="cube-face">5</div>
-        <div class="cube-face">6</div>            
-      </div>
-      <div class="glass-side cuboid">
-        <div class="cube-face">1</div>
-        <div class="cube-face">2</div>
-        <div class="cube-face">3</div>
-        <div class="cube-face">4</div> 
-        <div class="cube-face">5</div>
-        <div class="cube-face">6</div>            
-      </div>
-      <div class="glass-side cuboid">
-        <div class="cube-face">1</div>
-        <div class="cube-face">2</div>
-        <div class="cube-face">3</div>
-        <div class="cube-face">4</div> 
-        <div class="cube-face">5</div>
-        <div class="cube-face">6</div>            
-      </div>
-      <div class="dirt cuboid">
-        <div class="cube-face">1</div>
-        <div class="cube-face">2</div>
-        <div class="cube-face">3</div>
-        <div class="cube-face">4</div> 
-        <div class="cube-face">5</div>
-        <div class="cube-face">6</div>            
-      </div>
-      <div class="cuboid plant-stem">
-        <div class="cube-face">
-          <div class="cuboid plant-flower">
+          <div class="cuboid table-stem">
             <div class="cube-face">1</div>
             <div class="cube-face">2</div>
             <div class="cube-face">3</div>
-            <div class="cube-face">4</div> 
+            <div class="cube-face">4</div>
             <div class="cube-face">5</div>
-            <div class="cube-face">6</div>       
+            <div class="cube-face">6</div>
+          </div>
+          <div class="cuboid table-top">
+            <div class="cube-face">1
+              <div id="glass">
+                <div class="glass-base cuboid">
+                  <div class="cube-face">1</div>
+                  <div class="cube-face">2</div>
+                  <div class="cube-face">3</div>
+                  <div class="cube-face">4</div>
+                  <div class="cube-face">5</div>
+                  <div class="cube-face">6</div>
+                </div>
+                <div class="glass-side cuboid">
+                  <div class="cube-face">1</div>
+                  <div class="cube-face">2</div>
+                  <div class="cube-face">3</div>
+                  <div class="cube-face">4</div>
+                  <div class="cube-face">5</div>
+                  <div class="cube-face">6</div>
+                </div>
+                <div class="glass-side cuboid">
+                  <div class="cube-face">1</div>
+                  <div class="cube-face">2</div>
+                  <div class="cube-face">3</div>
+                  <div class="cube-face">4</div>
+                  <div class="cube-face">5</div>
+                  <div class="cube-face">6</div>
+                </div>
+                <div class="glass-side cuboid">
+                  <div class="cube-face">1</div>
+                  <div class="cube-face">2</div>
+                  <div class="cube-face">3</div>
+                  <div class="cube-face">4</div>
+                  <div class="cube-face">5</div>
+                  <div class="cube-face">6</div>
+                </div>
+                <div class="glass-side cuboid">
+                  <div class="cube-face">1</div>
+                  <div class="cube-face">2</div>
+                  <div class="cube-face">3</div>
+                  <div class="cube-face">4</div>
+                  <div class="cube-face">5</div>
+                  <div class="cube-face">6</div>
+                </div>
+                <div class="dirt cuboid">
+                  <div class="cube-face">1</div>
+                  <div class="cube-face">2</div>
+                  <div class="cube-face">3</div>
+                  <div class="cube-face">4</div>
+                  <div class="cube-face">5</div>
+                  <div class="cube-face">6</div>
+                </div>
+              </div>
+            </div>
+            <div class="cube-face">2</div>
+            <div class="cube-face">3</div>
+            <div class="cube-face">4</div>
+            <div class="cube-face">5</div>
+            <div class="cube-face">6</div>
           </div>
         </div>
-        <div class="cube-face">
-          <div class="prickles">
+        <div class="cuboid exit">
+          <div class="cube-face">1</div>
+          <div class="cube-face">2</div>
+          <div class="cube-face">3</div>
+          <div class="cube-face">
+            <div id="sign">
+              <div class="cover-top"></div>
+              <div class="cover-bot"></div>
+              <div id="letter-flex">
+                <div class="letter-container e">
+                  <div class="let-pt"></div>
+                  <div class="let-pt"></div>
+                  <div class="let-pt"></div>
+                  <div class="let-pt"></div>
+                </div>
+                <div class="letter-container x">
+                  <div class="let-pt"></div>
+                  <div class="let-pt"></div>
+                </div>
+                <div class="letter-container i">
+                  <div class="let-pt"></div>
+                </div>
+                <div class="letter-container t">
+                  <div class="let-pt"></div>
+                  <div class="let-pt"></div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="prickles">
-          </div>
-          <div class="prickles">
-          </div>
-          <div class="prickles">
-          </div>
+          <div class="cube-face">5</div>
+          <div class="cube-face">6</div>
         </div>
-        <div class="cube-face">
-          <div class="prickles">
-          </div>
-          <div class="prickles">
-          </div>
-          <div class="prickles">
-          </div>
-          <div class="prickles">
-          </div>
-        </div>
-        <div class="cube-face">
-          <div class="prickles">
-          </div>
-          <div class="prickles">
-          </div>
-          <div class="prickles">
-          </div>
-          <div class="prickles">
-          </div>
-        </div> 
-        <div class="cube-face">
-          <div class="prickles">
-          </div>
-          <div class="prickles">
-          </div>
-          <div class="prickles">
-          </div>
-          <div class="prickles">
-          </div>
-        </div>
-        <div class="cube-face">
-          <div class="prickles">
-          </div>
-          <div class="prickles">
-          </div>
-          <div class="prickles">
-          </div>
-          <div class="prickles">
-          </div>
-        </div>       
       </div>
 
     </div>
-    <div id = "table">
-      <div class="cuboid table-base">
-        <div class="cube-face">1</div>
-        <div class="cube-face">2</div>
-        <div class="cube-face">3</div>
-        <div class="cube-face">4</div> 
-        <div class="cube-face">5</div>
-        <div class="cube-face">6</div>      
-      </div>   
-      <div class="cuboid table-stem">
-        <div class="cube-face">1</div>
-        <div class="cube-face">2</div>
-        <div class="cube-face">3</div>
-        <div class="cube-face">4</div> 
-        <div class="cube-face">5</div>
-        <div class="cube-face">6</div>      
-      </div>  
-      <div class="cuboid table-top">
-        <div class="cube-face">1</div>
-        <div class="cube-face">2</div>
-        <div class="cube-face">3</div>
-        <div class="cube-face">4</div> 
-        <div class="cube-face">5</div>
-        <div class="cube-face">6</div>      
-      </div>     
-    </div>
-    <div class="cuboid exit">
-      <div class="cube-face">1</div>
-      <div class="cube-face">2</div>
-      <div class="cube-face">3</div>
-      <div class="cube-face">
-          <div id = "sign">
-            <div class="cover-top"></div>
-            <div class="cover-bot"></div>
-            <div id="letter-flex">
-            <div class="letter-container e">
-              <div class="let-pt"></div>
-              <div class="let-pt"></div>
-              <div class="let-pt"></div>
-              <div class="let-pt"></div>
-            </div>
-            <div class="letter-container x">
-              <div class="let-pt"></div>
-              <div class="let-pt"></div>      
-            </div>
-            <div class="letter-container i">
-              <div class="let-pt"></div>
-            </div>
-            <div class="letter-container t">
-              <div class="let-pt"></div>   
-              <div class="let-pt"></div> 
-            </div>
-          </div>
-        </div> 
-      </div> 
-      <div class="cube-face">5</div>
-      <div class="cube-face">6</div>             
-    </div>
-  </div>
-
-      <h1 id="text">This thing is far from finished</h1>
-    <!-- Card  -->
-      <div class="object" id="sphere"></div>
-      <div class="object" id="about">
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div class='square'></div>
-        <div id='plane'>
-          <div class="page">
-            <div class="page"></div>
-          </div>
-        </div>
-        <div></div>
-        <div></div>
-      </div>
-    </div>
-
- 
 
     <div id="manipulate">
-        <div class="slider-container">
-          <p>rotateX</p>
-          <input class="rotate" value='0' type="range" min="0" max="360" step="3">
-        </div>
-        <div class="slider-container">
-          <p>rotateY</p>
-          <input class="rotate" value='0' type="range" min="0" max="360" step="3">
-        </div>
-        <div class="slider-container">
-          <p>rotateZ</p>
-          <input class="rotate" value='0' type="range" min="0" max="360" step="3">
-        </div>
-        <div class="slider-container">
-          <p>perspective</p>
-          <input class="rotate" value='1000' type="range" min="0" max="2000">
-        </div>
-        <div class="slider-container">
-          <p>scale</p>
-          <input class="rotate" value='0.5' type="range" min="0.1" max="3" step="0.25">
-        </div>
+      <div class="slider-container">
+        <p>rotateX</p>
+        <input class="rotate" value='0' type="range" min="0" max="360" step="1">
+      </div>
+      <div class="slider-container">
+        <p>rotateY</p>
+        <input class="rotate" value='0' type="range" min="0" max="360" step="1">
+      </div>
+      <div class="slider-container">
+        <p>rotateZ</p>
+        <input class="rotate" value='0' type="range" min="0" max="360" step="1">
+      </div>
+      <div class="slider-container">
+        <p>perspective</p>
+        <input class="rotate" value='1000' type="range" min="0" max="2000">
+      </div>
+      <div class="slider-container">
+        <p>scale</p>
+        <input class="rotate" value='0.5' type="range" min="0.1" max="3" step="0.01">
+      </div>
 
     </div>
+
   </main>
 
 </body>
