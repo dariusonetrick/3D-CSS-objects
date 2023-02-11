@@ -34,14 +34,14 @@
     --rangeH: 2.5em;
   }
   #manipulate {
-    display: none;
-    align-items: center;
-    justify-content: space-around;
+    background: black;
   }
   .slider-container {
-    height: 4em;
+    height: 3em;
     margin: 0 0.5em;
+    font-size: 4em;
   }
+ 
 }
 /* We don't want users being able to select text */
 * {
@@ -744,7 +744,7 @@ main {
 
 /* Rotate  */
 #manipulate {
-  position: fixed;
+  position: absolute;
   width: var(--contW);
   height: var(--contH);
   bottom: 0;
@@ -759,17 +759,17 @@ main {
   align-items: center;
   left: 50%;
   transform: translateX(-50%) translateY(-15%);
-
 }
 
 /* sliders */
 .slider-container {
   margin: 0 0.1em;
-  font-size: 0.6em;
+  font-size: 0.8rem;
   width: 25em;
+  
 }
 .slider-container p {
-  overflow: hidden;
+  word-wrap: break-word;
   margin-top: -1em;
 }
 .rotate {
